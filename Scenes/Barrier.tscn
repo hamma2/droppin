@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dffe4yokadbar"]
+
+[ext_resource type="Script" uid="uid://dkkvms0fv6l1o" path="res://Scripts/Barrier.gd" id="1_barrier"]
+
+[node name="BarrierPair" type="Node2D"]
+script = ExtResource("1_barrier")
