@@ -30,7 +30,6 @@ sensors/enable_gyroscope=true
 
 2d/run_on_separate_thread=true
 2d/physics_engine="Rapier2D"
-2d/default_linear_damp=3.0
 
 [rendering]
 

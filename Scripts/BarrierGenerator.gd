@@ -1,11 +1,11 @@
 extends Node2D
 class_name BarrierGenerator
 
-@export var gap_width_scale: float = 1.0
-@export var barrier_height_scale: float = 1.0
+@export var gap_width_scale: float = 2.5
+@export var barrier_height_scale: float = 0.5
 @export var spawn_interval_scale: float = 1.0
-@export var min_barriers: int = 5
-@export var barrier_spacing_scale: float = 0.15
+@export var min_barriers: int = 10
+@export var barrier_spacing_scale: float = 0.3
 
 var barrier_pair_scene = preload("res://Scenes/Barrier.tscn")
 var time_since_last_spawn: float = 0.0
@@ -47,7 +47,6 @@ func _ready():
 
     # Spawne initiale Barrieren-Paare mit konsistantem Abstand
     for i in range(min_barriers):
-        last_spawn_y += barrier_spacing
         spawn_barrier_pair()
 
 func _physics_process(delta):

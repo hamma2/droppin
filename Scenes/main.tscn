@@ -7,9 +7,6 @@
 [ext_resource type="Script" uid="uid://jus1fh2bwsni" path="res://Scripts/WallCollider.gd" id="1_wall_collider"]
 [ext_resource type="Texture2D" uid="uid://busovd8rpvcse" path="res://icon.svg" id="2_bo1nx"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ball"]
-radius = 60.0
-
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_21xkr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_left_wall"]
@@ -20,24 +17,36 @@ size = Vector2(20, 1080)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_right_wall"]
 size = Vector2(20, 1080)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ball"]
+radius = 60.0
+
 [node name="PlayScene" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("1_camera")
-base_speed = 150.0
-follow_speed = 12.0
-target_offset_y = 120.0
+
+[node name="LeftWall" type="StaticBody2D" parent="Camera2D"]
+position = Vector2(-414, 0)
+physics_material_override = SubResource("PhysicsMaterial_21xkr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/LeftWall"]
+shape = SubResource("RectangleShape2D_left_wall")
+
+[node name="RightWall" type="StaticBody2D" parent="Camera2D"]
+position = Vector2(416, 0)
+physics_material_override = SubResource("PhysicsMaterial_6bp64")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/RightWall"]
+shape = SubResource("RectangleShape2D_right_wall")
 
 [node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(-3, -366)
-gravity_scale = 5000.0
+position = Vector2(0, -366)
+mass = 0.3
+gravity_scale = 5.0
 continuous_cd = 2
 contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("1_ball")
-bounce = 1.0
-friction = 0.0
-keyboard_force = 1000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Ball"]
 modulate = Color(0.8971364, 0.25192705, 0.73596513, 1)
@@ -49,27 +58,9 @@ shape = SubResource("CircleShape2D_ball")
 [node name="BarrierGenerator" type="Node2D" parent="."]
 position = Vector2(-14, 0)
 script = ExtResource("1_barrier_gen")
-gap_width_scale = 2.5
-barrier_height_scale = 0.5
-spawn_interval_scale = 1.0
-min_barriers = 5
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_game_manager")
 
 [node name="WallCollider" type="Node2D" parent="."]
 script = ExtResource("1_wall_collider")
-
-[node name="LeftWall" type="StaticBody2D" parent="."]
-position = Vector2(-414, 0)
-physics_material_override = SubResource("PhysicsMaterial_21xkr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
-shape = SubResource("RectangleShape2D_left_wall")
-
-[node name="RightWall" type="StaticBody2D" parent="."]
-position = Vector2(416, 0)
-physics_material_override = SubResource("PhysicsMaterial_6bp64")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
-shape = SubResource("RectangleShape2D_right_wall")
