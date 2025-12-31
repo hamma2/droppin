@@ -1,7 +1,7 @@
 extends Camera2D
 class_name BallCamera
 
-@export var base_speed: float = 150.0
+@export var base_speed: float = 350.0
 @export var speed_increase: float = 1.0  # Pixel pro Sekunde Erhöhung
 @export var follow_speed: float = 12.0
 @export var target_offset_y: float = 120.0

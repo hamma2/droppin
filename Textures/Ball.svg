@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <!-- Ball shading using a radial gradient -->
+    <radialGradient id="ballGrad" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#fff7b0"/>
+      <stop offset="45%" stop-color="#ffd84a"/>
+      <stop offset="100%" stop-color="#f2a900"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Ball -->
+  <circle cx="128" cy="128" r="110" fill="url(#ballGrad)" stroke="#b37b00" stroke-width="6"/>
+
+  <!-- Face -->
+  <circle cx="92" cy="112" r="12" fill="#111"/>
+  <circle cx="164" cy="112" r="12" fill="#111"/>
+
+  <!-- Smile (quadratic Bezier curve) -->
+  <path d="M 88 158 Q 128 196 168 158"
+        fill="none" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+</svg>

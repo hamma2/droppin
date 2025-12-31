@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmp1bhx77d1j5"]
+[gd_scene load_steps=4 format=3 uid="uid://eaavkh1ix213"]
 
 [ext_resource type="Script" uid="uid://d4kq5akkly15i" path="res://addons/godot-rapier2d/faucet_2d.gd" id="1_dv1o8"]
 

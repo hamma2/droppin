@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://r4bq7udlia37" path="res://Scripts/BallCamera.gd" id="1_camera"]
 [ext_resource type="Script" uid="uid://qjckclpb6joj" path="res://Scripts/GameManager.gd" id="1_game_manager"]
 [ext_resource type="Script" uid="uid://jus1fh2bwsni" path="res://Scripts/WallCollider.gd" id="1_wall_collider"]
-[ext_resource type="Texture2D" uid="uid://busovd8rpvcse" path="res://icon.svg" id="2_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://dkpq0u0ub247n" path="res://Textures/Ball.png" id="3_21xkr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_21xkr"]
 
@@ -48,12 +48,13 @@ contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("1_ball")
 
-[node name="Sprite2D" type="Sprite2D" parent="Ball"]
-modulate = Color(0.8971364, 0.25192705, 0.73596513, 1)
-texture = ExtResource("2_bo1nx")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource("CircleShape2D_ball")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball/CollisionShape2D"]
+position = Vector2(-1, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_21xkr")
 
 [node name="BarrierGenerator" type="Node2D" parent="."]
 position = Vector2(-14, 0)
@@ -64,3 +65,6 @@ script = ExtResource("1_game_manager")
 
 [node name="WallCollider" type="Node2D" parent="."]
 script = ExtResource("1_wall_collider")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 1)
