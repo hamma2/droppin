@@ -87,5 +87,5 @@ func setup_ceiling() -> void:
     # - Also Ceiling-Center bei y = -viewport_height / 2 - ceiling_height / 2
     ceiling.position = Vector2(
         0,
-        -viewport_height / 2 - ceiling_height / 2
+        -viewport_height / 2 - ceiling_height *5
     )

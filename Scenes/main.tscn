@@ -70,6 +70,7 @@ texture = ExtResource("3_21xkr")
 [node name="BarrierGenerator" type="Node2D" parent="."]
 position = Vector2(-14, 0)
 script = ExtResource("1_barrier_gen")
+gap_width_scale = 3.0
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_game_manager")
