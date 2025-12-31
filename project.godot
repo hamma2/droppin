@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Droppin"
+config/version="0.1"
 config/tags=PackedStringArray("android")
 run/main_scene="uid://b8vs5i2cdotn7"
 config/features=PackedStringArray("4.5", "GL Compatibility")
@@ -18,8 +19,8 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=1200
+window/size/viewport_width=1080
+window/size/viewport_height=1920
 window/handheld/orientation=5
 
 [input_devices]

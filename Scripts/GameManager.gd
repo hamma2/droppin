@@ -8,6 +8,8 @@ var camera: Camera2D
 var score: int = 0
 var game_active: bool = true
 
+@export var end_game_on_ceiling_hit: bool = true
+
 func _ready():
     ball = get_parent().find_child("Ball")
     barrier_generator = get_parent().find_child("BarrierGenerator")
@@ -64,5 +66,8 @@ func increase_difficulty():
 
 func _on_ball_hit_ceiling():
     """Wird aufgerufen, wenn der Ball die Decke trifft"""
-    print("Game Over! Ball hat die Decke getroffen! Score: ", score)
-    game_over()
+    if end_game_on_ceiling_hit:
+        print("Game Over! Ball hat die Decke getroffen! Score: ", score)
+        game_over()
+    else:
+        print("Ball hat die Decke getroffen (testing mode - kein Game Over)")
