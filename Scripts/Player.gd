@@ -50,7 +50,7 @@ func _physics_process(delta):
 	if((moveDistance)<=0):
 		player_state = State.IDLE
 		
-	move_and_slide()
+	#move_and_slide()
 
 func _game_over():
 	queue_free()

@@ -3,8 +3,8 @@ extends RigidBody2D
 signal hit_ceiling
 
 # Physics
-@export var bounce: float = 0.8
-@export var friction: float = 0.1
+@export var bounce: float = 0.1
+@export var friction: float = 0.0
 
 # Steuerung
 @export var keyboard_force: float = 500.0
@@ -29,7 +29,7 @@ func _ready():
     physics_material_override = physics_material
 
     continuous_cd = CCD_MODE_CAST_RAY
-    gravity_scale = 1.0
+    gravity_scale = 2.0
     linear_damp = 0.0
     angular_damp = 0.5
 
@@ -54,7 +54,7 @@ func _input(event):
         is_touching = true
         touch_target_x = event.position.x
 
-func _physics_process(delta):
+func _physics_process(_delta):
     handle_movement()
 
     # Begrenze horizontale Geschwindigkeit
