@@ -35,11 +35,7 @@ func _ready():
 
     body_entered.connect(_on_body_entered)
 
-    print("Ball initialisiert mit Input-Methode: ", input_method)
-
 func _on_body_entered(body: Node):
-    print("Ball Collision mit: ", body.name, " Velocity: ", linear_velocity)
-    
     if body.name == "Ceiling" or body.is_in_group("ceiling"):
         emit_signal("hit_ceiling")
 
