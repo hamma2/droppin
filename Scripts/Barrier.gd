@@ -47,8 +47,17 @@ func setup_barrier_shape(barrier: StaticBody2D, width: float):
     barrier.add_child(collision)
 
     # ColorRect für Visualisierung
-    var color_rect = ColorRect.new()
-    color_rect.position = Vector2(-width / 2, -barrier_height / 2)
-    color_rect.size = Vector2(width, barrier_height)
-    color_rect.color = Color.WHITE
-    barrier.add_child(color_rect)
+    # var color_rect = ColorRect.new()
+    # color_rect.position = Vector2(-width / 2-5, -barrier_height / 2-5)
+    # color_rect.size = Vector2(width+10, barrier_height+10)
+    # color_rect.color = Color(240, 67, 127, 255) /255 
+    # barrier.add_child(color_rect)
+
+    # Add Sprite for visual representation (optional)
+    var sprite = Sprite2D.new()
+    var texture = preload("res://Textures/sky_postcard_theme/grass_barrier.svg")
+    sprite.texture = texture
+    sprite.scale = Vector2(width / texture.get_width(), barrier_height / texture.get_height())
+    sprite.position = Vector2(0, 0)
+    #sprite.self_modulate = Color(242, 214, 162, 255) /255  # Orange Farbe
+    barrier.add_child(sprite)

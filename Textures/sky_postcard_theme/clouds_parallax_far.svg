@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <!-- 512x512 seamless tile -->
+    <pattern id="cloudTile" patternUnits="userSpaceOnUse" width="512" height="512">
+      <!-- Transparent background so you can place this over a sky color/gradient -->
+      <rect width="512" height="512" fill="none"/>
+
+      <!-- Style: flat cartoon (solid fills, crisp outline) -->
+      <!-- Tip: change stroke to "none" if you want no outlines -->
+      <g fill="#FFFFFF" stroke="#2C3E50" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+        <!-- Cloud A -->
+        <g>
+          <ellipse cx="120" cy="120" rx="68" ry="36"/>
+          <ellipse cx="175" cy="108" rx="54" ry="32"/>
+          <ellipse cx="215" cy="125" rx="58" ry="34"/>
+          <rect x="62" y="120" width="210" height="64" rx="32"/>
+        </g>
+
+        <!-- Cloud B -->
+        <g>
+          <ellipse cx="360" cy="170" rx="78" ry="40"/>
+          <ellipse cx="418" cy="155" rx="60" ry="34"/>
+          <ellipse cx="462" cy="175" rx="56" ry="32"/>
+          <rect x="290" y="170" width="215" height="66" rx="33"/>
+        </g>
+
+        <!-- Cloud C -->
+        <g>
+          <ellipse cx="170" cy="360" rx="90" ry="46"/>
+          <ellipse cx="245" cy="342" rx="70" ry="40"/>
+          <ellipse cx="298" cy="365" rx="68" ry="40"/>
+          <rect x="80" y="360" width="265" height="72" rx="36"/>
+        </g>
+      </g>
+
+      <!-- Seam wrapping: duplicate partial clouds across edges so the tile joins perfectly -->
+      <g fill="#FFFFFF" stroke="#2C3E50" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+        <!-- Left edge cloud (and its right-duplicate) -->
+        <g>
+          <ellipse cx="18" cy="245" rx="62" ry="34"/>
+          <ellipse cx="62" cy="232" rx="46" ry="28"/>
+          <rect x="-40" y="245" width="145" height="58" rx="29"/>
+        </g>
+        <g>
+          <ellipse cx="530" cy="245" rx="62" ry="34"/>
+          <ellipse cx="486" cy="232" rx="46" ry="28"/>
+          <rect x="407" y="245" width="145" height="58" rx="29"/>
+        </g>
+
+        <!-- Top edge cloud (and its bottom-duplicate) -->
+        <g>
+          <ellipse cx="300" cy="-10" rx="84" ry="42"/>
+          <ellipse cx="360" cy="-26" rx="62" ry="34"/>
+          <rect x="225" y="-10" width="210" height="66" rx="33"/>
+        </g>
+        <g>
+          <ellipse cx="300" cy="522" rx="84" ry="42"/>
+          <ellipse cx="360" cy="538" rx="62" ry="34"/>
+          <rect x="225" y="456" width="210" height="66" rx="33"/>
+        </g>
+      </g>
+    </pattern>
+  </defs>
+
+  <!-- Paint area with the repeating tile -->
+  <rect width="512" height="512" fill="url(#cloudTile)"/>
+</svg>

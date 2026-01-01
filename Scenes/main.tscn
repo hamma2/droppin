@@ -1,11 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8vs5i2cdotn7"]
+[gd_scene load_steps=19 format=3 uid="uid://b8vs5i2cdotn7"]
 
 [ext_resource type="Script" uid="uid://dlwqdg3wounj1" path="res://Scripts/Ball.gd" id="1_ball"]
 [ext_resource type="Script" uid="uid://ckah43um0njug" path="res://Scripts/BarrierGenerator.gd" id="1_barrier_gen"]
 [ext_resource type="Script" uid="uid://r4bq7udlia37" path="res://Scripts/BallCamera.gd" id="1_camera"]
 [ext_resource type="Script" uid="uid://qjckclpb6joj" path="res://Scripts/GameManager.gd" id="1_game_manager"]
 [ext_resource type="Script" uid="uid://jus1fh2bwsni" path="res://Scripts/WallCollider.gd" id="1_wall_collider"]
-[ext_resource type="Texture2D" uid="uid://dkpq0u0ub247n" path="res://Textures/Ball.png" id="3_21xkr"]
+[ext_resource type="Texture2D" uid="uid://c6bn7noamm6la" path="res://Textures/Ball.svg" id="3_21xkr"]
+[ext_resource type="Texture2D" uid="uid://bl7t4y6jfokf0" path="res://Textures/sky_postcard_theme/clouds_parallax_far_really.png" id="5_344ge"]
+[ext_resource type="Texture2D" uid="uid://tffk20v1pdnv" path="res://Textures/sky_postcard_theme/Birds_parallax_near.png" id="8_344ge"]
+[ext_resource type="Texture2D" uid="uid://bocddn88dt7gu" path="res://Textures/sky_postcard_theme/Background_gradient.svg" id="8_ynf5e"]
+[ext_resource type="Texture2D" uid="uid://oqqx4qbk8bgq" path="res://Textures/sky_postcard_theme/kites.png" id="9_hptm8"]
+[ext_resource type="Texture2D" uid="uid://cdqxle6dbhctv" path="res://Textures/sky_postcard_theme/ballons.png" id="11_d1ilt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_21xkr"]
 
@@ -22,6 +27,9 @@ size = Vector2(897, 3)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ball"]
 radius = 60.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_344ge"]
+diffuse_texture = ExtResource("3_21xkr")
 
 [node name="PlayScene" type="Node2D"]
 
@@ -50,6 +58,10 @@ scale = Vector2(1, 10)
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_21xkr")
 
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+z_index = -7
+texture = ExtResource("8_ynf5e")
+
 [node name="Ball" type="RigidBody2D" parent="."]
 position = Vector2(0, -366)
 mass = 0.3
@@ -65,7 +77,7 @@ shape = SubResource("CircleShape2D_ball")
 [node name="Sprite2D" type="Sprite2D" parent="Ball/CollisionShape2D"]
 position = Vector2(-1, 0)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_21xkr")
+texture = SubResource("CanvasTexture_344ge")
 
 [node name="BarrierGenerator" type="Node2D" parent="."]
 position = Vector2(-14, 0)
@@ -78,5 +90,43 @@ script = ExtResource("1_game_manager")
 [node name="WallCollider" type="Node2D" parent="."]
 script = ExtResource("1_wall_collider")
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0, 1)
+[node name="Parallax2D_Far" type="Parallax2D" parent="."]
+z_index = -6
+scroll_scale = Vector2(1, 0.25)
+scroll_offset = Vector2(0, 350)
+repeat_size = Vector2(512, 512)
+autoscroll = Vector2(50, -30)
+repeat_times = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D_Far"]
+texture = ExtResource("5_344ge")
+
+[node name="Parallax2D_Far_Background_shading" type="Parallax2D" parent="."]
+z_index = -4
+scroll_offset = Vector2(0, -400)
+repeat_size = Vector2(1024, 2048)
+autoscroll = Vector2(-40, -150)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D_Far_Background_shading"]
+texture = ExtResource("9_hptm8")
+
+[node name="Parallax2D_near_Background_shading2" type="Parallax2D" parent="."]
+z_index = -5
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(0, -1000)
+repeat_size = Vector2(512, 4096)
+autoscroll = Vector2(-40, -60)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D_near_Background_shading2"]
+texture = ExtResource("8_344ge")
+
+[node name="Parallax2D_Far_Background_shading2" type="Parallax2D" parent="."]
+z_index = -4
+scroll_offset = Vector2(0, 1000)
+repeat_size = Vector2(1024, 4096)
+autoscroll = Vector2(40, -100)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D_Far_Background_shading2"]
+texture = ExtResource("11_d1ilt")

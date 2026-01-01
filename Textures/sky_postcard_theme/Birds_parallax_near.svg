@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <pattern id="birdTileNear" patternUnits="userSpaceOnUse" width="512" height="512">
+      <rect width="512" height="512" fill="none"/>
+
+      <!-- Flat/cartoon birds: simple "m" wing strokes as filled paths -->
+      <!-- Dark silhouette works well as a near layer over sky -->
+      <g fill="#1F2A37" opacity="0.95">
+        <!-- Bird A -->
+        <path d="M120 140
+                 C140 120, 160 120, 180 140
+                 C170 132, 155 132, 150 142
+                 C145 132, 130 132, 120 140 Z"/>
+        <!-- Bird B -->
+        <path d="M260 110
+                 C278 92, 298 92, 316 110
+                 C307 104, 294 104, 288 112
+                 C282 104, 269 104, 260 110 Z"/>
+        <!-- Bird C -->
+        <path d="M390 190
+                 C412 168, 436 168, 458 190
+                 C448 182, 432 182, 424 192
+                 C416 182, 400 182, 390 190 Z"/>
+
+        <!-- Bird D -->
+        <path d="M170 310
+                 C192 288, 216 288, 238 310
+                 C228 302, 212 302, 204 312
+                 C196 302, 180 302, 170 310 Z"/>
+        <!-- Bird E -->
+        <path d="M330 360
+                 C350 340, 372 340, 392 360
+                 C383 352, 368 352, 361 362
+                 C354 352, 339 352, 330 360 Z"/>
+      </g>
+
+      <!-- A few tiny spark-like "wind ticks" for motion feel (still flat) -->
+      <g stroke="#1F2A37" stroke-width="5" stroke-linecap="round" opacity="0.55">
+        <path d="M70 210 H95"/>
+        <path d="M430 300 H455"/>
+        <path d="M250 420 H275"/>
+      </g>
+
+      <!-- Seam wrapping: duplicates across edges so birds can cross tile boundaries -->
+
+      <!-- Left-edge crossing bird + right duplicate -->
+      <g fill="#1F2A37" opacity="0.95">
+        <path d="M-10 250
+                 C12 230, 36 230, 58 250
+                 C48 242, 32 242, 24 252
+                 C16 242, 0 242, -10 250 Z"/>
+        <path d="M522 250
+                 C544 230, 568 230, 590 250
+                 C580 242, 564 242, 556 252
+                 C548 242, 532 242, 522 250 Z"/>
+      </g>
+
+      <!-- Top-edge crossing bird + bottom duplicate -->
+      <g fill="#1F2A37" opacity="0.95">
+        <path d="M300 -12
+                 C322 -32, 346 -32, 368 -12
+                 C358 -20, 342 -20, 334 -10
+                 C326 -20, 310 -20, 300 -12 Z"/>
+        <path d="M300 524
+                 C322 504, 346 504, 368 524
+                 C358 516, 342 516, 334 526
+                 C326 516, 310 516, 300 524 Z"/>
+      </g>
+    </pattern>
+  </defs>
+
+  <rect width="512" height="512" fill="url(#birdTileNear)"/>
+</svg>
