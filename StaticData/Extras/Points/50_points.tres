@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PointsData" load_steps=3 format=3 uid="uid://0qma4xk0h0ty"]
+
+[ext_resource type="Script" uid="uid://c38g7uywwe2dm" path="res://Scripts/Extras/Points/PointsData.gd" id="1_th22e"]
+[ext_resource type="Texture2D" uid="uid://busovd8rpvcse" path="res://icon.svg" id="2_dar2i"]
+
+[resource]
+script = ExtResource("1_th22e")
+effect_type = "points"
+texture = ExtResource("2_dar2i")
+metadata/_custom_type_script = "uid://c38g7uywwe2dm"

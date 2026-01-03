@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PointsData" load_steps=3 format=3 uid="uid://dx2rxcc4xgvur"]
+
+[ext_resource type="Script" uid="uid://c38g7uywwe2dm" path="res://Scripts/Extras/Points/PointsData.gd" id="1_d2uac"]
+[ext_resource type="Texture2D" uid="uid://bgukvcg00dr41" path="res://export/export_mac.apple-touch-icon.png" id="2_kjd1y"]
+
+[resource]
+script = ExtResource("1_d2uac")
+effect_points = 0.0
+point_multiplier = 2.0
+effect_type = "points"
+texture = ExtResource("2_kjd1y")
+spawn_probability = 1.0
+metadata/_custom_type_script = "uid://c38g7uywwe2dm"

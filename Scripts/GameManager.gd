@@ -6,6 +6,7 @@ var barrier_generator: Node2D
 var camera: Camera2D
 
 var score: int = 0
+var score_mutiplier: float = 1.0
 var game_active: bool = true
 
 @export var end_game_on_ceiling_hit: bool = true
@@ -34,7 +35,7 @@ func _physics_process(_delta):
 
 func update_score():
     """Erhöht den Score basierend auf der Y-Position des Balls"""
-    var new_score = int(abs(ball.position.y) / 10)
+    var new_score = int(abs(ball.position.y) / 10 * score_mutiplier)
     if new_score > score:
         score = new_score
 

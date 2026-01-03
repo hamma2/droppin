@@ -31,7 +31,7 @@ func _ready():
         var area = $Area2D
         area.body_entered.connect(_on_area_entered)
 
-func set_extra_data(data: RefCounted) -> void:
+func set_extra_data(data: Resource) -> void:
     """Setzt die Extra-Daten und aktualisiert die visuelle Darstellung"""
     extra_data = data
 

@@ -10,6 +10,9 @@ class_name BarrierGenerator
 
 var barrier_pair_scene = preload("res://Scenes/Barrier.tscn")
 var extra_item_scene = preload("res://Scenes/Extra.tscn")
+var extra_50_points = preload("res://StaticData/Extras/Points/50_points.tres")
+var extra_2_multiply_points = preload("res://StaticData/Extras/Points/2_multiply_points.tres")
+var extra_item_points_script = preload("res://Scripts/Extras/Points/PointsItem.gd")
 var time_since_last_spawn: float = 0.0
 var barrier_pairs: Array = []
 var extra_items: Array = []
@@ -122,9 +125,10 @@ func count_barriers_below_camera() -> int:
 func setup_extra_types() -> void:
     """Initialisiert die verfügbaren Extra-Typen"""
     available_extra_types = [
-        ExtraData.new("shield", 5.0, Color.CYAN, null, 1.0, 0.25),
-        ExtraData.new("speed_boost", 3.0, Color.YELLOW, null, 1.0, 0.25),
-        ExtraData.new("points", 100.0, Color.GOLD, null, 1.0, 0.5),
+        extra_50_points,
+        extra_2_multiply_points,
+        # ExtraData.new("shield", 5.0, Color.CYAN, null, 1.0, 0.25),
+        # ExtraData.new("speed_boost", 3.0, Color.YELLOW, null, 1.0, 0.25),
     ]
 
 func spawn_extra_randomly(barrier_y: float) -> void:
@@ -141,6 +145,11 @@ func spawn_extra_randomly(barrier_y: float) -> void:
 
     # Spawne das Extra-Item
     var extra = extra_item_scene.instantiate()
+
+    # set the fitting script
+    if(extra_data.effect_type == "points"):
+        extra.script = extra_item_points_script
+
     extra.position = Vector2(
         randf_range(viewport_left + 100, viewport_right - 100),
         barrier_y - 50.0  # Etwas über der Barriere spawnen
