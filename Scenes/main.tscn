@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8vs5i2cdotn7"]
+[gd_scene load_steps=20 format=3 uid="uid://b8vs5i2cdotn7"]
 
 [ext_resource type="Script" uid="uid://dlwqdg3wounj1" path="res://Scripts/Ball.gd" id="1_ball"]
 [ext_resource type="Script" uid="uid://ckah43um0njug" path="res://Scripts/BarrierGenerator.gd" id="1_barrier_gen"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bocddn88dt7gu" path="res://Textures/sky_postcard_theme/Background_gradient.svg" id="8_ynf5e"]
 [ext_resource type="Texture2D" uid="uid://oqqx4qbk8bgq" path="res://Textures/sky_postcard_theme/kites.png" id="9_hptm8"]
 [ext_resource type="Texture2D" uid="uid://cdqxle6dbhctv" path="res://Textures/sky_postcard_theme/ballons.png" id="11_d1ilt"]
+[ext_resource type="Script" uid="uid://dkik1n3mb42km" path="res://Scripts/Extras/Effects.gd" id="12_6iyac"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_21xkr"]
 
@@ -130,3 +131,6 @@ repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D_Far_Background_shading2"]
 texture = ExtResource("11_d1ilt")
+
+[node name="EffectScript" type="Node" parent="."]
+script = ExtResource("12_6iyac")
