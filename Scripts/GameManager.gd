@@ -7,6 +7,10 @@ var camera: Camera2D
 
 var score: int = 0
 var score_mutiplier: float = 1.0
+
+# Reference to your ScoreLabel node
+@onready var score_label: Label = $/root/PlayScene/CanvasLayer/Control/ScoreLabel
+
 var game_active: bool = true
 
 @export var end_game_on_ceiling_hit: bool = true
@@ -38,6 +42,10 @@ func update_score():
     var new_score = int(abs(ball.position.y) / 10 * score_mutiplier)
     if new_score > score:
         score = new_score
+
+        # Change Score Label Text
+        if(score_label != null):
+            score_label.text = "Score: " + str(score)
 
 func game_over():
     """Beendet das Spiel"""

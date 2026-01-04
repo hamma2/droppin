@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b8vs5i2cdotn7"]
+[gd_scene load_steps=22 format=3 uid="uid://b8vs5i2cdotn7"]
 
 [ext_resource type="Script" uid="uid://dlwqdg3wounj1" path="res://Scripts/Ball.gd" id="1_ball"]
 [ext_resource type="Script" uid="uid://ckah43um0njug" path="res://Scripts/BarrierGenerator.gd" id="1_barrier_gen"]
@@ -31,6 +31,33 @@ radius = 60.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_344ge"]
 diffuse_texture = ExtResource("3_21xkr")
+
+[sub_resource type="FontFile" id="FontFile_6iyac"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_6iyac"]
+line_spacing = 0.0
+font = SubResource("FontFile_6iyac")
+font_size = 50
 
 [node name="PlayScene" type="Node2D"]
 
@@ -134,3 +161,21 @@ texture = ExtResource("11_d1ilt")
 
 [node name="EffectScript" type="Node" parent="."]
 script = ExtResource("12_6iyac")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 51.0
+offset_top = 45.0
+offset_right = 238.0
+offset_bottom = 96.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_6iyac")
