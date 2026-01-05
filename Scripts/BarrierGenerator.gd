@@ -17,8 +17,8 @@ var extra_2_multiply_points = preload("res://StaticData/Extras/Points/2_multiply
 var extra_item_points_script = preload("res://Scripts/Extras/Points/PointsItem.gd")
 
 # change direction extra
-var extra_direction_item = preload("res://StaticData/Extras/Points/change_direction_5_seconds.tres")
-var extra_item_direction_script = preload("res://Scripts/Extras/Points/DirectionItem.gd")
+var extra_direction_item = preload("res://StaticData/Extras/Direction/change_direction_5_seconds.tres")
+var extra_item_direction_script = preload("res://Scripts/Extras/Direction/DirectionItem.gd")
 
 var time_since_last_spawn: float = 0.0
 var barrier_pairs: Array = []

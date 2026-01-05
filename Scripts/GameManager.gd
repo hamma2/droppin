@@ -59,8 +59,7 @@ func update_score() -> void:
     # Nur aktualisieren wenn es echte Punkte gibt
     if base_increase >= 0:
         score += score_increase
-        print("Aktueller Score: ", score, " (Base: +%d, Multiplikator: %.1f)" % [base_increase, score_mutiplier])
-
+        
         # Change Score Label Text
         if(score_label != null):
             score_label.text = "Score: " + str(score)
