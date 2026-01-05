@@ -20,12 +20,16 @@ class_name ExtraData extends Resource
 ## Wahrscheinlichkeit, dass dieses Extra spawnt (0.0 bis 1.0)
 @export var spawn_probability: float = 0.3
 
+## Zusätzliche Dauer für zeitbasierte Effekte
+@export var duration: float = 1.0
+
 func _init(p_effect_type: String = "generic", p_effect_strength: float = 1.0, 
            p_color: Color = Color.WHITE, p_texture: Texture2D = null, 
-           p_scale: float = 1.0, p_probability: float = 0.3) -> void:
+           p_scale: float = 1.0, p_probability: float = 0.3, p_duration: float = 1.0) -> void:
     effect_type = p_effect_type
     effect_strength = p_effect_strength
     color = p_color
     texture = p_texture
     scale_factor = p_scale
     spawn_probability = p_probability
+    duration = p_duration

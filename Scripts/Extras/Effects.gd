@@ -14,15 +14,20 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
     pass
 
 # Function Points addding
-func points_multiplier(mul: float) -> void:
-    print("Starting delay...")
+# Addiert Punkte und multipliziert sie mit dem aktiven Multiplikator
+func points_adder(add: int) -> void:
+    if gameManager != null:
+        gameManager.points_to_add += add
+
+# Function for multiplying points for a certain time
+# only one mutliplicator can be active at a time
+# mutliplicator will be the last collected item
+func points_multiplier(mul: float, duration: float) -> void:
     if gameManager != null:
         gameManager.score_mutiplier = mul
-        # This line pauses the function execution until the 3-second timer times out
-        await get_tree().create_timer(3.0).timeout
-        print("Delay finished! This message prints 3 seconds later.")
+        await get_tree().create_timer(duration).timeout
         gameManager.score_mutiplier = 1.0

@@ -10,4 +10,5 @@ point_multiplier = 2.0
 effect_type = "points"
 texture = ExtResource("2_kjd1y")
 spawn_probability = 1.0
+duration = 5.0
 metadata/_custom_type_script = "uid://c38g7uywwe2dm"

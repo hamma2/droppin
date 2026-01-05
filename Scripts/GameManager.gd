@@ -7,6 +7,8 @@ var camera: Camera2D
 
 var score: int = 0
 var score_mutiplier: float = 1.0
+var points_to_add: int = 0
+var prev_y_position: float = 0.0
 
 # Reference to your ScoreLabel node
 @onready var score_label: Label = $/root/PlayScene/CanvasLayer/Control/ScoreLabel
@@ -30,18 +32,34 @@ func _ready():
     # GEÄNDERT: Nur Ceiling-Signal verbinden
     if ball != null:
         ball.connect("hit_ceiling", Callable(self, "_on_ball_hit_ceiling"))
+        prev_y_position = ball.position.y
 
 func _physics_process(_delta):
     if not game_active or ball == null:
         return
 
+func _process(_delta: float):
     update_score()
 
-func update_score():
+func update_score() -> void:
     """Erhöht den Score basierend auf der Y-Position des Balls"""
-    var new_score = int(abs(ball.position.y) / 10 * score_mutiplier)
-    if new_score > score:
-        score = new_score
+    var base_increase = int(abs(prev_y_position) - abs(ball.position.y))
+    if(base_increase < 0):
+        base_increase = 0
+
+    prev_y_position = ball.position.y
+
+    # Addiere manuelle Punkte-Bonuses
+    base_increase += points_to_add
+    points_to_add = 0 # Reset
+    
+    # Wende Multiplikator an
+    var score_increase = int(base_increase * score_mutiplier)
+    
+    # Nur aktualisieren wenn es echte Punkte gibt
+    if base_increase >= 0:
+        score += score_increase
+        print("Aktueller Score: ", score, " (Base: +%d, Multiplikator: %.1f)" % [base_increase, score_mutiplier])
 
         # Change Score Label Text
         if(score_label != null):
@@ -66,6 +84,9 @@ func reset_game():
         for barrier in barrier_generator.barrier_pairs:
             barrier.queue_free()
         barrier_generator.barrier_pairs.clear()
+
+    if(score_label != null):
+            score_label.text = "Score: 0"
 
 func increase_difficulty():
     """Erhöht die Schwierigkeit des Spiels"""
