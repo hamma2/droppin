@@ -10,9 +10,16 @@ class_name BarrierGenerator
 
 var barrier_pair_scene = preload("res://Scenes/Barrier.tscn")
 var extra_item_scene = preload("res://Scenes/Extra.tscn")
+
+# points extra
 var extra_50_points = preload("res://StaticData/Extras/Points/50_points.tres")
 var extra_2_multiply_points = preload("res://StaticData/Extras/Points/2_multiply_points.tres")
 var extra_item_points_script = preload("res://Scripts/Extras/Points/PointsItem.gd")
+
+# change direction extra
+var extra_direction_item = preload("res://StaticData/Extras/Points/change_direction_5_seconds.tres")
+var extra_item_direction_script = preload("res://Scripts/Extras/Points/DirectionItem.gd")
+
 var time_since_last_spawn: float = 0.0
 var barrier_pairs: Array = []
 var extra_items: Array = []
@@ -127,6 +134,7 @@ func setup_extra_types() -> void:
     available_extra_types = [
         extra_50_points,
         extra_2_multiply_points,
+        extra_direction_item,
         # ExtraData.new("shield", 5.0, Color.CYAN, null, 1.0, 0.25),
         # ExtraData.new("speed_boost", 3.0, Color.YELLOW, null, 1.0, 0.25),
     ]
@@ -149,6 +157,10 @@ func spawn_extra_randomly(barrier_y: float) -> void:
     # set the fitting script
     if(extra_data.effect_type == "points"):
         extra.script = extra_item_points_script
+
+    # set the fitting script
+    if(extra_data.effect_type == "direction"):
+        extra.script = extra_item_direction_script
 
     extra.position = Vector2(
         randf_range(viewport_left + 100, viewport_right - 100),

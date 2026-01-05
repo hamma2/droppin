@@ -7,6 +7,7 @@ class_name EffectScript
 
 # get all necesary game scripts
 @onready var gameManager: GameManager = $/root/PlayScene/GameManager
+@onready var playerBall: Ball = $/root/PlayScene/Ball
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,3 +32,9 @@ func points_multiplier(mul: float, duration: float) -> void:
         gameManager.score_mutiplier = mul
         await get_tree().create_timer(duration).timeout
         gameManager.score_mutiplier = 1.0
+
+# Function for reversing ball direction
+func reverse_ball_direction(duration: float) -> void:
+    playerBall.direction = -1
+    await get_tree().create_timer(duration).timeout
+    playerBall.direction = 1

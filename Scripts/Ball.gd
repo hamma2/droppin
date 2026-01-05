@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Ball
 
 signal hit_ceiling
 
@@ -10,13 +11,16 @@ signal hit_ceiling
 @export var keyboard_force: float = 1000.0
 @export var accelerometer_sensitivity: float = 300.0
 @export var touch_follow_speed: float = 2000.0  # Geschwindigkeit zum Touch-Punkt
-@export var max_horizontal_velocity: float = 800.0
+@export var max_horizontal_velocity: float = 2800.0
 
 # Input Methoden
 @export_enum("Keyboard", "Accelerometer", "Touch", "All") var input_method: int = 3
 
 var touch_target_x: float = 0.0
 var is_touching: bool = false
+
+# for direction chaging extra
+var direction: int = 1
 
 func _ready():
     contact_monitor = true
@@ -66,19 +70,19 @@ func handle_movement():
     # Keyboard (Input-Methode 0 oder 3)
     if input_method == 0 or input_method == 3:
         if Input.is_action_pressed("ui_left"):
-            input_force -= keyboard_force
+            input_force -= keyboard_force * direction
         if Input.is_action_pressed("ui_right"):
-            input_force += keyboard_force
+            input_force += keyboard_force * direction
 
     # Accelerometer (Input-Methode 1 oder 3)
     if (input_method == 1 or input_method == 3) and Input.get_accelerometer() != Vector3.ZERO:
         var accel = Input.get_accelerometer()
-        input_force += accel.x * accelerometer_sensitivity
+        input_force += accel.x * accelerometer_sensitivity * direction
 
     # Touch (Input-Methode 2 oder 3)
     if (input_method == 2 or input_method == 3) and is_touching:
-        var direction = touch_target_x - global_position.x
-        input_force += sign(direction) * touch_follow_speed
+        var p_direction = touch_target_x - global_position.x
+        input_force += sign(p_direction) * touch_follow_speed * direction
 
     # Wende Kraft an
     if input_force != 0:
