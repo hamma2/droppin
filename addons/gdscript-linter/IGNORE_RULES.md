@@ -127,4 +127,3 @@ This helps you catch regressions while still allowing intentional exceptions to 
 | `missing-type` | Missing type annotation |
 | `unused-variable` | Variable declared but never used |
 | `unused-parameter` | Parameter declared but never used |
-
