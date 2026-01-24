@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://qjckclpb6joj" path="res://Scripts/GameManager.gd" id="1_game_manager"]
 [ext_resource type="Script" uid="uid://jus1fh2bwsni" path="res://Scripts/WallCollider.gd" id="1_wall_collider"]
 [ext_resource type="Texture2D" uid="uid://c6bn7noamm6la" path="res://Textures/Ball.svg" id="3_21xkr"]
-[ext_resource type="Texture2D" uid="uid://bl7t4y6jfokf0" path="res://Textures/sky_postcard_theme/clouds_parallax_far_really.png" id="5_344ge"]
+[ext_resource type="Texture2D" uid="uid://bil5eyu1pfw61" path="res://Textures/sky_postcard_theme/clouds_alternative.png" id="8_6iyac"]
 [ext_resource type="Texture2D" uid="uid://tffk20v1pdnv" path="res://Textures/sky_postcard_theme/Birds_parallax_near.png" id="8_344ge"]
 [ext_resource type="Texture2D" uid="uid://bocddn88dt7gu" path="res://Textures/sky_postcard_theme/Background_gradient.svg" id="8_ynf5e"]
 [ext_resource type="Texture2D" uid="uid://oqqx4qbk8bgq" path="res://Textures/sky_postcard_theme/kites.png" id="9_hptm8"]
@@ -88,6 +88,7 @@ shape = SubResource("RectangleShape2D_21xkr")
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
 z_index = -7
+position = Vector2(-2, -4)
 texture = ExtResource("8_ynf5e")
 
 [node name="Ball" type="RigidBody2D" parent="."]
@@ -123,11 +124,11 @@ z_index = -6
 scroll_scale = Vector2(1, 0.25)
 scroll_offset = Vector2(0, 350)
 repeat_size = Vector2(512, 512)
-autoscroll = Vector2(50, -30)
+autoscroll = Vector2(50, -100)
 repeat_times = 6
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D_Far"]
-texture = ExtResource("5_344ge")
+texture = ExtResource("8_6iyac")
 
 [node name="Parallax2D_Far_Background_shading" type="Parallax2D" parent="."]
 z_index = -4

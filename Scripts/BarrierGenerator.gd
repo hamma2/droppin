@@ -141,26 +141,25 @@ func setup_extra_types() -> void:
 
 func spawn_extra_randomly(barrier_y: float) -> void:
     """Spawnt ein zufälliges Extra-Item mit den Barrieren"""
-    # Entscheide ob dieses Extra spawnt
-    if randf() > extra_spawn_probability:
-        return
-
     var viewport_left = viewport_center.x - screen_width / 2
     var viewport_right = viewport_center.x + screen_width / 2
 
     # Wähle einen zufälligen Extra-Typ
     var extra_data = available_extra_types[randi() % available_extra_types.size()]
 
+    # Entscheide ob dieses Extra spawnt
+    if randf() > extra_data.spawn_probability:
+        return
+
     # Spawne das Extra-Item
     var extra = extra_item_scene.instantiate()
 
     # set the fitting script
-    if(extra_data.effect_type == "points"):
-        extra.script = extra_item_points_script
-
-    # set the fitting script
-    if(extra_data.effect_type == "direction"):
-        extra.script = extra_item_direction_script
+    match extra_data.effect_type:
+        "points":
+            extra.script = extra_item_points_script
+        "direction":
+            extra.script = extra_item_direction_script
 
     extra.position = Vector2(
         randf_range(viewport_left + 100, viewport_right - 100),
