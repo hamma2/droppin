@@ -63,10 +63,10 @@ func setup_barrier_shape(barrier: StaticBody2D, width: float, _barrierName: Stri
     # depending on the barrier side, round different corners
     if(_barrierName=="LeftBarrier"):
         boxFlatRounderCorners.corner_radius_top_right = 15.0
-        boxFlatRounderCorners.corner_radius_bottom_right = 15.0
+        boxFlatRounderCorners.corner_radius_bottom_right = 10.0
     else:
         boxFlatRounderCorners.corner_radius_top_left = 15.0
-        boxFlatRounderCorners.corner_radius_bottom_left = 15.0
+        boxFlatRounderCorners.corner_radius_bottom_left = 10.0
     panelContainer.add_theme_stylebox_override("panel",boxFlatRounderCorners)
     barrier.add_child(panelContainer)
 
