@@ -86,6 +86,8 @@ func reset_game():
 
     if(score_label != null):
             score_label.text = "Score: 0"
+            
+    get_tree().reload_current_scene()
 
 func increase_difficulty():
     """Erhöht die Schwierigkeit des Spiels"""
@@ -98,5 +100,6 @@ func _on_ball_hit_ceiling():
     if end_game_on_ceiling_hit:
         print("Game Over! Ball hat die Decke getroffen! Score: ", score)
         game_over()
+        reset_game()
     else:
         print("Ball hat die Decke getroffen (testing mode - kein Game Over)")
