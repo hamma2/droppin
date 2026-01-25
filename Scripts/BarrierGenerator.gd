@@ -2,7 +2,7 @@ extends Node2D
 class_name BarrierGenerator
 
 @export var gap_width_scale: float = 2.5
-@export var barrier_height_scale: float = 0.5
+@export var barrier_height_scale: float = 0.7
 @export var spawn_interval_scale: float = 1.0
 @export var min_barriers: int = 10
 @export var barrier_spacing_scale: float = 0.3
