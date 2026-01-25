@@ -36,6 +36,7 @@ func _ready():
         prev_y_position = ball.position.y
 
     restartButton.pressed.connect(self._on_restart_button_pressed)
+    restartButton.visible = false
 
 func _physics_process(_delta):
     if not game_active or ball == null:
