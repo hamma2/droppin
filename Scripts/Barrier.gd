@@ -88,7 +88,6 @@ func setup_barrier_shape(barrier: StaticBody2D, width: float, _barrierName: Stri
     var cactus_deco_texture = preload("res://Textures/sky_postcard_theme/cactus.svg")
 
     var grass_count = int(width / 200)
-    print("grass count: " + str(grass_count))
     for i in range(grass_count):
         var rand_x_pos: float = randf() * width - width / 2
         if(_barrierName=="LeftBarrier"):
@@ -100,7 +99,6 @@ func setup_barrier_shape(barrier: StaticBody2D, width: float, _barrierName: Stri
 
         var grass_sprite = Sprite2D.new()
         var rand_val: float = randf()
-        print(rand_val)
         if(rand_val < 0.9 && rand_val >= 0.5):
             grass_sprite.texture = large_grass_deco_texture
             rand_y_pos -= 10 # größere Grasdeko etwas höher positionieren

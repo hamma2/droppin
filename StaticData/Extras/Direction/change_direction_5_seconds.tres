@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="DirectionData" load_steps=3 format=3 uid="uid://dfylycvgjdeuh"]
 
 [ext_resource type="Script" uid="uid://1qe1u8ofobt6" path="res://Scripts/Extras/Direction/DirectionData.gd" id="1_0wtek"]
-[ext_resource type="Texture2D" uid="uid://dkpq0u0ub247n" path="res://Textures/Ball.png" id="2_p8niw"]
+[ext_resource type="Texture2D" uid="uid://c6bn7noamm6la" path="res://Textures/Ball.svg" id="2_bdrvj"]
 
 [resource]
 script = ExtResource("1_0wtek")
 effect_type = "direction"
 color = Color(0.79070276, 0.00052616536, 0.79887885, 1)
-texture = ExtResource("2_p8niw")
+texture = ExtResource("2_bdrvj")
 duration = 5.0
