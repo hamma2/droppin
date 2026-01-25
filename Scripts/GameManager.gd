@@ -12,6 +12,7 @@ var prev_y_position: float = 0.0
 
 # Reference to your ScoreLabel node
 @onready var score_label: Label = $/root/PlayScene/CanvasLayer/Control/ScoreLabel
+@onready var restartButton: Button = $/root/PlayScene/CanvasLayer/Control/RestartButton
 
 var game_active: bool = true
 
@@ -33,6 +34,8 @@ func _ready():
     if ball != null:
         ball.connect("hit_ceiling", Callable(self, "_on_ball_hit_ceiling"))
         prev_y_position = ball.position.y
+
+    restartButton.pressed.connect(self._on_restart_button_pressed)
 
 func _physics_process(_delta):
     if not game_active or ball == null:
@@ -86,7 +89,8 @@ func reset_game():
 
     if(score_label != null):
             score_label.text = "Score: 0"
-            
+
+    restartButton.visible = false
     get_tree().reload_current_scene()
 
 func increase_difficulty():
@@ -100,6 +104,11 @@ func _on_ball_hit_ceiling():
     if end_game_on_ceiling_hit:
         print("Game Over! Ball hat die Decke getroffen! Score: ", score)
         game_over()
-        reset_game()
+        restartButton.visible = true
     else:
         print("Ball hat die Decke getroffen (testing mode - kein Game Over)")
+
+func _on_restart_button_pressed():
+    """Wird aufgerufen, wenn der Neustart-Button gedrückt wird"""
+    print("Neustart des Spiels...")
+    reset_game()

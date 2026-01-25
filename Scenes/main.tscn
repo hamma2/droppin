@@ -164,6 +164,7 @@ texture = ExtResource("11_d1ilt")
 script = ExtResource("12_6iyac")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -180,3 +181,13 @@ offset_right = 238.0
 offset_bottom = 96.0
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_6iyac")
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 220.0
+offset_top = 346.0
+offset_right = 455.0
+offset_bottom = 458.0
+theme_override_font_sizes/font_size = 49
+text = "Restart"
