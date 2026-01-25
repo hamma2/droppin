@@ -118,6 +118,7 @@ position = Vector2(-2, -4)
 texture = ExtResource("2_6iyac")
 
 [node name="Ball" type="RigidBody2D" parent="."]
+z_index = 1
 position = Vector2(0, -366)
 mass = 0.3
 gravity_scale = 5.0
@@ -163,6 +164,7 @@ repeat_size = Vector2(1024, 2048)
 autoscroll = Vector2(-40, -150)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D_Far_Background_shading"]
+position = Vector2(1, 0)
 texture = ExtResource("9_hptm8")
 
 [node name="Parallax2D_near_Background_shading2" type="Parallax2D" parent="."]

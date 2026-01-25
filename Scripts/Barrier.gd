@@ -72,7 +72,7 @@ func setup_barrier_shape(barrier: StaticBody2D, width: float, _barrierName: Stri
 
     # Add Sprite for visual representation
     var textRect = TextureRect.new()
-    var texture = preload("res://Textures/sky_postcard_theme/large_grass.png")
+    var texture = preload("res://Textures/sky_postcard_theme/grass_barrier_final.svg")
     textRect.texture = texture
     textRect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
     textRect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
@@ -81,6 +81,39 @@ func setup_barrier_shape(barrier: StaticBody2D, width: float, _barrierName: Stri
     #textRect.material = ShaderMaterial.new()
     #textRect.material.shader = preload("res://Shaders/round_corner_shader.gdshader")
     panelContainer.add_child(textRect)
+
+    # random placement of grass sprites on top of the barrier
+    var small_grass_deco_texture = preload("res://Textures/sky_postcard_theme/small_grass.svg")
+    var large_grass_deco_texture = preload("res://Textures/sky_postcard_theme/larger_deco_grass.svg")
+    var cactus_deco_texture = preload("res://Textures/sky_postcard_theme/cactus.svg")
+
+    var grass_count = int(width / 200)
+    print("grass count: " + str(grass_count))
+    for i in range(grass_count):
+        var rand_x_pos: float = randf() * width - width / 2
+        if(_barrierName=="LeftBarrier"):
+            rand_x_pos -= 20
+        else:
+            rand_x_pos += 20
+
+        var rand_y_pos: float = -barrier_height / 2 - 5
+
+        var grass_sprite = Sprite2D.new()
+        var rand_val: float = randf()
+        print(rand_val)
+        if(rand_val < 0.9 && rand_val >= 0.5):
+            grass_sprite.texture = large_grass_deco_texture
+            rand_y_pos -= 10 # größere Grasdeko etwas höher positionieren
+        if(rand_val >= 0.9):
+            grass_sprite.texture = cactus_deco_texture
+            rand_y_pos -= 20  # cactus etwas höher positionieren
+        if(rand_val < 0.5):
+            grass_sprite.texture = small_grass_deco_texture
+            rand_y_pos -= 5 # kleinere Grasdeko etwas höher positionieren
+        grass_sprite.z_index = -1
+        grass_sprite.position = Vector2(rand_x_pos, rand_y_pos)
+        grass_sprite.scale = Vector2(1, 1)
+        barrier.add_child(grass_sprite)
 
     #var sprite = Sprite2D.new()
     #var texture = preload("res://Textures/sky_postcard_theme/grass_barrier.svg")
