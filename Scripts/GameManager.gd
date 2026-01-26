@@ -18,6 +18,9 @@ var game_active: bool = true
 
 @export var end_game_on_ceiling_hit: bool = true
 
+@export var levelSettings: LevelSettingsData = null
+@export var themeSettings: LevelThemeData = null
+
 func _ready():
     ball = get_parent().find_child("Ball")
     barrier_generator = get_parent().find_child("BarrierGenerator")

@@ -20,7 +20,7 @@ var is_collected: bool = false
 
 func _ready():
     # Area2D für Kollisionserkennung mit dem Ball
-    if not has_node("CollisionShape2D"):
+    if not has_node("Area2D/CollisionShape2D"):
         push_error("ExtraItem benötigt eine CollisionShape2D als Child!")
 
     # Zufällige Bewegungsrichtung
