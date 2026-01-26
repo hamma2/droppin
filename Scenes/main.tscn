@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b8vs5i2cdotn7"]
+[gd_scene load_steps=28 format=3 uid="uid://b8vs5i2cdotn7"]
 
 [ext_resource type="Script" uid="uid://dlwqdg3wounj1" path="res://Scripts/Ball.gd" id="1_ball"]
 [ext_resource type="Script" uid="uid://ckah43um0njug" path="res://Scripts/BarrierGenerator.gd" id="1_barrier_gen"]
@@ -10,7 +10,9 @@
 [ext_resource type="Shader" uid="uid://b7sauhxdac0gb" path="res://Shaders/deform_sprite.gdshader" id="4_jkdf5"]
 [ext_resource type="Texture2D" uid="uid://be4s4kn7jqpjp" path="res://Textures/sky_postcard_theme/clouds_new.svg" id="8_6iyac"]
 [ext_resource type="Texture2D" uid="uid://tffk20v1pdnv" path="res://Textures/sky_postcard_theme/Birds_parallax_near.png" id="8_344ge"]
+[ext_resource type="Resource" uid="uid://bqx7tei56wsey" path="res://StaticData/Levels/Level_1_settings.tres" id="8_k12tt"]
 [ext_resource type="Texture2D" uid="uid://djmyf8lr71tha" path="res://Textures/sky_postcard_theme/clouds_new_2.svg" id="9_fdnlq"]
+[ext_resource type="Resource" uid="uid://kl0ygsan1e56" path="res://StaticData/Levels/Level_1_theme.tres" id="9_h1bgf"]
 [ext_resource type="Texture2D" uid="uid://oqqx4qbk8bgq" path="res://Textures/sky_postcard_theme/kites.png" id="9_hptm8"]
 [ext_resource type="Texture2D" uid="uid://cdqxle6dbhctv" path="res://Textures/sky_postcard_theme/ballons.png" id="11_d1ilt"]
 [ext_resource type="Script" uid="uid://dkik1n3mb42km" path="res://Scripts/Extras/Effects.gd" id="12_6iyac"]
@@ -144,6 +146,8 @@ script = ExtResource("1_barrier_gen")
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_game_manager")
+levelSettings = ExtResource("8_k12tt")
+themeSettings = ExtResource("9_h1bgf")
 
 [node name="WallCollider" type="Node2D" parent="."]
 script = ExtResource("1_wall_collider")

@@ -7,6 +7,8 @@ signal hit_ceiling
 @export var bounce: float = 0.56
 @export var friction: float = 0.3
 
+@export var gravity_scale_factor: float = 5.0
+
 # Steuerung
 @export var keyboard_force: float = 1000.0
 @export var accelerometer_sensitivity: float = 300.0
@@ -35,7 +37,7 @@ func _ready():
     physics_material_override = physics_material
 
     continuous_cd = CCD_MODE_CAST_RAY
-    gravity_scale = 5.0
+    gravity_scale = gravity_scale_factor
     linear_damp = 0.0
     angular_damp = 0.5
 

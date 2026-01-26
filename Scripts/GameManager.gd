@@ -4,7 +4,6 @@ class_name GameManager
 var ball: Node2D
 var barrier_generator: Node2D
 var camera: Camera2D
-var ballCamera: BallCamera
 
 var score: int = 0
 var score_mutiplier: float = 1.0
@@ -26,7 +25,6 @@ func _ready():
     ball = get_parent().find_child("Ball")
     barrier_generator = get_parent().find_child("BarrierGenerator")
     camera = get_parent().find_child("Camera2D")
-    ballCamera = get_parent().find_child("Camera2D") as BallCamera
 
     if ball == null:
         push_error("Ball nicht gefunden!")
@@ -52,16 +50,16 @@ func _ready():
         barrier_generator.barrier_spacing_scale = levelSettings.barrier_spacing_scale
         barrier_generator.spawn_interval_scale = levelSettings.spawn_interval_scale
         barrier_generator.available_extra_types = levelSettings.extra_data_list
-        barrier_generator.spawn_interval_scale = levelSettings.spawn_interval_scale
 
     if ball != null and levelSettings != null:
-        ball.bounce_factor = levelSettings.ball_bounce
-        ball.friction_factor = levelSettings.ball_friction
-    
-    if ballCamera != null and levelSettings != null:
-        ballCamera.gravity_scale = levelSettings.gravity_scale
-        ballCamera.base_speed = levelSettings.base_speed
-        ballCamera.speed_increase = levelSettings.speed_increase
+        ball.gravity_scale_factor = levelSettings.gravity_scale
+        ball.bounce = levelSettings.ball_bounce
+        ball.friction = levelSettings.ball_friction
+
+    if camera != null and levelSettings != null:
+        camera.base_speed = levelSettings.base_speed
+        print(camera.base_speed)
+        camera.speed_increase = levelSettings.speed_increase
 
 func _physics_process(_delta):
     if not game_active or ball == null:
@@ -81,14 +79,14 @@ func update_score() -> void:
     # Addiere manuelle Punkte-Bonuses
     base_increase += points_to_add
     points_to_add = 0 # Reset
-    
+
     # Wende Multiplikator an
     var score_increase = int(base_increase * score_mutiplier)
-    
+
     # Nur aktualisieren wenn es echte Punkte gibt
     if base_increase >= 0:
         score += score_increase
-        
+
         # Change Score Label Text
         if(score_label != null):
             score_label.text = "Score: " + str(score)
