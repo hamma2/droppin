@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <!-- Comic Font style -->
+    <style>
+      .comic-text {
+        font-family: 'Impact', 'Arial Black', sans-serif;
+        font-weight: bold;
+        font-size: 35px;
+        fill: black;
+      }
+    </style>
+  </defs>
+
+  <!-- Burst/Star Shape Group -->
+  <g transform="translate(50, 50)">
+      <!-- Shadow (Offset & Scaled for depth) -->
+      <path d="M0 -45 L12 -25 L35 -30 L25 -10 L45 5 L20 15 L25 40 L5 25 L-10 42 L-20 20 L-40 25 L-25 5 L-45 -10 L-25 -20 L-30 -40 L-10 -30 Z"
+            fill="black" transform="translate(4, 4) scale(1.1)" />
+
+      <!-- Main Burst Body (Yellow #FFD700) -->
+      <path d="M0 -45 L12 -25 L35 -30 L25 -10 L45 5 L20 15 L25 40 L5 25 L-10 42 L-20 20 L-40 25 L-25 5 L-45 -10 L-25 -20 L-30 -40 L-10 -30 Z"
+            fill="#FFD700" stroke="black" stroke-width="3" stroke-linejoin="round" />
+
+      <!-- Highlight (White glint) -->
+      <path d="M-15 -35 L5 -25 L-5 -15" 
+            stroke="white" stroke-width="3" fill="none" opacity="0.8" stroke-linecap="round" />
+  </g>
+
+  <!-- Points Text -->
+  <!-- Change '500' to any number. text-anchor="middle" keeps it centered. -->
+  <text x="50" y="62" text-anchor="middle" class="comic-text">50</text>
+
+  <!-- Decorative Sparkles -->
+  <g stroke="black" stroke-width="2" fill="none">
+    <path d="M 85 15 L 95 15 M 90 10 L 90 20" /> 
+    <path d="M 10 80 L 20 80 M 15 75 L 15 85" />
+  </g>
+</svg>
