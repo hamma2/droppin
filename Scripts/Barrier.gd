@@ -48,7 +48,6 @@ func setup_barrier_shape(barrier: StaticBody2D, width: float, _barrierName: Stri
     var collision = CollisionShape2D.new()
     var shape = RectangleShape2D.new()
     shape.extents = Vector2(width / 2.0, barrier_height / 2.0)
-    print(Vector2(width / 2.0, barrier_height / 2.0))
     collision.shape = shape
     collision.position = Vector2(0, 0)
     barrier.add_child(collision)
