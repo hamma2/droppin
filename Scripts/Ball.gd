@@ -16,6 +16,8 @@ signal hit_ceiling
 # Input Methoden
 @export_enum("Keyboard", "Accelerometer", "Touch", "All") var input_method: int = 3
 
+@onready var sprite = $/root/PlayScene/Ball/CollisionShape2D/Sprite2D
+
 var touch_target_x: float = 0.0
 var is_touching: bool = false
 
@@ -62,6 +64,10 @@ func _physics_process(_delta):
     # Begrenze horizontale Geschwindigkeit
     if abs(linear_velocity.x) > max_horizontal_velocity:
         linear_velocity.x = sign(linear_velocity.x) * max_horizontal_velocity
+    
+    var speed = linear_velocity.length()
+    var deform = clamp(speed / 1000.0, 0.0, 0.2)
+    sprite.material.set_shader_parameter("deformation_amount", deform)
 
 func handle_movement():
     """Behandelt alle Input-Methoden"""

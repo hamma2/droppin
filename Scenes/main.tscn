@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b8vs5i2cdotn7"]
+[gd_scene load_steps=26 format=3 uid="uid://b8vs5i2cdotn7"]
 
 [ext_resource type="Script" uid="uid://dlwqdg3wounj1" path="res://Scripts/Ball.gd" id="1_ball"]
 [ext_resource type="Script" uid="uid://ckah43um0njug" path="res://Scripts/BarrierGenerator.gd" id="1_barrier_gen"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://jus1fh2bwsni" path="res://Scripts/WallCollider.gd" id="1_wall_collider"]
 [ext_resource type="Texture2D" uid="uid://dt4cegnvlvyvj" path="res://Textures/sky_postcard_theme/background.png" id="2_6iyac"]
 [ext_resource type="Texture2D" uid="uid://c6bn7noamm6la" path="res://Textures/Ball.svg" id="3_21xkr"]
+[ext_resource type="Shader" uid="uid://b7sauhxdac0gb" path="res://Shaders/deform_sprite.gdshader" id="4_jkdf5"]
 [ext_resource type="Texture2D" uid="uid://be4s4kn7jqpjp" path="res://Textures/sky_postcard_theme/clouds_new.svg" id="8_6iyac"]
 [ext_resource type="Texture2D" uid="uid://tffk20v1pdnv" path="res://Textures/sky_postcard_theme/Birds_parallax_near.png" id="8_344ge"]
 [ext_resource type="Texture2D" uid="uid://djmyf8lr71tha" path="res://Textures/sky_postcard_theme/clouds_new_2.svg" id="9_fdnlq"]
@@ -29,6 +30,10 @@ size = Vector2(897, 3)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ball"]
 radius = 60.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wsu2k"]
+shader = ExtResource("4_jkdf5")
+shader_parameter/deformation_amount = 0.0
 
 [sub_resource type="FontFile" id="FontFile_6iyac"]
 cache/0/16/0/ascent = 0.0
@@ -116,7 +121,7 @@ texture = ExtResource("2_6iyac")
 
 [node name="Ball" type="RigidBody2D" parent="."]
 z_index = 1
-position = Vector2(0, -366)
+position = Vector2(0, -365)
 mass = 0.3
 gravity_scale = 5.0
 continuous_cd = 2
@@ -128,6 +133,7 @@ script = ExtResource("1_ball")
 shape = SubResource("CircleShape2D_ball")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ball/CollisionShape2D"]
+material = SubResource("ShaderMaterial_wsu2k")
 position = Vector2(-1, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_21xkr")
