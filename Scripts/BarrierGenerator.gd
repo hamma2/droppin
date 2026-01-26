@@ -1,12 +1,14 @@
 extends Node2D
 class_name BarrierGenerator
 
-@export var gap_width_scale: float = 2.5
+@export var gap_width_scale: float = 3.0
 @export var barrier_height_scale: float = 0.7
 @export var spawn_interval_scale: float = 1.0
 @export var min_barriers: int = 10
 @export var barrier_spacing_scale: float = 0.3
 @export var extra_spawn_probability: float = 0.2
+@export var min_gap_x_scale: float = 0.06
+@export var max_gap_x_scale: float = 0.94
 
 var barrier_pair_scene = preload("res://Scenes/Barrier.tscn")
 var extra_item_scene = preload("res://Scenes/Extra.tscn")
@@ -45,8 +47,8 @@ func _ready():
     barrier_height = screen_size.y * 0.03 * barrier_height_scale
     screen_width = screen_size.x
     spawn_interval = 2.0 * spawn_interval_scale
-    min_gap_x = screen_size.x * 0.06
-    max_gap_x = screen_size.x * 0.94
+    min_gap_x = screen_size.x * min_gap_x_scale
+    max_gap_x = screen_size.x * max_gap_x_scale
     barrier_spacing = screen_size.y * barrier_spacing_scale
 
     ball = get_parent().find_child("Ball")
