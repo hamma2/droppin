@@ -1,12 +1,11 @@
 class_name LevelSettingsData extends Resource
 
 ## Datenklasse für Level Settings
+# BarrierGenerator Script
 ## Liste der ExtraData Objekte, die in diesem Level spawnen können
 @export var extra_data_list: Array[ExtraData] = []
 
 @export var level_name: String = "Level 1"
-
-@export var gravity_scale: float = 1.0
 
 @export var gap_width_scale: float = 3.0
 
@@ -14,10 +13,14 @@ class_name LevelSettingsData extends Resource
 
 @export var spawn_interval_scale: float = 1.0
 
-@export var base_speed: float = 350.0
+# BallCamera Script
+@export var gravity_scale: float = 1.0
 
 @export var speed_increase: float = 1.0  # Pixel pro Sekunde Erhöhung
 
+@export var base_speed: float = 350.0
+
+# Ball Script
 @export var ball_bounce: float = 0.56
 
 @export var ball_friction: float = 0.3
