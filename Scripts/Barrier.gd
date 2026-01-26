@@ -19,6 +19,8 @@ func setup_barriers():
     var barrierName: String = "LeftBarrier"
     left_barrier = create_barrier(barrierName)
     var left_width: float = gap_center_x - gap_width / 2 - viewport_left
+    if(left_width < 0):
+        left_width = 0 # Vermeide negative Breite
     left_barrier.position = Vector2(viewport_left + left_width / 2, 0)
     setup_barrier_shape(left_barrier, left_width, barrierName)
     add_child(left_barrier)
@@ -28,6 +30,8 @@ func setup_barriers():
     right_barrier = create_barrier(barrierName)
     var gap_end: float = gap_center_x + gap_width / 2
     var right_width: float = viewport_right - gap_end + 100.0  # dymanic based on resulution +100 pixel buffer für lückenlose Abdeckung
+    if(right_width < 0):
+        right_width = 0 # Vermeide negative Breite
     right_barrier.position = Vector2(gap_end + right_width / 2, 0)
     setup_barrier_shape(right_barrier, right_width, barrierName)
     add_child(right_barrier)
@@ -44,6 +48,7 @@ func setup_barrier_shape(barrier: StaticBody2D, width: float, _barrierName: Stri
     var collision = CollisionShape2D.new()
     var shape = RectangleShape2D.new()
     shape.extents = Vector2(width / 2.0, barrier_height / 2.0)
+    print(Vector2(width / 2.0, barrier_height / 2.0))
     collision.shape = shape
     collision.position = Vector2(0, 0)
     barrier.add_child(collision)
