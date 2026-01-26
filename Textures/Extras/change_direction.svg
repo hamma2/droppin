@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Speed/Action Lines (Motion effect) -->
+  <g stroke="black" stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M 10 70 Q 5 50 15 30" />
+    <path d="M 5 60 Q 0 45 10 35" />
+  </g>
+
+  <!-- Arrow Shadow (Solid Black for Pop Art look) -->
+  <path d="M 30 90 L 30 50 Q 30 20 60 20 L 70 20 L 70 10 L 95 35 L 70 60 L 70 50 L 60 50 Q 50 50 50 60 L 50 90 Z" 
+        fill="black" transform="translate(4, 4)" />
+
+  <!-- Main Arrow Body -->
+  <path d="M 30 90 L 30 50 Q 30 20 60 20 L 70 20 L 70 10 L 95 35 L 70 60 L 70 50 L 60 50 Q 50 50 50 60 L 50 90 Z" 
+        fill="#FFD700" stroke="black" stroke-width="3" stroke-linejoin="round" />
+
+  <!-- Comic Highlight (White glint) -->
+  <path d="M 35 85 L 35 55 Q 35 28 55 28 L 65 28" 
+        stroke="white" stroke-width="3" fill="none" opacity="0.8" stroke-linecap="round" />
+</svg>

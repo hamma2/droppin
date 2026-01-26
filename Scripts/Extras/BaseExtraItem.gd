@@ -12,8 +12,8 @@ signal destroyed(extra_item: ExtraItem)
 
 @export var movement_speed: float = 150.0
 
-var extra_data: ExtraData  ## ExtraData
-var direction: int = 1  ## 1 für rechts, -1 für links
+var extra_data: ExtraData ## ExtraData
+var direction: int = 1 # 1 für rechts, -1 für links
 var viewport_left: float = 0.0
 var viewport_right: float = 0.0
 var is_collected: bool = false
@@ -41,6 +41,9 @@ func set_extra_data(data: Resource) -> void:
             $Sprite2D.modulate = extra_data.color
             $Sprite2D.scale = Vector2.ONE * extra_data.scale_factor
 
+    if extra_data.collect_animation != null:
+        extra_data.collect_animation.connect("animation_finished", Callable(self, "_on_animation_finished"))
+
 func set_viewport_bounds(left: float, right: float) -> void:
     """Setzt die Grenzen für horizontale Bewegung"""
     viewport_left = left
@@ -66,8 +69,20 @@ func _physics_process(_delta: float) -> void:
     # Richtung wechseln wenn Viewport-Grenze erreicht
     if position.x <= viewport_left:
         direction = 1
+        if(extra_data.rotation_change != 0.0):
+            rotate_deg(extra_data.rotation_change)
     elif position.x >= viewport_right:
         direction = -1
+        if(extra_data.rotation_change != 0.0):
+            rotate_deg(extra_data.rotation_change)
+
+func rotate_deg(_deg):
+    # Create a tween that exists for this node
+    var tween = create_tween()
+    # Rotate 180 degrees over 1 second
+    tween.tween_property(self, "rotation_degrees", _deg, 1.0)
+    # Set easing for smoother animation
+    tween.set_ease(Tween.EASE_IN_OUT)
 
 func _on_area_entered(body: Node) -> void:
     """Wird aufgerufen wenn der Ball dieses Extra trifft"""
@@ -88,8 +103,11 @@ func collect() -> void:
     # Rufe die Effekt-Funktion auf
     apply_effect()
 
-    # Zerstöre das Item
-    queue_free()
+    # Play the death animation
+    if extra_data.collect_animation != null:
+        extra_data.animation.play("death")
+    else:
+        queue_free()
 
 func destroy_without_effect() -> void:
     """Zerstört das Extra ohne Effekt auszulösen (z.B. wenn Decke getroffen wird)"""
@@ -99,6 +117,13 @@ func destroy_without_effect() -> void:
     is_collected = true
     destroyed.emit(self)
     queue_free()
+
+# This function is automatically called when any animation finishes playing
+func _on_animation_finished():
+    # Ensure it is the correct animation that finished
+    if extra_data.animation == "death":
+        # Delete the object from the scene tree
+        queue_free()
 
 func apply_effect() -> void:
     """Abstrakte Effekt-Funktion - wird von abgeleiteten Klassen überschrieben oder von außen genutzt"""

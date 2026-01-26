@@ -23,6 +23,12 @@ class_name ExtraData extends Resource
 ## Zusätzliche Dauer für zeitbasierte Effekte
 @export var duration: float = 1.0
 
+# Rotation des Extras wird geändert beim Treffen der Wand
+@export var rotation_change: float = 0.0
+
+# Animation called after collection
+@export var collect_animation: Animation = null
+
 func _init(p_effect_type: String = "generic", p_effect_strength: float = 1.0, 
            p_color: Color = Color.WHITE, p_texture: Texture2D = null, 
            p_scale: float = 1.0, p_probability: float = 0.3, p_duration: float = 1.0) -> void:
