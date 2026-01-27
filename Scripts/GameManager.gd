@@ -49,7 +49,7 @@ func _ready():
         barrier_generator.gap_width_scale = levelSettings.gap_width_scale
         barrier_generator.barrier_spacing_scale = levelSettings.barrier_spacing_scale
         barrier_generator.spawn_interval_scale = levelSettings.spawn_interval_scale
-        barrier_generator.available_extra_types = levelSettings.extra_data_list
+        barrier_generator.available_extra_types = (levelSettings.extra_data_list)
 
     if ball != null and levelSettings != null:
         ball.gravity_scale_factor = levelSettings.gravity_scale
@@ -58,7 +58,6 @@ func _ready():
 
     if camera != null and levelSettings != null:
         camera.base_speed = levelSettings.base_speed
-        print(camera.base_speed)
         camera.speed_increase = levelSettings.speed_increase
 
 func _physics_process(_delta):

@@ -39,7 +39,7 @@ var viewport_center: Vector2
 var barrier_spacing: float
 
 # Extra-System-Variablen
-var available_extra_types: Array = []
+var available_extra_types: Array[ExtraData] = []
 
 func _ready():
     screen_size = get_viewport_rect().size
@@ -62,9 +62,6 @@ func _ready():
     viewport_center = camera.get_viewport_center() if camera else Vector2.ZERO
     # Initialize last_spawn_y so first barrier spawns at a consistent position
     last_spawn_y = viewport_center.y + screen_size.y
-
-    # Initialisiere verfügbare Extra-Typen
-    setup_extra_types()
 
     # Spawne initiale Barrieren-Paare mit konsistantem Abstand
     for i in range(min_barriers):
@@ -131,22 +128,15 @@ func count_barriers_below_camera() -> int:
             count += 1
     return count
 
-func setup_extra_types() -> void:
-    """Initialisiert die verfügbaren Extra-Typen"""
-    available_extra_types = [
-        extra_50_points,
-        extra_2_multiply_points,
-        extra_direction_item,
-        # ExtraData.new("shield", 5.0, Color.CYAN, null, 1.0, 0.25),
-        # ExtraData.new("speed_boost", 3.0, Color.YELLOW, null, 1.0, 0.25),
-    ]
-
 func spawn_extra_randomly(barrier_y: float) -> void:
     """Spawnt ein zufälliges Extra-Item mit den Barrieren"""
     var viewport_left = viewport_center.x - screen_width / 2
     var viewport_right = viewport_center.x + screen_width / 2
 
     # Wähle einen zufälligen Extra-Typ
+    if(available_extra_types.size() == 0):
+        return
+
     var extra_data = available_extra_types[randi() % available_extra_types.size()]
 
     # Entscheide ob dieses Extra spawnt
