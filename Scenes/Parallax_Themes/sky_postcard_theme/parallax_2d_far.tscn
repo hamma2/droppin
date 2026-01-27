@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://nsvi2l2l75tw"]
+
+[ext_resource type="Texture2D" uid="uid://be4s4kn7jqpjp" path="res://Textures/sky_postcard_theme/clouds_new.svg" id="1_p8j1i"]
+
+[node name="Parallax2D_Far" type="Parallax2D"]
+z_index = -6
+scroll_scale = Vector2(1, 0.25)
+scroll_offset = Vector2(-839, -516)
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(2, -2)
+repeat_times = 12
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p8j1i")

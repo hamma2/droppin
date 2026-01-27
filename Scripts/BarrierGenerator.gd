@@ -10,17 +10,19 @@ class_name BarrierGenerator
 @export var min_gap_x_scale: float = 0.06
 @export var max_gap_x_scale: float = 0.94
 
-var barrier_pair_scene = preload("res://Scenes/Barrier.tscn")
-var extra_item_scene = preload("res://Scenes/Extra.tscn")
+const barrier_pair_scene = preload("res://Scenes/Barrier.tscn")
+const extra_item_scene = preload("res://Scenes/Extra.tscn")
+
+var barrier_texture: Texture2D = preload("res://Textures/sky_postcard_theme/grass_barrier_final.svg")
+var small_barrier_deco_texture: Texture2D = preload("res://Textures/sky_postcard_theme/small_grass.svg")
+var large_barrier_deco_texture: Texture2D = preload("res://Textures/sky_postcard_theme/larger_deco_grass.svg")
+var special_barrier_deco_texture: Texture2D = preload("res://Textures/sky_postcard_theme/cactus.svg")
 
 # points extra
-var extra_50_points = preload("res://StaticData/Extras/Points/50_points.tres")
-var extra_2_multiply_points = preload("res://StaticData/Extras/Points/2_multiply_points.tres")
-var extra_item_points_script = preload("res://Scripts/Extras/Points/PointsItem.gd")
+const extra_item_points_script = preload("res://Scripts/Extras/Points/PointsItem.gd")
 
 # change direction extra
-var extra_direction_item = preload("res://StaticData/Extras/Direction/change_direction_5_seconds.tres")
-var extra_item_direction_script = preload("res://Scripts/Extras/Direction/DirectionItem.gd")
+const extra_item_direction_script = preload("res://Scripts/Extras/Direction/DirectionItem.gd")
 
 var time_since_last_spawn: float = 0.0
 var barrier_pairs: Array = []
@@ -63,6 +65,9 @@ func _ready():
     # Initialize last_spawn_y so first barrier spawns at a consistent position
     last_spawn_y = viewport_center.y + screen_size.y
 
+    # Wait theme settings to set: specifically barrier textures
+    # make sure BarrierGenerator is below the GameManager Node in the scene tree
+    await get_parent().get_node("GameManager").ready
     # Spawne initiale Barrieren-Paare mit konsistantem Abstand
     for i in range(min_barriers):
         spawn_barrier_pair()
@@ -100,6 +105,11 @@ func spawn_barrier_pair():
     pair.barrier_height = barrier_height
     pair.viewport_left = viewport_left
     pair.viewport_right = viewport_right
+
+    pair.barrier_texture = barrier_texture
+    pair.small_barrier_deco_texture = small_barrier_deco_texture
+    pair.large_barrier_deco_texture = large_barrier_deco_texture
+    pair.special_barrier_deco_texture = special_barrier_deco_texture
 
     add_child(pair)
     barrier_pairs.append(pair)

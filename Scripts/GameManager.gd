@@ -11,8 +11,8 @@ var points_to_add: int = 0
 var prev_y_position: float = 0.0
 
 # Reference to your ScoreLabel node
-@onready var score_label: Label = $/root/PlayScene/CanvasLayer/Control/ScoreLabel
-@onready var restartButton: Button = $/root/PlayScene/CanvasLayer/Control/RestartButton
+var score_label: Label = null
+var restartButton: Button = null
 
 var game_active: bool = true
 
@@ -41,8 +41,54 @@ func _ready():
         ball.connect("hit_ceiling", Callable(self, "_on_ball_hit_ceiling"))
         prev_y_position = ball.position.y
 
-    restartButton.pressed.connect(self._on_restart_button_pressed)
-    restartButton.visible = false
+    # set level theme
+    if themeSettings != null:
+        # set background texture
+        var background: Sprite2D = get_parent().find_child("Background_Sprite")
+        if background != null and themeSettings.background_texture != null:
+            background.texture = themeSettings.background_texture
+
+        # UI instantiation, is needed
+        var ui_scene_instance: Node = themeSettings.ui_scene.instantiate()
+        if ui_scene_instance != null:
+            add_child(ui_scene_instance)
+            restartButton = ui_scene_instance.find_child("RestartButton")
+            score_label = ui_scene_instance.find_child("ScoreLabel")
+
+        # instantiate parallax layers
+        # not needed to use all of the 5 prototypes, so check for null
+        if(themeSettings.parallax_layer_1 != null):
+            add_child(themeSettings.parallax_layer_1.instantiate())
+        if(themeSettings.parallax_layer_2 != null):
+            add_child(themeSettings.parallax_layer_2.instantiate())
+        if(themeSettings.parallax_layer_3 != null):
+            add_child(themeSettings.parallax_layer_3.instantiate())
+        if(themeSettings.parallax_layer_4 != null):
+            add_child(themeSettings.parallax_layer_4.instantiate())
+        if(themeSettings.parallax_layer_5 != null):
+            add_child(themeSettings.parallax_layer_5.instantiate())
+
+        # set ball texture
+        if ball != null and themeSettings.ball_texture != null:
+            var ball_sprite: Sprite2D = ball.find_child("Sprite2D")
+            if ball_sprite != null:
+                ball_sprite.texture = themeSettings.ball_texture
+
+        # set barrier theme
+        if barrier_generator != null:
+            if themeSettings.barrier_sprite != null:
+                barrier_generator.barrier_texture = themeSettings.barrier_sprite
+            if themeSettings.small_barrier_decoration != null:
+                barrier_generator.small_barrier_deco_texture = themeSettings.small_barrier_decoration
+            if themeSettings.large_barrier_decoration != null:
+                barrier_generator.large_barrier_deco_texture = themeSettings.large_barrier_decoration
+            if themeSettings.special_barrier_decoration != null:
+                barrier_generator.special_barrier_deco_texture = themeSettings.special_barrier_decoration
+
+
+    if restartButton != null:
+        restartButton.pressed.connect(self._on_restart_button_pressed)
+        restartButton.visible = false
 
     # set level settings
     if barrier_generator != null and levelSettings != null:
@@ -113,7 +159,9 @@ func reset_game():
     if(score_label != null):
             score_label.text = "Score: 0"
 
-    restartButton.visible = false
+    if restartButton != null:
+        restartButton.visible = false
+
     get_tree().reload_current_scene()
 
 func increase_difficulty():
@@ -127,7 +175,8 @@ func _on_ball_hit_ceiling():
     if end_game_on_ceiling_hit:
         print("Game Over! Ball hat die Decke getroffen! Score: ", score)
         game_over()
-        restartButton.visible = true
+        if restartButton != null:
+            restartButton.visible = true
     else:
         print("Ball hat die Decke getroffen (testing mode - kein Game Over)")
 

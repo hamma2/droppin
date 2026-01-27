@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://rgs1g6gtgcjc"]
+
+[ext_resource type="Texture2D" uid="uid://tffk20v1pdnv" path="res://Textures/sky_postcard_theme/Birds_parallax_near.png" id="1_jrrjj"]
+
+[node name="Parallax2D_near_2" type="Parallax2D"]
+z_index = -5
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(0, -1000)
+repeat_size = Vector2(512, 4096)
+autoscroll = Vector2(-40, -60)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jrrjj")

@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="LevelThemeData" load_steps=2 format=3 uid="uid://kl0ygsan1e56"]
-
-[ext_resource type="Script" uid="uid://ba2pa5g06iynk" path="res://Scripts/Resources/LevelThemeData.gd" id="1_cd1mw"]
-
-[resource]
-script = ExtResource("1_cd1mw")
-metadata/_custom_type_script = "uid://ba2pa5g06iynk"

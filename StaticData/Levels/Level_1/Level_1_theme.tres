@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="LevelThemeData" load_steps=14 format=3 uid="uid://kl0ygsan1e56"]
+
+[ext_resource type="Texture2D" uid="uid://dt4cegnvlvyvj" path="res://Textures/sky_postcard_theme/background.png" id="1_4cv46"]
+[ext_resource type="Texture2D" uid="uid://cewkx3ul5drwt" path="res://Textures/sky_postcard_theme/larger_deco_grass.svg" id="1_thfs6"]
+[ext_resource type="Texture2D" uid="uid://c6bn7noamm6la" path="res://Textures/Ball.svg" id="2_thfs6"]
+[ext_resource type="Script" uid="uid://ba2pa5g06iynk" path="res://Scripts/Resources/LevelThemeData.gd" id="2_tqkuj"]
+[ext_resource type="PackedScene" uid="uid://nsvi2l2l75tw" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_far.tscn" id="3_eevll"]
+[ext_resource type="Texture2D" uid="uid://bt2ij5jssdset" path="res://Textures/sky_postcard_theme/grass_barrier_final.svg" id="3_lkgm3"]
+[ext_resource type="PackedScene" uid="uid://cx47dkjaftn5f" path="res://Scenes/Parallax_Themes/ui.tscn" id="3_tqkuj"]
+[ext_resource type="PackedScene" uid="uid://c3olypljywkl7" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_far_2.tscn" id="4_lkgm3"]
+[ext_resource type="PackedScene" uid="uid://cuj7aprncvk1h" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_near.tscn" id="5_gaw4f"]
+[ext_resource type="PackedScene" uid="uid://rgs1g6gtgcjc" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_near_2.tscn" id="6_jt44n"]
+[ext_resource type="PackedScene" uid="uid://bun5twiig1ujh" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_near_3.tscn" id="7_0b1tv"]
+[ext_resource type="Texture2D" uid="uid://dn6b3ll0tdolr" path="res://Textures/sky_postcard_theme/small_grass.svg" id="11_0b1tv"]
+[ext_resource type="Texture2D" uid="uid://w3earcnjr2yi" path="res://Textures/sky_postcard_theme/cactus.svg" id="12_706mc"]
+
+[resource]
+script = ExtResource("2_tqkuj")
+background_texture = ExtResource("1_4cv46")
+parallax_layer_1 = ExtResource("3_eevll")
+parallax_layer_2 = ExtResource("4_lkgm3")
+parallax_layer_3 = ExtResource("5_gaw4f")
+parallax_layer_4 = ExtResource("6_jt44n")
+parallax_layer_5 = ExtResource("7_0b1tv")
+ball_texture = ExtResource("2_thfs6")
+barrier_sprite = ExtResource("3_lkgm3")
+small_barrier_decoration = ExtResource("11_0b1tv")
+large_barrier_decoration = ExtResource("1_thfs6")
+special_barrier_decoration = ExtResource("12_706mc")
+ui_scene = ExtResource("3_tqkuj")
+metadata/_custom_type_script = "uid://ba2pa5g06iynk"

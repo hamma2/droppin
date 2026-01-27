@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b8vs5i2cdotn7"]
+[gd_scene load_steps=24 format=3 uid="uid://b8vs5i2cdotn7"]
 
 [ext_resource type="Script" uid="uid://dlwqdg3wounj1" path="res://Scripts/Ball.gd" id="1_ball"]
 [ext_resource type="Script" uid="uid://ckah43um0njug" path="res://Scripts/BarrierGenerator.gd" id="1_barrier_gen"]
@@ -8,14 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://dt4cegnvlvyvj" path="res://Textures/sky_postcard_theme/background.png" id="2_6iyac"]
 [ext_resource type="Texture2D" uid="uid://c6bn7noamm6la" path="res://Textures/Ball.svg" id="3_21xkr"]
 [ext_resource type="Shader" uid="uid://b7sauhxdac0gb" path="res://Shaders/deform_sprite.gdshader" id="4_jkdf5"]
-[ext_resource type="Texture2D" uid="uid://be4s4kn7jqpjp" path="res://Textures/sky_postcard_theme/clouds_new.svg" id="8_6iyac"]
-[ext_resource type="Texture2D" uid="uid://tffk20v1pdnv" path="res://Textures/sky_postcard_theme/Birds_parallax_near.png" id="8_344ge"]
-[ext_resource type="Resource" uid="uid://bqx7tei56wsey" path="res://StaticData/Levels/Level_1_settings.tres" id="8_k12tt"]
-[ext_resource type="Texture2D" uid="uid://djmyf8lr71tha" path="res://Textures/sky_postcard_theme/clouds_new_2.svg" id="9_fdnlq"]
-[ext_resource type="Resource" uid="uid://kl0ygsan1e56" path="res://StaticData/Levels/Level_1_theme.tres" id="9_h1bgf"]
-[ext_resource type="Texture2D" uid="uid://oqqx4qbk8bgq" path="res://Textures/sky_postcard_theme/kites.png" id="9_hptm8"]
-[ext_resource type="Texture2D" uid="uid://cdqxle6dbhctv" path="res://Textures/sky_postcard_theme/ballons.png" id="11_d1ilt"]
+[ext_resource type="Resource" uid="uid://bqx7tei56wsey" path="res://StaticData/Levels/Level_1/Level_1_settings.tres" id="8_k12tt"]
+[ext_resource type="Resource" uid="uid://kl0ygsan1e56" path="res://StaticData/Levels/Level_1/Level_1_theme.tres" id="9_h1bgf"]
+[ext_resource type="PackedScene" uid="uid://nsvi2l2l75tw" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_far.tscn" id="11_k12tt"]
 [ext_resource type="Script" uid="uid://dkik1n3mb42km" path="res://Scripts/Extras/Effects.gd" id="12_6iyac"]
+[ext_resource type="PackedScene" uid="uid://cuj7aprncvk1h" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_near.tscn" id="12_k12tt"]
+[ext_resource type="PackedScene" uid="uid://rgs1g6gtgcjc" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_near_2.tscn" id="13_h1bgf"]
+[ext_resource type="PackedScene" uid="uid://bun5twiig1ujh" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_near_3.tscn" id="14_b3802"]
+[ext_resource type="PackedScene" uid="uid://c3olypljywkl7" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_far_2.tscn" id="15_fevyy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_21xkr"]
 
@@ -36,58 +36,6 @@ radius = 60.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wsu2k"]
 shader = ExtResource("4_jkdf5")
 shader_parameter/deformation_amount = 0.0
-
-[sub_resource type="FontFile" id="FontFile_6iyac"]
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/20/0/ascent = 0.0
-cache/0/20/0/descent = 0.0
-cache/0/20/0/underline_position = 0.0
-cache/0/20/0/underline_thickness = 0.0
-cache/0/20/0/scale = 1.0
-cache/0/100/0/ascent = 0.0
-cache/0/100/0/descent = 0.0
-cache/0/100/0/underline_position = 0.0
-cache/0/100/0/underline_thickness = 0.0
-cache/0/100/0/scale = 1.0
-cache/0/50/0/ascent = 0.0
-cache/0/50/0/descent = 0.0
-cache/0/50/0/underline_position = 0.0
-cache/0/50/0/underline_thickness = 0.0
-cache/0/50/0/scale = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_6iyac"]
-line_spacing = 0.0
-font = SubResource("FontFile_6iyac")
-font_size = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6iyac"]
-bg_color = Color(0.18790853, 0.24950421, 0.67179877, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.5755984, 0.84345067, 0.9695477, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkdf5"]
-bg_color = Color(0.3004733, 0.49280232, 0.74073035, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.30372253, 0.5175271, 0.5359978, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [node name="PlayScene" type="Node2D"]
 
@@ -116,7 +64,7 @@ scale = Vector2(1, 10)
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_21xkr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+[node name="Background_Sprite" type="Sprite2D" parent="Camera2D"]
 z_index = -7
 position = Vector2(-2, -4)
 texture = ExtResource("2_6iyac")
@@ -140,101 +88,32 @@ position = Vector2(-1, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_21xkr")
 
-[node name="BarrierGenerator" type="Node2D" parent="."]
-position = Vector2(-8, 0)
-script = ExtResource("1_barrier_gen")
-
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_game_manager")
 levelSettings = ExtResource("8_k12tt")
 themeSettings = ExtResource("9_h1bgf")
 
+[node name="BarrierGenerator" type="Node2D" parent="."]
+position = Vector2(-8, 0)
+script = ExtResource("1_barrier_gen")
+
 [node name="WallCollider" type="Node2D" parent="."]
 script = ExtResource("1_wall_collider")
 
-[node name="Parallax2D_Far" type="Parallax2D" parent="."]
-z_index = -6
-scroll_scale = Vector2(1, 0.25)
-scroll_offset = Vector2(-839, -516)
-repeat_size = Vector2(1024, 1024)
-autoscroll = Vector2(2, -2)
-repeat_times = 12
+[node name="Parallax2D_Far" parent="." instance=ExtResource("11_k12tt")]
+visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D_Far"]
-texture = ExtResource("8_6iyac")
+[node name="Parallax2D_near" parent="." instance=ExtResource("12_k12tt")]
+visible = false
 
-[node name="Parallax2D_near" type="Parallax2D" parent="."]
-z_index = -4
-scroll_offset = Vector2(0, -400)
-repeat_size = Vector2(1024, 2048)
-autoscroll = Vector2(-40, -150)
+[node name="Parallax2D_near_2" parent="." instance=ExtResource("13_h1bgf")]
+visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D_near"]
-position = Vector2(1, 0)
-texture = ExtResource("9_hptm8")
+[node name="Parallax2D_near_3" parent="." instance=ExtResource("14_b3802")]
+visible = false
 
-[node name="Parallax2D_near_2" type="Parallax2D" parent="."]
-z_index = -5
-scroll_scale = Vector2(0.5, 0.5)
-scroll_offset = Vector2(0, -1000)
-repeat_size = Vector2(512, 4096)
-autoscroll = Vector2(-40, -60)
-repeat_times = 5
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D_near_2"]
-texture = ExtResource("8_344ge")
-
-[node name="Parallax2D_near_3" type="Parallax2D" parent="."]
-z_index = -4
-scroll_offset = Vector2(0, 1000)
-repeat_size = Vector2(1024, 4096)
-autoscroll = Vector2(40, -100)
-repeat_times = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D_near_3"]
-texture = ExtResource("11_d1ilt")
-
-[node name="Parallax2D_Far_2" type="Parallax2D" parent="."]
-z_index = -6
-scroll_scale = Vector2(1, 0.25)
-scroll_offset = Vector2(-824, -934)
-repeat_size = Vector2(1024, 1024)
-autoscroll = Vector2(5, -3)
-repeat_times = 12
-
-[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D_Far_2"]
-position = Vector2(-557, -190)
-texture = ExtResource("9_fdnlq")
+[node name="Parallax2D_Far_2" parent="." instance=ExtResource("15_fevyy")]
+visible = false
 
 [node name="EffectScript" type="Node" parent="."]
 script = ExtResource("12_6iyac")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 3
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="ScoreLabel" type="Label" parent="CanvasLayer/Control"]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 51.0
-offset_top = 45.0
-offset_right = 238.0
-offset_bottom = 96.0
-text = "Score: 0"
-label_settings = SubResource("LabelSettings_6iyac")
-
-[node name="RestartButton" type="Button" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 256.0
-offset_top = 350.0
-offset_right = 491.0
-offset_bottom = 462.0
-theme_override_font_sizes/font_size = 49
-theme_override_styles/normal = SubResource("StyleBoxFlat_6iyac")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_jkdf5")
-text = "Restart"

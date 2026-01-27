@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuj7aprncvk1h"]
+
+[ext_resource type="Texture2D" uid="uid://oqqx4qbk8bgq" path="res://Textures/sky_postcard_theme/kites.png" id="1_nhsal"]
+
+[node name="Parallax2D_near" type="Parallax2D"]
+z_index = -4
+scroll_offset = Vector2(0, -400)
+repeat_size = Vector2(1024, 2048)
+autoscroll = Vector2(-40, -150)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("1_nhsal")

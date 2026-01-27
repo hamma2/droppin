@@ -10,6 +10,11 @@ var right_barrier: StaticBody2D
 var viewport_left: float
 var viewport_right: float
 
+var barrier_texture: Texture2D = null
+var small_barrier_deco_texture: Texture2D = null
+var large_barrier_deco_texture: Texture2D = null
+var special_barrier_deco_texture: Texture2D = null
+
 func _ready():
     setup_barriers()
 
@@ -76,8 +81,7 @@ func setup_barrier_shape(barrier: StaticBody2D, width: float, _barrierName: Stri
 
     # Add Sprite for visual representation
     var textRect = TextureRect.new()
-    var texture = preload("res://Textures/sky_postcard_theme/grass_barrier_final.svg")
-    textRect.texture = texture
+    textRect.texture = barrier_texture
     textRect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
     textRect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
     #textRect.position = Vector2(-width/2, -barrier_height/2)
@@ -87,10 +91,6 @@ func setup_barrier_shape(barrier: StaticBody2D, width: float, _barrierName: Stri
     panelContainer.add_child(textRect)
 
     # random placement of grass sprites on top of the barrier
-    var small_grass_deco_texture = preload("res://Textures/sky_postcard_theme/small_grass.svg")
-    var large_grass_deco_texture = preload("res://Textures/sky_postcard_theme/larger_deco_grass.svg")
-    var cactus_deco_texture = preload("res://Textures/sky_postcard_theme/cactus.svg")
-
     var grass_count = int(width / 200)
     for i in range(grass_count):
         var rand_x_pos: float = randf() * width - width / 2
@@ -104,13 +104,13 @@ func setup_barrier_shape(barrier: StaticBody2D, width: float, _barrierName: Stri
         var grass_sprite = Sprite2D.new()
         var rand_val: float = randf()
         if(rand_val < 0.9 && rand_val >= 0.5):
-            grass_sprite.texture = large_grass_deco_texture
+            grass_sprite.texture = large_barrier_deco_texture
             rand_y_pos -= 10 # größere Grasdeko etwas höher positionieren
         if(rand_val >= 0.9):
-            grass_sprite.texture = cactus_deco_texture
+            grass_sprite.texture = special_barrier_deco_texture
             rand_y_pos -= 20  # cactus etwas höher positionieren
         if(rand_val < 0.5):
-            grass_sprite.texture = small_grass_deco_texture
+            grass_sprite.texture = small_barrier_deco_texture
             rand_y_pos -= 5 # kleinere Grasdeko etwas höher positionieren
         grass_sprite.z_index = -1
         grass_sprite.position = Vector2(rand_x_pos, rand_y_pos)

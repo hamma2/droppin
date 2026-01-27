@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bun5twiig1ujh"]
+
+[ext_resource type="Texture2D" uid="uid://cdqxle6dbhctv" path="res://Textures/sky_postcard_theme/ballons.png" id="1_mk0f0"]
+
+[node name="Parallax2D_near_3" type="Parallax2D"]
+z_index = -4
+scroll_offset = Vector2(0, 1000)
+repeat_size = Vector2(1024, 4096)
+autoscroll = Vector2(40, -100)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mk0f0")
