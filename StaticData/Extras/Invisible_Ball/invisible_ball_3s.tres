@@ -5,7 +5,10 @@
 
 [resource]
 script = ExtResource("1_h8mgb")
+blink_times = 3
+visible_duration = 0.3
 effect_type = "invisible_ball"
+color = Color(1, 0.1882353, 1, 1)
 texture = ExtResource("2_phu73")
-spawn_probability = 1.0
+spawn_probability = 0.2
 metadata/_custom_type_script = "uid://bjwr2gll2e65f"

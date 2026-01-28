@@ -5,6 +5,11 @@
 
 [resource]
 script = ExtResource("1_t4b1d")
+effect_invisible_duration = 2.0
+blink_times = 3
+visible_duration = 0.3
 effect_type = "invisible_barriers"
+color = Color(1, 0.1882353, 1, 1)
 texture = ExtResource("2_cg0o2")
+spawn_probability = 0.2
 metadata/_custom_type_script = "uid://csjx8kfhk2ncm"

@@ -6,6 +6,8 @@
 [resource]
 script = ExtResource("1_0wtek")
 effect_type = "direction"
+color = Color(1, 0.1882353, 1, 1)
 texture = ExtResource("2_bdrvj")
+spawn_probability = 0.2
 duration = 5.0
 rotation_change = 360.0
