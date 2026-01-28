@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx47dkjaftn5f"]
+[gd_scene load_steps=7 format=3 uid="uid://cx47dkjaftn5f"]
 
 [ext_resource type="Script" uid="uid://bhfmqm2goh7pw" path="res://Scripts/ui/score_label.gd" id="1_6beja"]
+[ext_resource type="Script" uid="uid://bjxq5vt0u5lb0" path="res://Scripts/ui/RestartButton.gd" id="2_ttokp"]
 
 [sub_resource type="FontFile" id="FontFile_6iyac"]
 subpixel_positioning = 0
@@ -87,3 +88,4 @@ theme_override_font_sizes/font_size = 49
 theme_override_styles/normal = SubResource("StyleBoxFlat_6iyac")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_jkdf5")
 text = "Restart"
+script = ExtResource("2_ttokp")

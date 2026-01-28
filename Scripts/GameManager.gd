@@ -7,6 +7,7 @@ var camera: Camera2D
 
 # Define a signal that sends the new score value
 signal score_changed(new_score: int)
+signal game_over_signal()
 
 var score: int = 0:
     set(value):
@@ -17,10 +18,6 @@ var score: int = 0:
 var score_mutiplier: float = 1.0
 var points_to_add: int = 0
 var prev_y_position: float = 0.0
-
-# Reference to your ScoreLabel node
-var score_label: Label = null
-var restartButton: Button = null
 
 var game_active: bool = true
 
@@ -60,8 +57,6 @@ func _ready():
         var ui_scene_instance: Node = themeSettings.ui_scene.instantiate()
         if ui_scene_instance != null:
             add_child(ui_scene_instance)
-            restartButton = ui_scene_instance.find_child("RestartButton")
-            score_label = ui_scene_instance.find_child("ScoreLabel")
 
         # instantiate parallax layers
         # not needed to use all of the 5 prototypes, so check for null
@@ -92,11 +87,6 @@ func _ready():
                 barrier_generator.large_barrier_deco_texture = themeSettings.large_barrier_decoration
             if themeSettings.special_barrier_decoration != null:
                 barrier_generator.special_barrier_deco_texture = themeSettings.special_barrier_decoration
-
-
-    if restartButton != null:
-        restartButton.pressed.connect(self._on_restart_button_pressed)
-        restartButton.visible = false
 
     # set level settings
     if barrier_generator != null and levelSettings != null:
@@ -147,6 +137,7 @@ func game_over():
     """Beendet das Spiel"""
     game_active = false
     print("Game Over! Score: ", score)
+    game_over_signal.emit()
     get_tree().paused = true
 
 func reset_game():
@@ -163,9 +154,6 @@ func reset_game():
             barrier.queue_free()
         barrier_generator.barrier_pairs.clear()
 
-    if restartButton != null:
-        restartButton.visible = false
-
     get_tree().reload_current_scene()
 
 func increase_difficulty():
@@ -179,12 +167,5 @@ func _on_ball_hit_ceiling():
     if end_game_on_ceiling_hit:
         print("Game Over! Ball hat die Decke getroffen! Score: ", score)
         game_over()
-        if restartButton != null:
-            restartButton.visible = true
     else:
         print("Ball hat die Decke getroffen (testing mode - kein Game Over)")
-
-func _on_restart_button_pressed():
-    """Wird aufgerufen, wenn der Neustart-Button gedrückt wird"""
-    print("Neustart des Spiels...")
-    reset_game()
