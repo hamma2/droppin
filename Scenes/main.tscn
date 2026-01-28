@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b8vs5i2cdotn7"]
+[gd_scene format=3 uid="uid://b8vs5i2cdotn7"]
 
 [ext_resource type="Script" uid="uid://dlwqdg3wounj1" path="res://Scripts/Ball.gd" id="1_ball"]
 [ext_resource type="Script" uid="uid://ckah43um0njug" path="res://Scripts/BarrierGenerator.gd" id="1_barrier_gen"]
@@ -37,39 +37,39 @@ radius = 60.0
 shader = ExtResource("4_jkdf5")
 shader_parameter/deformation_amount = 0.0
 
-[node name="PlayScene" type="Node2D"]
+[node name="PlayScene" type="Node2D" unique_id=1369383225]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1219982971]
 script = ExtResource("1_camera")
 
-[node name="LeftWall" type="StaticBody2D" parent="Camera2D"]
+[node name="LeftWall" type="StaticBody2D" parent="Camera2D" unique_id=922992]
 position = Vector2(-414, 0)
 physics_material_override = SubResource("PhysicsMaterial_21xkr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/LeftWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/LeftWall" unique_id=314009096]
 shape = SubResource("RectangleShape2D_left_wall")
 
-[node name="RightWall" type="StaticBody2D" parent="Camera2D"]
+[node name="RightWall" type="StaticBody2D" parent="Camera2D" unique_id=643847961]
 position = Vector2(416, 0)
 physics_material_override = SubResource("PhysicsMaterial_6bp64")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/RightWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/RightWall" unique_id=2061942883]
 shape = SubResource("RectangleShape2D_right_wall")
 
-[node name="Ceiling" type="StaticBody2D" parent="Camera2D"]
+[node name="Ceiling" type="StaticBody2D" parent="Camera2D" unique_id=980546763]
 position = Vector2(0, -600)
 scale = Vector2(1, 10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Ceiling"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Ceiling" unique_id=868833718]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_21xkr")
 
-[node name="Background_Sprite" type="Sprite2D" parent="Camera2D"]
+[node name="Background_Sprite" type="Sprite2D" parent="Camera2D" unique_id=1560111181]
 z_index = -7
 position = Vector2(-2, -4)
 texture = ExtResource("2_6iyac")
 
-[node name="Ball" type="RigidBody2D" parent="."]
+[node name="Ball" type="RigidBody2D" parent="." unique_id=80972901]
 z_index = 1
 position = Vector2(0, -365)
 mass = 0.3
@@ -79,41 +79,41 @@ contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("1_ball")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=2005784068]
 shape = SubResource("CircleShape2D_ball")
 
-[node name="Sprite2D" type="Sprite2D" parent="Ball/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Ball/CollisionShape2D" unique_id=429569596]
 material = SubResource("ShaderMaterial_wsu2k")
 position = Vector2(-1, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_21xkr")
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameManager" type="Node" parent="." unique_id=1580633808]
 script = ExtResource("1_game_manager")
 levelSettings = ExtResource("8_k12tt")
 themeSettings = ExtResource("9_h1bgf")
 
-[node name="BarrierGenerator" type="Node2D" parent="."]
+[node name="BarrierGenerator" type="Node2D" parent="." unique_id=1798839841]
 position = Vector2(-8, 0)
 script = ExtResource("1_barrier_gen")
 
-[node name="WallCollider" type="Node2D" parent="."]
+[node name="WallCollider" type="Node2D" parent="." unique_id=401618525]
 script = ExtResource("1_wall_collider")
 
-[node name="Parallax2D_Far" parent="." instance=ExtResource("11_k12tt")]
+[node name="Parallax2D_Far" parent="." unique_id=918455434 instance=ExtResource("11_k12tt")]
 visible = false
 
-[node name="Parallax2D_near" parent="." instance=ExtResource("12_k12tt")]
+[node name="Parallax2D_near" parent="." unique_id=1354084494 instance=ExtResource("12_k12tt")]
 visible = false
 
-[node name="Parallax2D_near_2" parent="." instance=ExtResource("13_h1bgf")]
+[node name="Parallax2D_near_2" parent="." unique_id=1317101067 instance=ExtResource("13_h1bgf")]
 visible = false
 
-[node name="Parallax2D_near_3" parent="." instance=ExtResource("14_b3802")]
+[node name="Parallax2D_near_3" parent="." unique_id=472695527 instance=ExtResource("14_b3802")]
 visible = false
 
-[node name="Parallax2D_Far_2" parent="." instance=ExtResource("15_fevyy")]
+[node name="Parallax2D_Far_2" parent="." unique_id=1577366239 instance=ExtResource("15_fevyy")]
 visible = false
 
-[node name="EffectScript" type="Node" parent="."]
+[node name="EffectScript" type="Node" parent="." unique_id=590977754]
 script = ExtResource("12_6iyac")
