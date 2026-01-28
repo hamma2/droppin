@@ -65,6 +65,7 @@ func setup_barrier_shape(barrier: StaticBody2D, width: float, _barrierName: Stri
     # barrier.add_child(color_rect)
 
     var panelContainer = PanelContainer.new()
+    panelContainer.name = "PanelContainer"
     panelContainer.position = Vector2(-width/2, -barrier_height/2)
     panelContainer.size = Vector2(width, barrier_height)
     panelContainer.clip_children = true
@@ -81,6 +82,7 @@ func setup_barrier_shape(barrier: StaticBody2D, width: float, _barrierName: Stri
 
     # Add Sprite for visual representation
     var textRect = TextureRect.new()
+    textRect.name = "BarrierTexture"
     textRect.texture = barrier_texture
     textRect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
     textRect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED

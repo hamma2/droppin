@@ -8,6 +8,7 @@ class_name EffectScript
 # get all necesary game scripts
 @onready var gameManager: GameManager = $/root/PlayScene/GameManager
 @onready var playerBall: Ball = $/root/PlayScene/Ball
+@onready var barrierGenerator: BarrierGenerator = $/root/PlayScene/BarrierGenerator
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,3 +39,10 @@ func reverse_ball_direction(duration: float) -> void:
     playerBall.direction = -1
     await get_tree().create_timer(duration).timeout
     playerBall.direction = 1
+
+func invisible_barriers(effect_invisible_duration: float, number_blink_times: int, visible_duration: float) -> void:
+    for i in number_blink_times:
+        barrierGenerator.barriers_invisible = true
+        await get_tree().create_timer(effect_invisible_duration).timeout
+        barrierGenerator.barriers_invisible = false
+        await get_tree().create_timer(visible_duration).timeout

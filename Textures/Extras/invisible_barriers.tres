@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Invisible_BarriersData" load_steps=3 format=3 uid="uid://b7806c2d5r35r"]
+
+[ext_resource type="Script" uid="uid://csjx8kfhk2ncm" path="res://Scripts/Extras/Insvisible_Barriers/Invisible_barriersData.gd" id="1_jn76t"]
+[ext_resource type="Texture2D" uid="uid://busovd8rpvcse" path="res://icon.svg" id="2_kpjam"]
+
+[resource]
+script = ExtResource("1_jn76t")
+effect_type = "invisible_barriers"
+texture = ExtResource("2_kpjam")
+metadata/_custom_type_script = "uid://csjx8kfhk2ncm"

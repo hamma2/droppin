@@ -20,9 +20,10 @@ var special_barrier_deco_texture: Texture2D = preload("res://Textures/sky_postca
 
 # points extra
 const extra_item_points_script = preload("res://Scripts/Extras/Points/PointsItem.gd")
-
 # change direction extra
 const extra_item_direction_script = preload("res://Scripts/Extras/Direction/DirectionItem.gd")
+# invisible barriers extra
+const extra_item_invisible_barriers_script = preload("res://Scripts/Extras/Insvisible_Barriers/Insvisible_BarriersItem.gd")
 
 var time_since_last_spawn: float = 0.0
 var barrier_pairs: Array = []
@@ -39,6 +40,7 @@ var ball: Node2D
 var camera: Camera2D
 var viewport_center: Vector2
 var barrier_spacing: float
+var barriers_invisible: bool = false
 
 # Extra-System-Variablen
 var available_extra_types: Array[ExtraData] = []
@@ -86,6 +88,9 @@ func _physics_process(delta):
     update_barriers()
     update_extra_items()
 
+func _process(_delta: float) -> void:
+    update_barrier_visibility()
+
 func spawn_barrier_pair():
     """Spawnt ein neues statisches Barrieren-Paar unterhalb der Kamera"""
     var viewport_left = viewport_center.x - screen_width / 2
@@ -130,6 +135,17 @@ func update_barriers():
     for pair in pairs_to_remove:
         barrier_pairs.erase(pair)
 
+func update_barrier_visibility():
+    """Aktualisiert die Sichtbarkeit der Barrieren basierend auf dem 'barriers_invisible' Zustand"""
+    for pair in barrier_pairs:
+        if barriers_invisible:
+            pair.get_node("LeftBarrier").visible = false
+            pair.get_node("RightBarrier").visible = false
+        else:
+            pair.get_node("LeftBarrier").visible = true
+            pair.get_node("RightBarrier").visible = true
+
+
 func count_barriers_below_camera() -> int:
     """Zählt die Barrieren unterhalb der Kamera"""
     var count = 0
@@ -162,6 +178,8 @@ func spawn_extra_randomly(barrier_y: float) -> void:
             extra.script = extra_item_points_script
         "direction":
             extra.script = extra_item_direction_script
+        "invisible_barriers":
+            extra.script = extra_item_invisible_barriers_script
 
     extra.position = Vector2(
         randf_range(viewport_left + 100, viewport_right - 100),
