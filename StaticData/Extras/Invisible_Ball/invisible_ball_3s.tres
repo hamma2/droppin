@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Invisible_BallData" load_steps=3 format=3 uid="uid://d0tp6l4xxne6s"]
+
+[ext_resource type="Script" uid="uid://bjwr2gll2e65f" path="res://Scripts/Extras/Invisible_Ball/Invisible_BallData.gd" id="1_h8mgb"]
+[ext_resource type="Texture2D" uid="uid://bima8h5vdvgva" path="res://Textures/Extras/invisible_ball.svg" id="2_phu73"]
+
+[resource]
+script = ExtResource("1_h8mgb")
+effect_type = "invisible_ball"
+texture = ExtResource("2_phu73")
+spawn_probability = 1.0
+metadata/_custom_type_script = "uid://bjwr2gll2e65f"

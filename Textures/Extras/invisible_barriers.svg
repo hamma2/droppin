@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+
+  <!-- Shadow (Solid Black for Pop Art look) -->
+  <rect x="20" y="25" width="60" height="50" rx="5" ry="5"
+        fill="black" transform="translate(4, 4)" />
+
+  <!-- Main Wall Body -->
+  <!-- Dashed stroke signifies 'intangible' or 'invisible' -->
+  <g fill="#FFD700" stroke="black" stroke-width="3" stroke-dasharray="6,4" stroke-linejoin="round">
+      <!-- Outer Frame -->
+      <rect x="20" y="25" width="60" height="50" rx="5" ry="5" />
+      
+      <!-- Internal Brick Lines -->
+      <line x1="20" y1="41" x2="80" y2="41" />
+      <line x1="20" y1="58" x2="80" y2="58" />
+      <line x1="50" y1="25" x2="50" y2="41" />
+      <line x1="35" y1="41" x2="35" y2="58" />
+      <line x1="65" y1="41" x2="65" y2="58" />
+      <line x1="50" y1="58" x2="50" y2="75" />
+  </g>
+
+  <!-- Comic Highlight (White glint) -->
+  <path d="M 25 30 L 75 30" 
+        stroke="white" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round" />
+</svg>

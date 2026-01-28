@@ -24,6 +24,8 @@ const extra_item_points_script = preload("res://Scripts/Extras/Points/PointsItem
 const extra_item_direction_script = preload("res://Scripts/Extras/Direction/DirectionItem.gd")
 # invisible barriers extra
 const extra_item_invisible_barriers_script = preload("res://Scripts/Extras/Insvisible_Barriers/Insvisible_BarriersItem.gd")
+# invisible ball extra
+const extra_item_invisible_ball_script = preload("res://Scripts/Extras/Invisible_Ball/Insvisible_BallItem.gd")
 
 var time_since_last_spawn: float = 0.0
 var barrier_pairs: Array = []
@@ -180,6 +182,8 @@ func spawn_extra_randomly(barrier_y: float) -> void:
             extra.script = extra_item_direction_script
         "invisible_barriers":
             extra.script = extra_item_invisible_barriers_script
+        "invisible_ball":
+            extra.script = extra_item_invisible_ball_script
 
     extra.position = Vector2(
         randf_range(viewport_left + 100, viewport_right - 100),

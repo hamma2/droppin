@@ -40,9 +40,17 @@ func reverse_ball_direction(duration: float) -> void:
     await get_tree().create_timer(duration).timeout
     playerBall.direction = 1
 
+# Function for invisible barriers effect
 func invisible_barriers(effect_invisible_duration: float, number_blink_times: int, visible_duration: float) -> void:
     for i in number_blink_times:
         barrierGenerator.barriers_invisible = true
         await get_tree().create_timer(effect_invisible_duration).timeout
         barrierGenerator.barriers_invisible = false
+        await get_tree().create_timer(visible_duration).timeout
+
+func invisible_ball(effect_invisible_duration: float, number_blink_times: int, visible_duration: float) -> void:
+    for i in number_blink_times:
+        playerBall.visible = false
+        await get_tree().create_timer(effect_invisible_duration).timeout
+        playerBall.visible = true
         await get_tree().create_timer(visible_duration).timeout
