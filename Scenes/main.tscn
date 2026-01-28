@@ -90,6 +90,7 @@ texture = ExtResource("3_21xkr")
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_game_manager")
+end_game_on_ceiling_hit = null
 levelSettings = ExtResource("8_k12tt")
 themeSettings = ExtResource("9_h1bgf")
 

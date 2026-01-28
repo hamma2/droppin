@@ -14,13 +14,13 @@ class_name LevelSettingsData extends Resource
 @export var spawn_interval_scale: float = 1.0
 
 # BallCamera Script
-@export var gravity_scale: float = 5.0
-
 @export var speed_increase: float = 1.0  # Pixel pro Sekunde Erhöhung
 
 @export var base_speed: float = 350.0
 
 # Ball Script
+@export var gravity_scale: float = 5.0
+
 @export var ball_bounce: float = 0.56
 
 @export var ball_friction: float = 0.3

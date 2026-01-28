@@ -5,7 +5,15 @@ var ball: Node2D
 var barrier_generator: Node2D
 var camera: Camera2D
 
-var score: int = 0
+# Define a signal that sends the new score value
+signal score_changed(new_score: int)
+
+var score: int = 0:
+    set(value):
+        score = value
+        # Emit the signal whenever the score value is set
+        emit_score_changed(score)
+
 var score_mutiplier: float = 1.0
 var points_to_add: int = 0
 var prev_y_position: float = 0.0
@@ -130,11 +138,10 @@ func update_score() -> void:
 
     # Nur aktualisieren wenn es echte Punkte gibt
     if base_increase >= 0:
-        score += score_increase
+        self.score += score_increase
 
-        # Change Score Label Text
-        if(score_label != null):
-            score_label.text = "Score: " + str(score)
+func emit_score_changed(new_score: int):
+    score_changed.emit(new_score)
 
 func game_over():
     """Beendet das Spiel"""
@@ -155,9 +162,6 @@ func reset_game():
         for barrier in barrier_generator.barrier_pairs:
             barrier.queue_free()
         barrier_generator.barrier_pairs.clear()
-
-    if(score_label != null):
-            score_label.text = "Score: 0"
 
     if restartButton != null:
         restartButton.visible = false
