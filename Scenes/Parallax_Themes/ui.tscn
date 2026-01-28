@@ -1,37 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx47dkjaftn5f"]
+[gd_scene load_steps=9 format=3 uid="uid://cx47dkjaftn5f"]
 
 [ext_resource type="Script" uid="uid://bhfmqm2goh7pw" path="res://Scripts/ui/score_label.gd" id="1_6beja"]
+[ext_resource type="FontFile" uid="uid://b4cgaryrbhw5e" path="res://Fonts/Marhey-VariableFont_wght.ttf" id="2_njvhp"]
 [ext_resource type="Script" uid="uid://bjxq5vt0u5lb0" path="res://Scripts/ui/RestartButton.gd" id="2_ttokp"]
 
-[sub_resource type="FontFile" id="FontFile_6iyac"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/20/0/ascent = 0.0
-cache/0/20/0/descent = 0.0
-cache/0/20/0/underline_position = 0.0
-cache/0/20/0/underline_thickness = 0.0
-cache/0/20/0/scale = 1.0
-cache/0/100/0/ascent = 0.0
-cache/0/100/0/descent = 0.0
-cache/0/100/0/underline_position = 0.0
-cache/0/100/0/underline_thickness = 0.0
-cache/0/100/0/scale = 1.0
-cache/0/50/0/ascent = 0.0
-cache/0/50/0/descent = 0.0
-cache/0/50/0/underline_position = 0.0
-cache/0/50/0/underline_thickness = 0.0
-cache/0/50/0/scale = 1.0
+[sub_resource type="FontVariation" id="FontVariation_njvhp"]
+base_font = ExtResource("2_njvhp")
+variation_embolden = 0.5
 
 [sub_resource type="LabelSettings" id="LabelSettings_6iyac"]
 line_spacing = 0.0
-font = SubResource("FontFile_6iyac")
+font = SubResource("FontVariation_njvhp")
 font_size = 50
+
+[sub_resource type="FontVariation" id="FontVariation_ttokp"]
+base_font = ExtResource("2_njvhp")
+variation_embolden = 0.5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6iyac"]
 bg_color = Color(0.18790853, 0.24950421, 0.67179877, 1)
@@ -84,6 +68,7 @@ offset_left = 256.0
 offset_top = 350.0
 offset_right = 491.0
 offset_bottom = 462.0
+theme_override_fonts/font = SubResource("FontVariation_ttokp")
 theme_override_font_sizes/font_size = 49
 theme_override_styles/normal = SubResource("StyleBoxFlat_6iyac")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_jkdf5")
