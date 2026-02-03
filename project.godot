@@ -21,6 +21,10 @@ run/main_scene="uid://b8vs5i2cdotn7"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+driver/output_latency.web=15
+
 [display]
 
 window/size/viewport_width=720
