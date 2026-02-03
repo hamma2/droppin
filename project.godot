@@ -30,6 +30,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/handheld/orientation=5
 
+[global_group]
+
+barrier="Group for Barriers to Detect Collision"
+
 [input_devices]
 
 sensors/enable_accelerometer=true

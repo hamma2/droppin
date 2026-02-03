@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelThemeData" load_steps=14 format=3 uid="uid://kl0ygsan1e56"]
+[gd_resource type="Resource" script_class="LevelThemeData" format=3 uid="uid://kl0ygsan1e56"]
 
 [ext_resource type="Texture2D" uid="uid://dt4cegnvlvyvj" path="res://Textures/sky_postcard_theme/background.png" id="1_4cv46"]
 [ext_resource type="Texture2D" uid="uid://cewkx3ul5drwt" path="res://Textures/sky_postcard_theme/larger_deco_grass.svg" id="1_thfs6"]
@@ -28,4 +28,5 @@ small_barrier_decoration = ExtResource("11_0b1tv")
 large_barrier_decoration = ExtResource("1_thfs6")
 special_barrier_decoration = ExtResource("12_706mc")
 ui_scene = ExtResource("3_tqkuj")
+ball_collision_particle_color = Color(1, 0.9019608, 0.4862745, 1)
 metadata/_custom_type_script = "uid://ba2pa5g06iynk"

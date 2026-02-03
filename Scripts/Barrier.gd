@@ -45,6 +45,7 @@ func create_barrier(barrier_name: String) -> StaticBody2D:
     """Erstellt eine einzelne statische Barriere"""
     var barrier = StaticBody2D.new()
     barrier.name = barrier_name
+    barrier.add_to_group("barrier")
     return barrier
 
 func setup_barrier_shape(barrier: StaticBody2D, width: float, _barrierName: String):

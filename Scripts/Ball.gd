@@ -18,10 +18,11 @@ signal hit_ceiling
 # Input Methoden
 @export_enum("Keyboard", "Accelerometer", "Touch", "All") var input_method: int = 3
 
-@onready var sprite = $/root/PlayScene/Ball/CollisionShape2D/Sprite2D
+@onready var sprite = $/root/PlayScene/Ball/Ball_Collider/Sprite2D
 
 # particles on collision
 @onready var particles_scene = preload("res://Scenes/Parallax_Themes/sky_postcard_theme/ball_particle.tscn")
+var particle_collision_color = Color.WHITE
 
 var touch_target_x: float = 0.0
 var is_touching: bool = false
@@ -49,20 +50,23 @@ func _ready():
 func _on_body_entered(body: Node):
     if body.name == "Ceiling" or body.is_in_group("ceiling"):
         emit_signal("hit_ceiling")
+    if body.is_in_group("barrier"):
+        spawn_particles()
 
+func spawn_particles() -> void:
+    # check for ball velocity to avoid spawning particles on slow collisions
+    if linear_velocity.length() < 200:
+        return
 
-
-
-func spawn_particles(collision: KinematicCollision2D):
     # Instance the particles
     var particles = particles_scene.instantiate()
     get_parent().add_child(particles)
 
     # Position them at the collision point
-    particles.global_position = collision.get_position()
+    particles.global_position = position + Vector2(0, sprite.texture.get_size().y / 4)
 
-    # Optional: Rotate particles to match collision normal
-    particles.rotation = collision.get_normal().angle()
+    # set color
+    particles.color = particle_collision_color
 
     # Start emitting
     particles.emitting = true
@@ -91,24 +95,6 @@ func _physics_process(_delta):
     # Begrenze horizontale Geschwindigkeit
     if abs(linear_velocity.x) > max_horizontal_velocity:
         linear_velocity.x = sign(linear_velocity.x) * max_horizontal_velocity
-
-    #var speed = linear_velocity.length()
-    #var deform = clamp(speed / 1000.0, 0.0, 0.2)
-    #sprite.material.set_shader_parameter("deformation_amount", deform)
-
-    var collisions = get_colliding_bodies()
-    for i in collisions.size():
-        var collision = collisions[i]
-        if collision:
-            var particles = particles_scene.instantiate()
-            particles.position = position + Vector2(0, sprite.texture.get_size().y / 4)
-            get_parent().add_child(particles)
-            particles.emitting = true
-
-            # Erzeuge Partikel bei Kollision
-            # Auto-destroy particle node after lifetime ends
-            await particles.finished
-            particles.queue_free()
 
 func handle_movement():
     """Behandelt alle Input-Methoden"""

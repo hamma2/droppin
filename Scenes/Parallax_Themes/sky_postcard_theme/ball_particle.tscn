@@ -1,17 +1,13 @@
 [gd_scene format=3 uid="uid://csirjwawwvfly"]
 
-[sub_resource type="Gradient" id="Gradient_ruoml"]
-offsets = PackedFloat32Array(0, 0.06410257)
-colors = PackedColorArray(1, 1, 1, 1, 0.50107104, 0.52548146, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0vdnl"]
-gradient = SubResource("Gradient_ruoml")
+[ext_resource type="Texture2D" uid="uid://cs4hn4dpfntph" path="res://Textures/Particle_Ball_hit.svg" id="1_0vdnl"]
 
 [node name="BallParticle" type="CPUParticles2D" unique_id=656760620]
 emitting = false
-texture = SubResource("GradientTexture2D_0vdnl")
+texture = ExtResource("1_0vdnl")
 lifetime = 0.2
 one_shot = true
+speed_scale = 2.67
 explosiveness = 0.1
 randomness = 0.27
 lifetime_randomness = 0.38
@@ -20,7 +16,5 @@ initial_velocity_min = 78.13
 initial_velocity_max = 255.21
 linear_accel_min = -40.62
 linear_accel_max = 27.08
-scale_amount_min = 0.1
-scale_amount_max = 0.15
-hue_variation_min = 0.15
-hue_variation_max = 0.15
+scale_amount_min = 0.01
+scale_amount_max = 0.05

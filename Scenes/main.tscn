@@ -79,10 +79,10 @@ contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("1_ball")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=2005784068]
+[node name="Ball_Collider" type="CollisionShape2D" parent="Ball" unique_id=2005784068]
 shape = SubResource("CircleShape2D_ball")
 
-[node name="Sprite2D" type="Sprite2D" parent="Ball/CollisionShape2D" unique_id=429569596]
+[node name="Sprite2D" type="Sprite2D" parent="Ball/Ball_Collider" unique_id=429569596]
 material = SubResource("ShaderMaterial_wsu2k")
 position = Vector2(-1, 1)
 scale = Vector2(0.5, 0.5)

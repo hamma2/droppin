@@ -71,8 +71,11 @@ func _ready():
         if(themeSettings.parallax_layer_5 != null):
             add_child(themeSettings.parallax_layer_5.instantiate())
 
-        # set ball texture
         if ball != null and themeSettings.ball_texture != null:
+            # set particle collision color
+            ball.particle_collision_color = themeSettings.ball_collision_particle_color
+
+            # set ball texture
             var ball_sprite: Sprite2D = ball.find_child("Sprite2D")
             if ball_sprite != null:
                 ball_sprite.texture = themeSettings.ball_texture

@@ -14,13 +14,15 @@ class_name LevelThemeData extends Resource
 @export var large_barrier_decoration: Texture2D = null
 @export var special_barrier_decoration: Texture2D = null
 @export var ui_scene: PackedScene = null
+@export var ball_collision_particle_color: Color = Color.WHITE
 
 func _init(p_background_texture: Texture2D = null, p_parallax_layer_1: PackedScene = null,
         p_parallax_layer_2: PackedScene = null, p_parallax_layer_3: PackedScene = null,
         p_parallax_layer_4: PackedScene = null, p_parallax_layer_5: PackedScene = null,
         p_ball_texture: Texture2D = null, p_barrier_sprite: Texture2D = null,
         p_small_barrier_decoration: Texture2D = null, p_large_barrier_decoration: Texture2D = null,
-        p_special_barrier_decoration: Texture2D = null, p_ui_scene: PackedScene = null) -> void:
+        p_special_barrier_decoration: Texture2D = null, p_ui_scene: PackedScene = null,
+        p_ball_collision_particle_color: Color = Color.WHITE) -> void:
     background_texture = p_background_texture
     parallax_layer_1 = p_parallax_layer_1
     parallax_layer_2 = p_parallax_layer_2
@@ -33,3 +35,4 @@ func _init(p_background_texture: Texture2D = null, p_parallax_layer_1: PackedSce
     large_barrier_decoration = p_large_barrier_decoration
     special_barrier_decoration = p_special_barrier_decoration
     ui_scene = p_ui_scene
+    ball_collision_particle_color = p_ball_collision_particle_color

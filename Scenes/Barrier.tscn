@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dffe4yokadbar"]
+[gd_scene format=3 uid="uid://dffe4yokadbar"]
 
 [ext_resource type="Script" uid="uid://dkkvms0fv6l1o" path="res://Scripts/Barrier.gd" id="1_barrier"]
 [ext_resource type="Shader" uid="uid://bkce2iyclusgy" path="res://Shaders/round_corner_shader.gdshader" id="1_c4lbr"]
@@ -8,6 +8,6 @@ shader = ExtResource("1_c4lbr")
 shader_parameter/radius = 0.1
 shader_parameter/edge_softness = 0.005
 
-[node name="BarrierPair" type="Node2D"]
+[node name="BarrierPair" type="Node2D" unique_id=590503169]
 material = SubResource("ShaderMaterial_mcrja")
 script = ExtResource("1_barrier")
