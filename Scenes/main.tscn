@@ -17,12 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://bun5twiig1ujh" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_near_3.tscn" id="14_b3802"]
 [ext_resource type="PackedScene" uid="uid://c3olypljywkl7" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_far_2.tscn" id="15_fevyy"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_21xkr"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_left_wall"]
 size = Vector2(20, 1080)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6bp64"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_right_wall"]
 size = Vector2(20, 1080)
@@ -44,14 +40,12 @@ script = ExtResource("1_camera")
 
 [node name="LeftWall" type="StaticBody2D" parent="Camera2D" unique_id=922992]
 position = Vector2(-414, 0)
-physics_material_override = SubResource("PhysicsMaterial_21xkr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/LeftWall" unique_id=314009096]
 shape = SubResource("RectangleShape2D_left_wall")
 
 [node name="RightWall" type="StaticBody2D" parent="Camera2D" unique_id=643847961]
-position = Vector2(416, 0)
-physics_material_override = SubResource("PhysicsMaterial_6bp64")
+position = Vector2(417, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/RightWall" unique_id=2061942883]
 shape = SubResource("RectangleShape2D_right_wall")

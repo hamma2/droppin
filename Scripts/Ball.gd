@@ -50,7 +50,7 @@ func _ready():
 func _on_body_entered(body: Node):
     if body.name == "Ceiling" or body.is_in_group("ceiling"):
         emit_signal("hit_ceiling")
-    if body.is_in_group("barrier"):
+    if body.is_in_group("barrier") or body.is_in_group("wall"):
         spawn_particles()
 
 func spawn_particles() -> void:

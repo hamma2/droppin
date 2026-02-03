@@ -23,6 +23,9 @@ func _ready():
     right_wall = get_parent().find_child("RightWall")
     ceiling = get_parent().find_child("Ceiling")
 
+    left_wall.add_to_group("wall")
+    right_wall.add_to_group("wall")
+
     if left_wall == null or right_wall == null:
         push_error("Wände nicht gefunden!")
         return
