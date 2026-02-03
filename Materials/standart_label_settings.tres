@@ -1,0 +1,13 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://oq7hvabtltik"]
+
+[ext_resource type="FontFile" uid="uid://b4cgaryrbhw5e" path="res://Fonts/Marhey-VariableFont_wght.ttf" id="1_bncwp"]
+
+[sub_resource type="FontVariation" id="FontVariation_njvhp"]
+base_font = ExtResource("1_bncwp")
+variation_embolden = 0.5
+
+[resource]
+line_spacing = 0.0
+font = SubResource("FontVariation_njvhp")
+font_size = 50
+font_color = Color(0, 0, 0, 1)

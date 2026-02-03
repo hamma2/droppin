@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelSettingsData" load_steps=9 format=3 uid="uid://bqx7tei56wsey"]
+[gd_resource type="Resource" script_class="LevelSettingsData" format=3 uid="uid://bqx7tei56wsey"]
 
 [ext_resource type="Script" uid="uid://crymhcdpuwbj5" path="res://Scripts/Extras/BaseExtraData.gd" id="1_2dygm"]
 [ext_resource type="Resource" uid="uid://d0tp6l4xxne6s" path="res://StaticData/Extras/Invisible_Ball/invisible_ball_3s.tres" id="2_2dygm"]
@@ -14,4 +14,5 @@ script = ExtResource("3_r8whi")
 extra_data_list = Array[ExtResource("1_2dygm")]([ExtResource("2_2dygm"), ExtResource("3_121md"), ExtResource("5_2yu84"), ExtResource("6_1hmks"), ExtResource("6_jfdev"), ExtResource("7_jfdev")])
 speed_increase = 1.2
 base_speed = 400.0
+performance_monitoring_enabled = true
 metadata/_custom_type_script = "uid://otosgdtm7fva"

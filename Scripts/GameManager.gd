@@ -21,6 +21,9 @@ var prev_y_position: float = 0.0
 
 var game_active: bool = true
 
+# performance monitoring
+var _performance_monitoring_enabled: bool = false
+
 @export var end_game_on_ceiling_hit: bool = true
 
 @export var levelSettings: LevelSettingsData = null
@@ -106,6 +109,9 @@ func _ready():
     if camera != null and levelSettings != null:
         camera.base_speed = levelSettings.base_speed
         camera.speed_increase = levelSettings.speed_increase
+
+    if levelSettings != null:
+        _performance_monitoring_enabled = levelSettings.performance_monitoring_enabled
 
 func _physics_process(_delta):
     if not game_active or ball == null:

@@ -1,17 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cx47dkjaftn5f"]
+[gd_scene format=3 uid="uid://cx47dkjaftn5f"]
 
 [ext_resource type="Script" uid="uid://bhfmqm2goh7pw" path="res://Scripts/ui/score_label.gd" id="1_6beja"]
+[ext_resource type="LabelSettings" uid="uid://oq7hvabtltik" path="res://Materials/standart_label_settings.tres" id="1_gaouq"]
 [ext_resource type="FontFile" uid="uid://b4cgaryrbhw5e" path="res://Fonts/Marhey-VariableFont_wght.ttf" id="2_njvhp"]
 [ext_resource type="Script" uid="uid://bjxq5vt0u5lb0" path="res://Scripts/ui/RestartButton.gd" id="2_ttokp"]
-
-[sub_resource type="FontVariation" id="FontVariation_njvhp"]
-base_font = ExtResource("2_njvhp")
-variation_embolden = 0.5
-
-[sub_resource type="LabelSettings" id="LabelSettings_6iyac"]
-line_spacing = 0.0
-font = SubResource("FontVariation_njvhp")
-font_size = 50
+[ext_resource type="Script" uid="uid://dwt0mttqq1av5" path="res://Scripts/Monitoring/FPS.gd" id="5_yk00d"]
 
 [sub_resource type="FontVariation" id="FontVariation_ttokp"]
 base_font = ExtResource("2_njvhp")
@@ -42,16 +35,16 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="UI" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer" unique_id=647077456]
 process_mode = 3
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=41019840]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ScoreLabel" type="Label" parent="Control"]
+[node name="ScoreLabel" type="Label" parent="Control" unique_id=1721089042]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 51.0
@@ -59,10 +52,10 @@ offset_top = 45.0
 offset_right = 238.0
 offset_bottom = 96.0
 text = "Score: 0"
-label_settings = SubResource("LabelSettings_6iyac")
+label_settings = ExtResource("1_gaouq")
 script = ExtResource("1_6beja")
 
-[node name="RestartButton" type="Button" parent="Control"]
+[node name="RestartButton" type="Button" parent="Control" unique_id=993381239]
 layout_mode = 0
 offset_left = 256.0
 offset_top = 350.0
@@ -74,3 +67,13 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6iyac")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_jkdf5")
 text = "Restart"
 script = ExtResource("2_ttokp")
+
+[node name="Performance" type="Label" parent="Control" unique_id=1730062959]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 1159.0
+offset_right = 158.0
+offset_bottom = 1246.0
+text = "FPS: "
+label_settings = ExtResource("1_gaouq")
+script = ExtResource("5_yk00d")
