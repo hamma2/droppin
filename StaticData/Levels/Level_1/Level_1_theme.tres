@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://ba2pa5g06iynk" path="res://Scripts/Resources/LevelThemeData.gd" id="2_tqkuj"]
 [ext_resource type="PackedScene" uid="uid://nsvi2l2l75tw" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_far.tscn" id="3_eevll"]
 [ext_resource type="Texture2D" uid="uid://bt2ij5jssdset" path="res://Textures/sky_postcard_theme/grass_barrier_final.svg" id="3_lkgm3"]
-[ext_resource type="PackedScene" uid="uid://cx47dkjaftn5f" path="res://Scenes/Parallax_Themes/ui.tscn" id="3_tqkuj"]
+[ext_resource type="PackedScene" uid="uid://cx47dkjaftn5f" path="res://Scenes/ui.tscn" id="3_tqkuj"]
 [ext_resource type="PackedScene" uid="uid://c3olypljywkl7" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_far_2.tscn" id="4_lkgm3"]
 [ext_resource type="PackedScene" uid="uid://cuj7aprncvk1h" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_near.tscn" id="5_gaw4f"]
 [ext_resource type="PackedScene" uid="uid://rgs1g6gtgcjc" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_near_2.tscn" id="6_jt44n"]

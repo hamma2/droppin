@@ -6,14 +6,16 @@
 [ext_resource type="Script" uid="uid://jbj4b7ssnjfl" path="res://Scripts/ui/main_ui.gd" id="2_vwijy"]
 [ext_resource type="PackedScene" uid="uid://c3olypljywkl7" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_far_2.tscn" id="2_w0gnm"]
 [ext_resource type="PackedScene" uid="uid://cuj7aprncvk1h" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_near.tscn" id="2_wk3fd"]
-[ext_resource type="Script" uid="uid://dkqjs230ct3mx" path="res://Scripts/ui/StartButton.gd" id="3_5msf3"]
+[ext_resource type="Script" uid="uid://dkqjs230ct3mx" path="res://Scripts/ui/Buttons/main_ui/StartButton.gd" id="3_5msf3"]
 [ext_resource type="PackedScene" uid="uid://rgs1g6gtgcjc" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_near_2.tscn" id="3_v2k75"]
-[ext_resource type="Script" uid="uid://c7ocwew1rpuha" path="res://Scripts/ui/Settings_Button.gd" id="8_2nci8"]
-[ext_resource type="Script" uid="uid://w3avidyj7vds" path="res://Scripts/ui/back_options_button.gd" id="8_biqqh"]
-[ext_resource type="Script" uid="uid://dsmfbhqjrvgbp" path="res://Scripts/ui/RatingsButton.gd" id="9_rmw6d"]
-[ext_resource type="Script" uid="uid://cetlhik0hst80" path="res://Scripts/ui/back_ratings_button.gd" id="10_giblu"]
-[ext_resource type="Script" uid="uid://bjtt7g1dt0tj3" path="res://Scripts/ui/ThemeButton.gd" id="12_entnu"]
-[ext_resource type="Script" uid="uid://dvvroeijft2qj" path="res://Scripts/ui/DifficultyButton.gd" id="13_1p6ye"]
+[ext_resource type="Script" uid="uid://c7ocwew1rpuha" path="res://Scripts/ui/Buttons/main_ui/Settings_Button.gd" id="8_2nci8"]
+[ext_resource type="Script" uid="uid://w3avidyj7vds" path="res://Scripts/ui/Buttons/main_ui/back_options_button.gd" id="8_biqqh"]
+[ext_resource type="Script" uid="uid://dsmfbhqjrvgbp" path="res://Scripts/ui/Buttons/main_ui/RatingsButton.gd" id="9_rmw6d"]
+[ext_resource type="Script" uid="uid://cetlhik0hst80" path="res://Scripts/ui/Buttons/main_ui/back_ratings_button.gd" id="10_giblu"]
+[ext_resource type="Script" uid="uid://bjtt7g1dt0tj3" path="res://Scripts/ui/Buttons/main_ui/ThemeButton.gd" id="12_entnu"]
+[ext_resource type="Script" uid="uid://dvvroeijft2qj" path="res://Scripts/ui/Buttons/main_ui/DifficultyButton.gd" id="13_1p6ye"]
+[ext_resource type="Script" uid="uid://cjbl303icl6vn" path="res://Scripts/ui/Buttons/main_ui/BackButtonStart.gd" id="15_cc11m"]
+[ext_resource type="Script" uid="uid://ct6x7xmwel55v" path="res://Scripts/ui/Buttons/main_ui/EndlessGameButton.gd" id="15_ydbjm"]
 
 [node name="MainUi" type="Control" unique_id=1091995016]
 clip_contents = true
@@ -168,3 +170,42 @@ offset_bottom = 903.0
 text = "Back
 "
 script = ExtResource("10_giblu")
+
+[node name="BackButtonStart" type="Button" parent="." unique_id=426931003]
+visible = false
+layout_mode = 0
+offset_left = 298.0
+offset_top = 877.0
+offset_right = 425.0
+offset_bottom = 971.0
+text = "Back"
+script = ExtResource("15_cc11m")
+
+[node name="EndlessGameButton" type="Button" parent="BackButtonStart" unique_id=2110594896]
+layout_mode = 0
+offset_left = -71.0
+offset_top = -525.0
+offset_right = 219.0
+offset_bottom = -431.0
+text = "Endless Run"
+script = ExtResource("15_ydbjm")
+
+[node name="Sky World" type="Button" parent="BackButtonStart/EndlessGameButton" unique_id=904954968]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 125.0
+offset_right = 270.0
+offset_bottom = 219.0
+text = "Sky World
+"
+script = ExtResource("15_ydbjm")
+
+[node name="Water World" type="Button" parent="BackButtonStart/EndlessGameButton/Sky World" unique_id=396330077]
+layout_mode = 0
+offset_left = -31.0
+offset_top = 146.0
+offset_right = 287.0
+offset_bottom = 240.0
+text = "Water World
+"
+script = ExtResource("15_ydbjm")
