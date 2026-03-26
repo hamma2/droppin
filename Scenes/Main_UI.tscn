@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://rgs1g6gtgcjc" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_near_2.tscn" id="3_v2k75"]
 [ext_resource type="Script" uid="uid://c7ocwew1rpuha" path="res://Scripts/ui/Settings_Button.gd" id="8_2nci8"]
 [ext_resource type="Script" uid="uid://w3avidyj7vds" path="res://Scripts/ui/back_options_button.gd" id="8_biqqh"]
+[ext_resource type="Script" uid="uid://dsmfbhqjrvgbp" path="res://Scripts/ui/RatingsButton.gd" id="9_rmw6d"]
+[ext_resource type="Script" uid="uid://cetlhik0hst80" path="res://Scripts/ui/back_ratings_button.gd" id="10_giblu"]
 
 [node name="MainUi" type="Control" unique_id=1091995016]
 clip_contents = true
@@ -73,6 +75,7 @@ offset_right = 350.0
 offset_bottom = 330.0
 theme = ExtResource("1_6qecu")
 text = "Ratings"
+script = ExtResource("9_rmw6d")
 
 [node name="Settings_Label" type="Label" parent="." unique_id=656777296]
 visible = false
@@ -101,11 +104,9 @@ offset_right = 246.0
 offset_bottom = 316.0
 selected = 0
 allow_reselect = true
-item_count = 2
+item_count = 1
 popup/item_0/text = "Sky Theme"
 popup/item_0/id = 0
-popup/item_1/text = "Test"
-popup/item_1/id = 1
 
 [node name="ThemeLabel" type="Label" parent="Settings_Label" unique_id=1390544997]
 layout_mode = 0
@@ -140,3 +141,22 @@ offset_top = 421.0
 offset_right = 225.0
 offset_bottom = 507.0
 text = "Difficulty"
+
+[node name="RatingsLabel" type="Label" parent="." unique_id=767754531]
+visible = false
+layout_mode = 0
+offset_left = 275.0
+offset_top = 56.0
+offset_right = 453.0
+offset_bottom = 142.0
+text = "Ratings"
+
+[node name="Back_to_Main_Menu_Button" type="Button" parent="RatingsLabel" unique_id=53746484]
+layout_mode = 0
+offset_left = -37.0
+offset_top = 809.0
+offset_right = 260.0
+offset_bottom = 903.0
+text = "Back
+"
+script = ExtResource("10_giblu")
