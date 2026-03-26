@@ -14,6 +14,7 @@ layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("3_43khk")
 
 [node name="ScoreLabel" type="Label" parent="Control" unique_id=1721089042]
 modulate = Color(0, 0, 0, 1)
@@ -22,7 +23,6 @@ offset_left = 51.0
 offset_top = 45.0
 offset_right = 238.0
 offset_bottom = 96.0
-theme = ExtResource("3_43khk")
 text = "Score: 0"
 script = ExtResource("1_6beja")
 
@@ -32,7 +32,6 @@ offset_left = 256.0
 offset_top = 350.0
 offset_right = 491.0
 offset_bottom = 462.0
-theme = ExtResource("3_43khk")
 text = "Restart"
 script = ExtResource("2_ttokp")
 
@@ -40,9 +39,8 @@ script = ExtResource("2_ttokp")
 layout_mode = 0
 offset_left = -30.0
 offset_top = 350.0
-offset_right = 267.0
+offset_right = 290.0
 offset_bottom = 462.0
-theme = ExtResource("3_43khk")
 text = "Main Menu"
 script = ExtResource("4_yk00d")
 
@@ -52,6 +50,5 @@ offset_left = 37.0
 offset_top = 1159.0
 offset_right = 158.0
 offset_bottom = 1246.0
-theme = ExtResource("3_43khk")
 text = "FPS: "
 script = ExtResource("5_yk00d")

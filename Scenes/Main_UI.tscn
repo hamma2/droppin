@@ -52,7 +52,6 @@ offset_left = 200.0
 offset_top = 230.0
 offset_right = 550.0
 offset_bottom = 330.0
-theme = ExtResource("1_6qecu")
 text = "Start"
 script = ExtResource("3_5msf3")
 
@@ -71,3 +70,11 @@ offset_right = 350.0
 offset_bottom = 330.0
 theme = ExtResource("1_6qecu")
 text = "Ratings"
+
+[node name="Settings_Label" type="Label" parent="." unique_id=656777296]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 66.0
+offset_right = 464.0
+offset_bottom = 152.0
+text = "Settings"

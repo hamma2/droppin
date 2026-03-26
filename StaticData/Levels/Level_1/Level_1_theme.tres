@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bun5twiig1ujh" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_near_3.tscn" id="7_0b1tv"]
 [ext_resource type="Texture2D" uid="uid://dn6b3ll0tdolr" path="res://Textures/sky_postcard_theme/small_grass.svg" id="11_0b1tv"]
 [ext_resource type="Texture2D" uid="uid://w3earcnjr2yi" path="res://Textures/sky_postcard_theme/cactus.svg" id="12_706mc"]
+[ext_resource type="Theme" uid="uid://1y2olw7n5rxd" path="res://Materials/sky_postcard_theme/sky_card_ui_theme.tres" id="14_706mc"]
 
 [resource]
 script = ExtResource("2_tqkuj")
@@ -28,5 +29,6 @@ small_barrier_decoration = ExtResource("11_0b1tv")
 large_barrier_decoration = ExtResource("1_thfs6")
 special_barrier_decoration = ExtResource("12_706mc")
 ui_scene = ExtResource("3_tqkuj")
+ui_theme = ExtResource("14_706mc")
 ball_collision_particle_color = Color(1, 0.9019608, 0.4862745, 1)
 metadata/_custom_type_script = "uid://ba2pa5g06iynk"

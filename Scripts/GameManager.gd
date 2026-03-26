@@ -60,6 +60,8 @@ func _ready():
         var ui_scene_instance: Node = themeSettings.ui_scene.instantiate()
         if ui_scene_instance != null:
             add_child(ui_scene_instance)
+            var ui_control: Control = ui_scene_instance.find_child("Control")
+            ui_control.theme = themeSettings.ui_theme
 
         # instantiate parallax layers
         # not needed to use all of the 5 prototypes, so check for null
