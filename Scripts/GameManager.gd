@@ -27,7 +27,7 @@ var _performance_monitoring_enabled: bool = false
 @export var end_game_on_ceiling_hit: bool = true
 
 @export var levelSettings: LevelSettingsData = null
-@export var themeSettings: LevelThemeData = null
+@onready var themeSettings: LevelThemeData = load(Settings.themePaths.get(Settings.themeName))
 
 func _ready():
     ball = get_parent().find_child("Ball")

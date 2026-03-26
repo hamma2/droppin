@@ -25,6 +25,10 @@ config/icon="res://icon.svg"
 
 driver/output_latency.web=15
 
+[autoload]
+
+Settings="*uid://cpc656eqfg11n"
+
 [display]
 
 window/size/viewport_width=720
