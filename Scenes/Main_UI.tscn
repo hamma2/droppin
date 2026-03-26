@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://b3ncao71m0vsk"]
+
+[ext_resource type="Theme" uid="uid://1y2olw7n5rxd" path="res://Materials/sky_postcard_theme/sky_card_ui_theme.tres" id="1_6qecu"]
+[ext_resource type="Texture2D" uid="uid://dt4cegnvlvyvj" path="res://Textures/sky_postcard_theme/background.png" id="2_upfwc"]
+[ext_resource type="Script" uid="uid://dkqjs230ct3mx" path="res://Scripts/ui/StartButton.gd" id="3_5msf3"]
+
+[node name="MainUi" type="Control" unique_id=1091995016]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_6qecu")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=119332604]
+z_index = -1
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+texture = ExtResource("2_upfwc")
+
+[node name="Start" type="Button" parent="." unique_id=172106586]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 230.0
+offset_right = 550.0
+offset_bottom = 330.0
+theme = ExtResource("1_6qecu")
+text = "Start"
+script = ExtResource("3_5msf3")
+
+[node name="Settings" type="Button" parent="Start" unique_id=2001952503]
+layout_mode = 0
+offset_top = 230.0
+offset_right = 350.0
+offset_bottom = 330.0
+theme = ExtResource("1_6qecu")
+text = "Settings"
+
+[node name="Ratings" type="Button" parent="Start/Settings" unique_id=819933964]
+layout_mode = 0
+offset_top = 230.0
+offset_right = 350.0
+offset_bottom = 330.0
+theme = ExtResource("1_6qecu")
+text = "Ratings"
