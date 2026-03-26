@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;">
+    <g>
+        <circle cx="158" cy="128" r="40" style="stroke:black;stroke-width:12px;"/>
+        <circle cx="161" cy="126" r="30" style="stroke:black;stroke-width:12px;"/>
+        <circle cx="163" cy="143" r="28" style="stroke:black;stroke-width:12px;"/>
+        <circle cx="198" cy="108" r="27" style="stroke:black;stroke-width:12px;"/>
+        <circle cx="175" cy="127" r="25" style="stroke:black;stroke-width:12px;"/>
+        <circle cx="192" cy="109" r="34" style="stroke:black;stroke-width:12px;"/>
+        <circle cx="361" cy="391" r="40" style="stroke:black;stroke-width:12px;"/>
+        <circle cx="362" cy="374" r="32" style="stroke:black;stroke-width:12px;"/>
+        <circle cx="363" cy="415" r="35" style="stroke:black;stroke-width:12px;"/>
+        <circle cx="395" cy="410" r="31" style="stroke:black;stroke-width:12px;"/>
+        <circle cx="367" cy="400" r="34" style="stroke:black;stroke-width:12px;"/>
+        <circle cx="346" cy="404" r="28" style="stroke:black;stroke-width:12px;"/>
+    </g>
+    <g>
+        <circle cx="158" cy="128" r="40" style="fill:white;"/>
+        <circle cx="161" cy="126" r="30" style="fill:white;"/>
+        <circle cx="163" cy="143" r="28" style="fill:white;"/>
+        <circle cx="198" cy="108" r="27" style="fill:white;"/>
+        <circle cx="175" cy="127" r="25" style="fill:white;"/>
+        <circle cx="192" cy="109" r="34" style="fill:white;"/>
+        <circle cx="361" cy="391" r="40" style="fill:white;"/>
+        <circle cx="362" cy="374" r="32" style="fill:white;"/>
+        <circle cx="363" cy="415" r="35" style="fill:white;"/>
+        <circle cx="395" cy="410" r="31" style="fill:white;"/>
+        <circle cx="367" cy="400" r="34" style="fill:white;"/>
+        <circle cx="346" cy="404" r="28" style="fill:white;"/>
+    </g>
+</svg>
