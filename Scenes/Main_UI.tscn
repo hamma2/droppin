@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://b3ncao71m0vsk"]
 
 [ext_resource type="Theme" uid="uid://1y2olw7n5rxd" path="res://Materials/sky_postcard_theme/sky_card_ui_theme.tres" id="1_6qecu"]
+[ext_resource type="PackedScene" uid="uid://bun5twiig1ujh" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_near_3.tscn" id="2_1b2bo"]
 [ext_resource type="Texture2D" uid="uid://dt4cegnvlvyvj" path="res://Textures/sky_postcard_theme/background.png" id="2_upfwc"]
+[ext_resource type="PackedScene" uid="uid://c3olypljywkl7" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_far_2.tscn" id="2_w0gnm"]
+[ext_resource type="PackedScene" uid="uid://cuj7aprncvk1h" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_near.tscn" id="2_wk3fd"]
 [ext_resource type="Script" uid="uid://dkqjs230ct3mx" path="res://Scripts/ui/StartButton.gd" id="3_5msf3"]
+[ext_resource type="PackedScene" uid="uid://rgs1g6gtgcjc" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_near_2.tscn" id="3_v2k75"]
 
 [node name="MainUi" type="Control" unique_id=1091995016]
 clip_contents = true
@@ -16,8 +20,27 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_6qecu")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=119332604]
+[node name="Parallax2D_Far_2" parent="." unique_id=145793456 instance=ExtResource("2_w0gnm")]
+z_index = -3
+autoscroll = Vector2(-25, -150)
+repeat_times = 17
+
+[node name="Parallax2D_near" parent="." unique_id=1012087232 instance=ExtResource("2_wk3fd")]
+z_index = -2
+autoscroll = Vector2(-60, -300)
+repeat_times = 8
+
+[node name="Parallax2D_near_3" parent="." unique_id=1782567973 instance=ExtResource("2_1b2bo")]
 z_index = -1
+autoscroll = Vector2(80, -200)
+repeat_times = 7
+
+[node name="Parallax2D_near_2" parent="." unique_id=539104251 instance=ExtResource("3_v2k75")]
+z_index = -3
+autoscroll = Vector2(-40, -250)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=119332604]
+z_index = -4
 layout_mode = 0
 offset_right = 2048.0
 offset_bottom = 2048.0

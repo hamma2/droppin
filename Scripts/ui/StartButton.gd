@@ -7,7 +7,6 @@ func _ready() -> void:
 
 
 func _on_pressed():
-    print("cahnged scene")
     get_tree().change_scene_to_file("res://Scenes/main.tscn")
 
     
