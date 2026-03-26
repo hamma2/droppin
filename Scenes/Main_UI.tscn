@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dkqjs230ct3mx" path="res://Scripts/ui/StartButton.gd" id="3_5msf3"]
 
 [node name="MainUi" type="Control" unique_id=1091995016]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
