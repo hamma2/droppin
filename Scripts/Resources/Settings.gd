@@ -17,6 +17,11 @@ var themePaths: Dictionary [int, String] = {
     ThemeNames.water: "res://StaticData/Levels/Level_1/Level_1_theme.tres",
 }
 
+var uiThemePaths: Dictionary [int, String] = {
+    ThemeNames.skycard: "res://Materials/sky_postcard_theme/sky_card_ui_theme.tres",
+    ThemeNames.water: "res://Materials/sky_postcard_theme/sky_card_ui_theme.tres",
+}
+
 enum Difficulty{
     easy,
     medium,
@@ -24,18 +29,13 @@ enum Difficulty{
     impossible
 }
 
-# create first time
-func create_first_use() -> void:
-    var config = ConfigFile.new()
-
-    config.set_value("Theme", "theme_name", ThemeNames.skycard)
-    config.set_value("Difficulty", "difficulty_level", Difficulty.easy)
-
-    config.save(SETTINGS_FILE)
-
 # Saving
 func save_theme_settings(theme_name: ThemeNames) -> void:
     var config = ConfigFile.new()
+
+    var err = config.load(SETTINGS_FILE)
+    if err != OK:
+        print("No settings file found. Using default settings and writing file.")
 
     config.set_value("Theme", "theme_name", theme_name)
 
@@ -43,6 +43,10 @@ func save_theme_settings(theme_name: ThemeNames) -> void:
 
 func save_difficulty_settings(difficulty_name: Difficulty) -> void:
     var config = ConfigFile.new()
+
+    var err = config.load(SETTINGS_FILE)
+    if err != OK:
+        print("No settings file found. Using default settings and writing file.")
 
     config.set_value("Difficulty", "difficulty_level", difficulty_name)
     print("saving difficulty: ", difficulty_name)
@@ -55,10 +59,6 @@ func load_settings() -> void:
     var err = config.load(SETTINGS_FILE)
     if err != OK:
         print("No settings file found. Using default settings and writing file.")
-        #create_first_use()
 
     themeName = config.get_value("Theme", "theme_name", ThemeNames.skycard)
     diffucultyLevel = config.get_value("Difficulty", "difficulty_level", Difficulty.easy)
-
-    print("Theme Name: ", themeName)
-    print("Difficulty: ", diffucultyLevel)
