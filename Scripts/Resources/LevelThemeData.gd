@@ -37,4 +37,4 @@ func _init(p_background_texture: Texture2D = null, p_parallax_layer_1: PackedSce
     special_barrier_decoration = p_special_barrier_decoration
     ui_scene = p_ui_scene
     ball_collision_particle_color = p_ball_collision_particle_color
-    p_ui_theme = ui_theme
+    ui_theme = p_ui_theme
