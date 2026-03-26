@@ -7,8 +7,6 @@ func _ready() -> void:
 
 
 func _on_pressed():
-    var main = load("res://Scenes/main.tscn")
-    
-    get_parent().queue_free()
+    get_tree().change_scene_to_file("res://Scenes/main.tscn")
 
     
