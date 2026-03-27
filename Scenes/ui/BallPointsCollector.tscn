@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dmmn56pl8xse"]
+
+[ext_resource type="Script" uid="uid://d138sxigsp72q" path="res://Scripts/ui/BallPointsCollector.gd" id="1_lh8jq"]
+[ext_resource type="Theme" uid="uid://1y2olw7n5rxd" path="res://Materials/sky_postcard_theme/sky_card_ui_theme.tres" id="2_lh8jq"]
+
+[node name="BallPointsCollector" type="Node2D" unique_id=271598726]
+script = ExtResource("1_lh8jq")
+theme = ExtResource("2_lh8jq")
+
+[node name="Label" type="Label" parent="." unique_id=1720219511]
+offset_left = -40.0
+offset_top = -50.0
+offset_right = 40.0
+offset_bottom = -20.0
+theme = ExtResource("2_lh8jq")
+text = "+0"
+horizontal_alignment = 1
+vertical_alignment = 1

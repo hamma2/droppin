@@ -9,6 +9,10 @@ var camera: Camera2D
 signal score_changed(new_score: int)
 signal game_over_signal()
 
+# Floating points animation
+var ball_points_collector: Node2D = null
+var score_label: Label = null
+var ui_container: Node = null
 var score: int = 0:
     set(value):
         score = value
@@ -60,6 +64,7 @@ func _ready():
         var ui_scene_instance: Node = themeSettings.ui_scene.instantiate()
         if ui_scene_instance != null:
             add_child(ui_scene_instance)
+            ui_container = ui_scene_instance  # Store reference for floating points
             var ui_control: Control = ui_scene_instance.find_child("Control")
             ui_control.theme = themeSettings.ui_theme
 
@@ -114,6 +119,13 @@ func _ready():
 
     if levelSettings != null:
         _performance_monitoring_enabled = levelSettings.performance_monitoring_enabled
+    
+    # Find the score label for floating points animation
+    score_label = find_child("ScoreLabel", true, false)
+    
+    # Find the ball points collector
+    if ball != null:
+        ball_points_collector = ball.find_child("BallPointsCollector", true, false)
 
 func _physics_process(_delta):
     if not game_active or ball == null:
@@ -139,7 +151,22 @@ func update_score() -> void:
 
     # Nur aktualisieren wenn es echte Punkte gibt
     if base_increase >= 0:
+        # Send points to ball collector if available
+        if score_increase > 0:
+            send_points_to_ball_collector(score_increase)
+        
         self.score += score_increase
+
+func send_points_to_ball_collector(points_value: int) -> void:
+    """Send points to the ball points collector"""
+    # Lazy initialization: find collector if not yet assigned
+    if ball_points_collector == null and ball != null:
+        ball_points_collector = ball.find_child("BallPointsCollector", true, false)
+    
+    if ball_points_collector == null:
+        return
+    
+    ball_points_collector.add_points(points_value)
 
 func emit_score_changed(new_score: int):
     score_changed.emit(new_score)
