@@ -14,8 +14,6 @@ var game_manager: GameManager = null
 var floating_points_scene = preload("res://Scenes/ui/FloatingPoints.tscn")
 
 func _ready():
-    position.x = 50
-    position.y = -50
     update_label_display()
 
 func add_points(points: int) -> void:
@@ -29,8 +27,6 @@ func add_points(points: int) -> void:
     label.visible = true
 
 func _process(delta: float) -> void:
-    # reset rotation to avoid unwanted rotations from parent (ball)
-    global_rotation = 0.0
     # Only count time if we have points and not animating
     if accumulated_points > 0 and not is_animating:
         time_since_last_point += delta

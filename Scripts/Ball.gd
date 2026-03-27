@@ -30,9 +30,6 @@ var is_touching: bool = false
 # for direction chaging extra
 var direction: int = 1
 
-# Ball points collector
-var ball_points_collector_scene = preload("res://Scenes/ui/BallPointsCollector.tscn")
-
 func _ready():
     contact_monitor = true
     max_contacts_reported = 10
@@ -49,10 +46,6 @@ func _ready():
     angular_damp = 0.5
 
     body_entered.connect(_on_body_entered)
-    
-    # Instantiate and add ball points collector
-    var collector = ball_points_collector_scene.instantiate()
-    add_child(collector)
 
 func _on_body_entered(body: Node):
     if body.name == "Ceiling" or body.is_in_group("ceiling"):
