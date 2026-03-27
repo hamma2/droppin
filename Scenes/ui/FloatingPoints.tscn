@@ -1,18 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqnqcx5yy0r5l"]
+[gd_scene format=3 uid="uid://bqnqcx5yy0r5l"]
 
-[ext_resource type="Script" path="res://Scripts/ui/FloatingPoints.gd" id="1_x4kaw"]
+[ext_resource type="Script" uid="uid://c8w8kg2pcm17e" path="res://Scripts/ui/FloatingPoints.gd" id="1_x4kaw"]
+[ext_resource type="Theme" uid="uid://1y2olw7n5rxd" path="res://Materials/sky_postcard_theme/sky_card_ui_theme.tres" id="2_tdk1k"]
 
-[node name="FloatingPoints" type="Node2D"]
+[node name="FloatingPoints" type="Node2D" unique_id=512951066]
 script = ExtResource("1_x4kaw")
-flight_duration = 0.6
-fade_duration = 0.4
-use_curve = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=746903420]
 offset_left = -30.0
 offset_top = -15.0
 offset_right = 30.0
 offset_bottom = 15.0
+theme = ExtResource("2_tdk1k")
 text = "+100"
 horizontal_alignment = 1
 vertical_alignment = 1

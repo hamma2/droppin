@@ -155,7 +155,7 @@ func update_score() -> void:
         if score_increase > 0:
             send_points_to_ball_collector(score_increase)
         
-        self.score += score_increase
+        #self.score += score_increase
 
 func send_points_to_ball_collector(points_value: int) -> void:
     """Send points to the ball points collector"""
