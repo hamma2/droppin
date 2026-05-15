@@ -6,7 +6,7 @@ class_name RemoteTransformPointsCollector
 @export var pos_x = 50.0
 @export var remote_node_path: NodePath
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
     # Keep label upright and directly above the ball without rotating or orbiting
     if remote_node_path:
         var ball = get_node(remote_node_path)
