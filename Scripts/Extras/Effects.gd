@@ -56,3 +56,8 @@ func invisible_ball(effect_invisible_duration: float, number_blink_times: int, v
         playerBall.visible = true
         playerBall.get_node("BallPointsCollector").visible = true
         await get_tree().create_timer(visible_duration).timeout
+
+func gap_passing(duration: float) -> void:
+    playerBall.can_pass_gap_effect = true
+    await get_tree().create_timer(duration).timeout
+    playerBall.can_pass_gap_effect = false

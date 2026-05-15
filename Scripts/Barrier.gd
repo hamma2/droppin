@@ -62,9 +62,9 @@ func setup_barriers():
     gap.add_child(static_gap)
     var collision2 = CollisionShape2D.new()
     var shape2 = RectangleShape2D.new()
-    shape2.extents = Vector2(gap_width /2, barrier_height)
+    shape2.extents = Vector2(gap_width /2, barrier_height / 4)
     collision2.shape = shape2
-    collision2.position = Vector2(viewport_left + left_width + gap_width / 2, barrier_height / 2)
+    collision2.position = Vector2(viewport_left + left_width + gap_width / 2, -barrier_height /4)
     static_gap.collision_layer = 0
     static_gap.collision_mask = 0
     static_gap.add_child(collision2)
