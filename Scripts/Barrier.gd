@@ -65,8 +65,7 @@ func setup_barriers():
     shape2.extents = Vector2(gap_width /2, barrier_height / 4)
     collision2.shape = shape2
     collision2.position = Vector2(viewport_left + left_width + gap_width / 2, -barrier_height /4)
-    static_gap.collision_layer = 0
-    static_gap.collision_mask = 0
+    collision2.set_deferred("disabled", true)
     static_gap.add_child(collision2)
 
     gap.add_child(collision)

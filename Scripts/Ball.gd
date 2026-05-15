@@ -32,7 +32,7 @@ var direction: int = 1
 
 # for determining if ball is allowed to pass barrier gap
 var can_pass_gap: bool = true
-var can_pass_gap_effect: bool = true
+var can_pass_gap_effect: bool = false
 
 func _ready():
     contact_monitor = true
@@ -96,15 +96,14 @@ func _input(event):
         is_touching = true
         touch_target_x = event.position.x
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta):
+    handle_movement()
+
     if can_pass_gap_effect:
         if rotation_degrees < 120 and rotation_degrees > -120:
             can_pass_gap = true
         else:
             can_pass_gap = false
-
-func _physics_process(_delta):
-    handle_movement()
 
     # Begrenze horizontale Geschwindigkeit
     if abs(linear_velocity.x) > max_horizontal_velocity:

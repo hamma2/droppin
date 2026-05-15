@@ -26,6 +26,8 @@ const extra_item_direction_script = preload("res://Scripts/Extras/Direction/Dire
 const extra_item_invisible_barriers_script = preload("res://Scripts/Extras/Insvisible_Barriers/Insvisible_BarriersItem.gd")
 # invisible ball extra
 const extra_item_invisible_ball_script = preload("res://Scripts/Extras/Invisible_Ball/Insvisible_BallItem.gd")
+# gap passing extra
+const extra_item_gap_passing_script = preload("res://Scripts/Extras/GapPassing/GapPassingItem.gd")
 
 var time_since_last_spawn: float = 0.0
 var barrier_pairs: Array = []
@@ -136,11 +138,9 @@ func update_barriers():
 
         # check for gap passing
         if pair.player_in_area && ball.can_pass_gap:
-            pair.static_gap.collision_layer = 0
-            pair.static_gap.collision_mask = 0
-        else:
-            pair.static_gap.collision_layer = 1
-            pair.static_gap.collision_mask = 1
+            pair.static_gap.get_child(0).set_deferred("disabled", true)
+        if pair.player_in_area && !ball.can_pass_gap:
+            pair.static_gap.get_child(0).set_deferred("disabled", false)
 
     for pair in pairs_to_remove:
         barrier_pairs.erase(pair)
@@ -191,6 +191,8 @@ func spawn_extra_randomly(barrier_y: float) -> void:
             extra.script = extra_item_invisible_barriers_script
         "invisible_ball":
             extra.script = extra_item_invisible_ball_script
+        "gap_passing":
+            extra.script = extra_item_gap_passing_script
 
     extra.position = Vector2(
         randf_range(viewport_left + 100, viewport_right - 100),
