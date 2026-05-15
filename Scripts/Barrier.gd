@@ -46,6 +46,7 @@ func setup_barriers():
     var gap = Area2D.new()
     gap.name = "gap_barrier"
     gap.add_to_group("gap_barrier")
+    gap.body_entered.connect(Callable(self,"_on_gap_body_entered"))
     var collision = CollisionShape2D.new()
     var shape = RectangleShape2D.new()
     shape.extents = Vector2(gap_width /2, barrier_height / 2.0)
@@ -140,3 +141,9 @@ func setup_barrier_shape(barrier: StaticBody2D, width: float, _barrierName: Stri
     #sprite.position = Vector2(0, 0)
     ##sprite.self_modulate = Color(242, 214, 162, 255) /255  # Orange Farbe
     #barrier.add_child(sprite)
+
+func _on_gap_body_entered(body):
+    """Callback, wenn ein Körper das Loch betritt - hier könnte man z.B. Punkte vergeben oder andere Effekte auslösen"""
+    if body.is_in_group("player"):
+        print("Player hat das Loch passiert!")
+        pass

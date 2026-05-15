@@ -46,6 +46,7 @@ func _ready():
     angular_damp = 0.5
 
     body_entered.connect(_on_body_entered)
+    add_to_group("player")
 
 func _on_body_entered(body: Node):
     if body.name == "Ceiling" or body.is_in_group("ceiling"):
