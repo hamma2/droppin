@@ -11,6 +11,6 @@ effect_type = "gap_passing"
 color = Color(1, 0.1882353, 1, 1)
 texture = SubResource("CompressedTexture2D_u6vha")
 scale_factor = 0.391
-spawn_probability = 1.0
+spawn_probability = 0.2
 duration = 5.0
 rotation_change = 180.0

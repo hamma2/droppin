@@ -10,7 +10,7 @@
 [ext_resource type="Shader" uid="uid://b7sauhxdac0gb" path="res://Shaders/deform_sprite.gdshader" id="4_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://dmmn56pl8xse" path="res://Scenes/ui/BallPointsCollector.tscn" id="6_k12tt"]
 [ext_resource type="Script" uid="uid://byxptnvx0r3f6" path="res://Scripts/ui/RemoteTransformPointsCollector.gd" id="7_h1bgf"]
-[ext_resource type="Script" uid="uid://cem6axmotgq40" path="res://Scenes/ui/ball_multiplier_label.gd" id="8_b3802"]
+[ext_resource type="Script" uid="uid://cem6axmotgq40" path="res://Scripts/ui/ball_multiplier_label.gd" id="8_b3802"]
 [ext_resource type="Resource" uid="uid://bqx7tei56wsey" path="res://StaticData/Levels/Level_1/Level_1_settings.tres" id="8_k12tt"]
 [ext_resource type="PackedScene" uid="uid://nsvi2l2l75tw" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_far.tscn" id="11_k12tt"]
 [ext_resource type="Script" uid="uid://dkik1n3mb42km" path="res://Scripts/Extras/Effects.gd" id="12_6iyac"]
