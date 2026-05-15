@@ -33,6 +33,8 @@ var direction: int = 1
 # for determining if ball is allowed to pass barrier gap
 var can_pass_gap: bool = true
 var can_pass_gap_effect: bool = false
+var degrees: int = 120
+var degrees2: int = -120
 
 func _ready():
     contact_monitor = true
