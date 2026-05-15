@@ -10,6 +10,7 @@
 [ext_resource type="Shader" uid="uid://b7sauhxdac0gb" path="res://Shaders/deform_sprite.gdshader" id="4_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://dmmn56pl8xse" path="res://Scenes/ui/BallPointsCollector.tscn" id="6_k12tt"]
 [ext_resource type="Script" uid="uid://byxptnvx0r3f6" path="res://Scripts/ui/RemoteTransformPointsCollector.gd" id="7_h1bgf"]
+[ext_resource type="Script" uid="uid://cem6axmotgq40" path="res://Scenes/ui/ball_multiplier_label.gd" id="8_b3802"]
 [ext_resource type="Resource" uid="uid://bqx7tei56wsey" path="res://StaticData/Levels/Level_1/Level_1_settings.tres" id="8_k12tt"]
 [ext_resource type="PackedScene" uid="uid://nsvi2l2l75tw" path="res://Scenes/Parallax_Themes/sky_postcard_theme/parallax_2d_far.tscn" id="11_k12tt"]
 [ext_resource type="Script" uid="uid://dkik1n3mb42km" path="res://Scripts/Extras/Effects.gd" id="12_6iyac"]
@@ -85,13 +86,27 @@ texture = ExtResource("3_21xkr")
 
 [node name="BallPointsCollector" parent="Ball" unique_id=271598726 instance=ExtResource("6_k12tt")]
 top_level = true
-position = Vector2(50, -365)
+position = Vector2(0, -365)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Ball" unique_id=504134247]
 remote_path = NodePath("../BallPointsCollector")
 update_rotation = false
 script = ExtResource("7_h1bgf")
 remote_node_path = NodePath("..")
+
+[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Ball" unique_id=610934160]
+remote_path = NodePath("../MutliplierLabel")
+update_rotation = false
+script = ExtResource("7_h1bgf")
+radius = -75.0
+pos_x = 100.0
+remote_node_path = NodePath("..")
+
+[node name="MutliplierLabel" parent="Ball" unique_id=756538882 instance=ExtResource("6_k12tt")]
+top_level = true
+position = Vector2(0, -365)
+script = ExtResource("8_b3802")
+multiplier_color = Color(0.7453636, 0, 0.3262264, 1)
 
 [node name="GameManager" type="Node" parent="." unique_id=1580633808]
 script = ExtResource("1_game_manager")
