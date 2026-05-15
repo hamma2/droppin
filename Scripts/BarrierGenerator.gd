@@ -147,7 +147,13 @@ func update_barrier_visibility():
             pair.get_node("LeftBarrier").visible = true
             pair.get_node("RightBarrier").visible = true
 
-
+func update_barrier_gap_detection():
+    """Aktualisiert die Kollisionsform des Lochs basierend auf der aktuellen Position der Barrieren"""
+    for pair in barrier_pairs:
+        var gap_collider = pair.get_node("gap_barrier/CollisionShape2D")
+        if gap_collider:
+            var shape = gap_collider.shape
+            
 func count_barriers_below_camera() -> int:
     """Zählt die Barrieren unterhalb der Kamera"""
     var count = 0

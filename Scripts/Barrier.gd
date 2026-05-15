@@ -41,6 +41,19 @@ func setup_barriers():
     setup_barrier_shape(right_barrier, right_width, barrierName)
     add_child(right_barrier)
 
+    # erstelle gap collider
+    # CollisionShape2D
+    var gap = Area2D.new()
+    gap.name = "gap_barrier"
+    gap.add_to_group("gap_barrier")
+    var collision = CollisionShape2D.new()
+    var shape = RectangleShape2D.new()
+    shape.extents = Vector2(gap_width /2, barrier_height / 2.0)
+    collision.shape = shape
+    collision.position = Vector2(viewport_left + left_width + gap_width / 2, barrier_height / 2)
+    gap.add_child(collision)
+    add_child(gap)
+
 func create_barrier(barrier_name: String) -> StaticBody2D:
     """Erstellt eine einzelne statische Barriere"""
     var barrier = StaticBody2D.new()
