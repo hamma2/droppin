@@ -30,6 +30,9 @@ var is_touching: bool = false
 # for direction chaging extra
 var direction: int = 1
 
+# for determining if ball is allowed to pass barrier gap
+var can_pass_gap: bool = true
+
 func _ready():
     contact_monitor = true
     max_contacts_reported = 10

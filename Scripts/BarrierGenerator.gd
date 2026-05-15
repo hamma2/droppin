@@ -134,6 +134,14 @@ func update_barriers():
             pair.queue_free()
             pairs_to_remove.append(pair)
 
+        # check for gap passing
+        if pair.player_in_area && ball.can_pass_gap:
+            pair.static_gap.collision_layer = 0
+            pair.static_gap.collision_mask = 0
+        else:
+            pair.static_gap.collision_layer = 1
+            pair.static_gap.collision_mask = 1
+
     for pair in pairs_to_remove:
         barrier_pairs.erase(pair)
 
@@ -147,13 +155,6 @@ func update_barrier_visibility():
             pair.get_node("LeftBarrier").visible = true
             pair.get_node("RightBarrier").visible = true
 
-func update_barrier_gap_detection():
-    """Aktualisiert die Kollisionsform des Lochs basierend auf der aktuellen Position der Barrieren"""
-    for pair in barrier_pairs:
-        var gap_collider = pair.get_node("gap_barrier/CollisionShape2D")
-        if gap_collider:
-            var shape = gap_collider.shape
-            
 func count_barriers_below_camera() -> int:
     """Zählt die Barrieren unterhalb der Kamera"""
     var count = 0

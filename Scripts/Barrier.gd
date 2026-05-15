@@ -10,10 +10,14 @@ var right_barrier: StaticBody2D
 var viewport_left: float
 var viewport_right: float
 
+var static_gap: StaticBody2D
+
 var barrier_texture: Texture2D = null
 var small_barrier_deco_texture: Texture2D = null
 var large_barrier_deco_texture: Texture2D = null
 var special_barrier_deco_texture: Texture2D = null
+
+var player_in_area: bool = false
 
 func _ready():
     setup_barriers()
@@ -49,9 +53,22 @@ func setup_barriers():
     gap.body_entered.connect(Callable(self,"_on_gap_body_entered"))
     var collision = CollisionShape2D.new()
     var shape = RectangleShape2D.new()
-    shape.extents = Vector2(gap_width /2, barrier_height / 2.0)
+    shape.extents = Vector2(gap_width /2, barrier_height + 10)
     collision.shape = shape
     collision.position = Vector2(viewport_left + left_width + gap_width / 2, barrier_height / 2)
+
+    static_gap = StaticBody2D.new()
+    static_gap.name = "gap_static_barrier"
+    gap.add_child(static_gap)
+    var collision2 = CollisionShape2D.new()
+    var shape2 = RectangleShape2D.new()
+    shape2.extents = Vector2(gap_width /2, barrier_height)
+    collision2.shape = shape2
+    collision2.position = Vector2(viewport_left + left_width + gap_width / 2, barrier_height / 2)
+    static_gap.collision_layer = 0
+    static_gap.collision_mask = 0
+    static_gap.add_child(collision2)
+
     gap.add_child(collision)
     add_child(gap)
 
@@ -145,5 +162,8 @@ func setup_barrier_shape(barrier: StaticBody2D, width: float, _barrierName: Stri
 func _on_gap_body_entered(body):
     """Callback, wenn ein Körper das Loch betritt - hier könnte man z.B. Punkte vergeben oder andere Effekte auslösen"""
     if body.is_in_group("player"):
-        print("Player hat das Loch passiert!")
-        pass
+        player_in_area = true
+
+func _on_area_2d_body_exited(body):
+    if body.is_in_group("player"):
+        player_in_area = false
