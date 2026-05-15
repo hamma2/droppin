@@ -173,6 +173,7 @@ func emit_score_changed(new_score: int):
 
 func game_over():
     """Beendet das Spiel"""
+    score += ball_points_collector.accumulated_points # Add any remaining points before ending the game
     game_active = false
     print("Game Over! Score: ", score)
     game_over_signal.emit()
