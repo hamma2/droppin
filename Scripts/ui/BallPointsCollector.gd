@@ -8,6 +8,8 @@ var accumulated_points: int = 0
 var time_since_last_point: float = 0.0
 var is_animating: bool = false
 
+var is_visible = true
+
 @onready var label: Label = $Label
 
 var game_manager: GameManager = null
@@ -66,6 +68,11 @@ func trigger_animation() -> void:
         accumulated_points = 0
         return
     
+    if is_visible:
+        floating_points.visible = true
+    else:        
+        floating_points.visible = false
+
     # Start position: this collector's position (world space)
     var start_pos = global_position
     var target_pos = score_label.get_global_rect().get_center()

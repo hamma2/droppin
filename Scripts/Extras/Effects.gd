@@ -51,6 +51,8 @@ func invisible_barriers(effect_invisible_duration: float, number_blink_times: in
 func invisible_ball(effect_invisible_duration: float, number_blink_times: int, visible_duration: float) -> void:
     for i in number_blink_times:
         playerBall.visible = false
+        playerBall.get_node("BallPointsCollector").is_visible = false
         await get_tree().create_timer(effect_invisible_duration).timeout
         playerBall.visible = true
+        playerBall.get_node("BallPointsCollector").visible = true
         await get_tree().create_timer(visible_duration).timeout
