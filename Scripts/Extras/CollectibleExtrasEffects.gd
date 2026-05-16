@@ -19,6 +19,7 @@ func init_it(p_texture: Texture, p_effectName: String = "generic", p_scale: Vect
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     instantiate_collectible_extras_effects(texture, _scale, shape, shape_size)
+    add_to_group("collectible_extras_effects")
     $/root/PlayScene/GameManager.game_over_signal.connect(_destroy_node_on_gameover)
 
 # overwrite the function in inherited class

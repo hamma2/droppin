@@ -134,6 +134,14 @@ func _physics_process(_delta):
 func _process(_delta: float):
     update_score()
 
+func _unhandled_input(event: InputEvent) -> void:
+    if event.is_action_pressed("ui_down"):
+        # Simulate input event for CollectibleExtrasEffects
+        var input_event = InputEventMouseButton.new()
+        input_event.button_index = MouseButton.MOUSE_BUTTON_LEFT
+        input_event.pressed = true
+        get_tree().call_group("collectible_extras_effects", "_input_event", null, input_event, 0)
+
 func update_score() -> void:
     """Erhöht den Score basierend auf der Y-Position des Balls"""
     var base_increase = int(abs(prev_y_position) - abs(ball.position.y))
