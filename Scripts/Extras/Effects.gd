@@ -10,6 +10,17 @@ class_name EffectScript
 @onready var playerBall: Ball = $/root/PlayScene/Ball
 @onready var barrierGenerator: BarrierGenerator = $/root/PlayScene/BarrierGenerator
 
+# Stores collectible extra items as a list of dictionaries or Resources
+var items = []
+
+func add_item(item_data: Dictionary):
+    items.append(item_data)
+    print("Added item: ", item_data.name)
+
+func remove_item(index: int):
+    if index >= 0 and index < items.size():
+        items.remove_at(index)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     pass # Replace with function body.

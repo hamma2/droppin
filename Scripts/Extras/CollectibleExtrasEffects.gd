@@ -9,6 +9,8 @@ var _scale: Vector2 = Vector2(1, 1)
 var shape: Shape2D = RectangleShape2D.new()
 var shape_size: Vector2 = Vector2(128, 128)
 
+var key: String = ""
+
 func init_it(p_texture: Texture, p_effectName: String = "generic", p_scale: Vector2 = Vector2(1, 1), p_shape: Shape2D = RectangleShape2D.new(), p_shape_size: Vector2 = Vector2(128, 128)) -> void:
     self.texture = p_texture
     self.effectName = p_effectName
@@ -31,9 +33,15 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
             "generic":
                 print("No specific effect found for ", effectName, ". Activating generic effect.")
 
+        effectsScript.remove_item(effectsScript.items.find({"name": effectName, "key": texture}))
         queue_free()
 
 func instantiate_collectible_extras_effects(_texture: Texture, p_scale: Vector2, _shape: Shape2D, _shape_size: Vector2) -> void:
+    if(effectsScript.items.size() >= 4):
+        #print("Maximum number of active effects reached. Cannot instantiate more CollectibleExtrasEffects.")
+        queue_free()
+        return
+
     set_collision_shape(_shape, _shape_size)
 
     var viewport_size = get_viewport().get_visible_rect().size
@@ -53,8 +61,22 @@ func instantiate_collectible_extras_effects(_texture: Texture, p_scale: Vector2,
             queue_free()
             return
 
+    if(_position.x > 0 && _position.x < viewport_size.x * 0.1 + 10):
+        key = "1"
+    elif(_position.x > viewport_size.x * 0.1 + 10 && _position.x < viewport_size.x * 0.1 + 10 + _shape_size.x + 20):
+        key = "2"
+    elif(_position.x > viewport_size.x * 0.1 + 10 + _shape_size.x + 20 && _position.x < viewport_size.x * 0.1 + 10 + 2*(_shape_size.x + 20)):
+        key = "3"
+    elif(_position.x > viewport_size.x * 0.1 + 10 + 2*(_shape_size.x + 20) && _position.x < viewport_size.x * 0.1 + 10 + 3*(_shape_size.x + 20)):
+        key = "4"
+
     global_position = _position
     set_sprite(_texture, p_scale)
+
+    effectsScript.add_item({
+        "name": effectName,
+        "key": key,
+    })
 
 func set_collision_shape(p_shape: Shape2D, p_shape_size: Vector2) -> void:
     var collision_shape: CollisionShape2D = get_node("CollisionShape2D")
