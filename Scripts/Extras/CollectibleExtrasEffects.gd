@@ -23,7 +23,7 @@ func _ready() -> void:
 
 # overwrite the function in inherited class
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
-    if (event is InputEventMouseButton and event.is_pressed()) or Input.is_action_pressed("ui_down"):
+    if (event is InputEventMouseButton and event.is_pressed()):
         match effectName:
             "drop_barrier":
                 effectsScript.activate_drop_barrier_effect()
@@ -31,7 +31,6 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
                 print("No specific effect found for ", effectName, ". Activating generic effect.")
 
         queue_free()
-        pass
 
 func instantiate_collectible_extras_effects(_texture: Texture, p_scale: Vector2, _shape: Shape2D, _shape_size: Vector2) -> void:
     set_collision_shape(_shape, _shape_size)

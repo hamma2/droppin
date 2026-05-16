@@ -65,4 +65,7 @@ func gap_passing(duration: float, degrees: int, degrees2: int) -> void:
     playerBall.can_pass_gap_effect = false
 
 func activate_drop_barrier_effect() -> void:
+    playerBall.get_node("Ball_Collider").set_deferred("disabled", true)
+    await get_tree().create_timer(0.3).timeout
+    playerBall.get_node("Ball_Collider").set_deferred("disabled", false)
     pass
