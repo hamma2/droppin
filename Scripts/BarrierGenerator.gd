@@ -28,6 +28,8 @@ const extra_item_invisible_barriers_script = preload("res://Scripts/Extras/Insvi
 const extra_item_invisible_ball_script = preload("res://Scripts/Extras/Invisible_Ball/Insvisible_BallItem.gd")
 # gap passing extra
 const extra_item_gap_passing_script = preload("res://Scripts/Extras/GapPassing/GapPassingItem.gd")
+# drop barrier extra
+const extra_item_drop_barrier_script = preload("res://Scripts/Extras/DropBarrier/DropBarrierItem.gd")
 
 var time_since_last_spawn: float = 0.0
 var barrier_pairs: Array = []
@@ -182,17 +184,7 @@ func spawn_extra_randomly(barrier_y: float) -> void:
     var extra = extra_item_scene.instantiate()
 
     # set the fitting script
-    match extra_data.effect_type:
-        "points":
-            extra.script = extra_item_points_script
-        "direction":
-            extra.script = extra_item_direction_script
-        "invisible_barriers":
-            extra.script = extra_item_invisible_barriers_script
-        "invisible_ball":
-            extra.script = extra_item_invisible_ball_script
-        "gap_passing":
-            extra.script = extra_item_gap_passing_script
+    extra.script = extra_data.effect_script
 
     extra.position = Vector2(
         randf_range(viewport_left + 100, viewport_right - 100),

@@ -2,8 +2,8 @@ class_name ExtraData extends Resource
 
 ## Datenklasse für spawnable Extra Items
 
-## Der Typ des Extra Items (z.B. "shield", "speed_boost", "points")
-@export var effect_type: String = "generic"
+## Das Script des Items, das die Effektanwendung steuert
+@export var effect_script: Script = null
 
 ## Die Stärke/Dauer des Effekts
 @export var effect_strength: float = 1.0
@@ -29,11 +29,13 @@ class_name ExtraData extends Resource
 # Animation called after collection
 @export var collect_animation: Animation = null
 
-func _init(p_effect_type: String = "generic", p_effect_strength: float = 1.0, 
+@export var is_collectible: bool = false
+
+func _init(p_effect_strength: float = 1.0, 
            p_color: Color = Color.WHITE, p_texture: Texture2D = null, 
            p_scale: float = 1.0, p_probability: float = 0.3, p_duration: float = 1.0,
-           p_rotation_change: float = 0.0, p_collected_animation: Animation = null) -> void:
-    effect_type = p_effect_type
+           p_rotation_change: float = 0.0, p_collected_animation: Animation = null,
+           p_is_collectible: bool = false) -> void:
     effect_strength = p_effect_strength
     color = p_color
     texture = p_texture
@@ -42,3 +44,4 @@ func _init(p_effect_type: String = "generic", p_effect_strength: float = 1.0,
     duration = p_duration
     rotation_change = p_rotation_change
     collect_animation = p_collected_animation
+    is_collectible = p_is_collectible
