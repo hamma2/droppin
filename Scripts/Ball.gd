@@ -12,7 +12,6 @@ signal hit_ceiling
 # Steuerung
 @export var keyboard_force: float = 1000.0
 @export var accelerometer_sensitivity: float = 300.0
-@export var touch_follow_speed: float = 2000.0  # Geschwindigkeit zum Touch-Punkt
 @export var max_horizontal_velocity: float = 2800.0
 
 # Input Methoden
@@ -23,9 +22,6 @@ signal hit_ceiling
 # particles on collision
 @onready var particles_scene = preload("res://Scenes/Parallax_Themes/sky_postcard_theme/ball_particle.tscn")
 var particle_collision_color = Color.WHITE
-
-var touch_target_x: float = 0.0
-var is_touching: bool = false
 
 # for direction chaging extra
 var direction: int = 1
@@ -84,20 +80,6 @@ func spawn_particles() -> void:
     await particles.finished
     particles.queue_free()
 
-
-func _input(event):
-    """Behandelt Touch-Input"""
-    if event is InputEventScreenTouch:
-        if event.pressed:
-            is_touching = true
-            touch_target_x = event.position.x
-        else:
-            is_touching = false
-
-    elif event is InputEventScreenDrag:
-        is_touching = true
-        touch_target_x = event.position.x
-
 func _physics_process(_delta):
     handle_movement()
 
@@ -127,11 +109,6 @@ func handle_movement():
         var accel = Input.get_accelerometer()
         input_force += accel.x * accelerometer_sensitivity * direction
 
-    # Touch (Input-Methode 2 oder 3)
-    if (input_method == 2 or input_method == 3) and is_touching:
-        var p_direction = touch_target_x - global_position.x
-        input_force += sign(p_direction) * touch_follow_speed * direction
-
     # Wende Kraft an
     if input_force != 0:
         apply_central_force(Vector2(input_force, 0))
@@ -140,4 +117,3 @@ func reset_position(new_position: Vector2):
     position = new_position
     linear_velocity = Vector2.ZERO
     angular_velocity = 0.0
-    is_touching = false
