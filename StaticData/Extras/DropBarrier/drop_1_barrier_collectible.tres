@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://tl7wjplivb77" path="res://Scripts/Extras/DropBarrier/DropBarrierData.gd" id="1_0bokx"]
 [ext_resource type="Script" uid="uid://bdsr0im7pwow8" path="res://Scripts/Extras/DropBarrier/DropBarrierItem.gd" id="1_ht6q5"]
-[ext_resource type="Texture2D" uid="uid://c5xg0pjslgqnk" path="res://Textures/Extras/invisible_barriers.svg" id="3_7wffb"]
+[ext_resource type="Texture2D" uid="uid://r6acks38s7li" path="res://Textures/Extras/barrier_drop.svg" id="3_7wffb"]
 
 [resource]
 script = ExtResource("1_0bokx")
 effect_script = ExtResource("1_ht6q5")
-color = Color(0.62352943, 0.03137255, 1, 1)
+color = Color(0.4043253, 0.9999998, 0.35640505, 1)
 texture = ExtResource("3_7wffb")
 spawn_probability = 10.0
 is_collectible = true

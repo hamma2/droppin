@@ -8,7 +8,6 @@
 script = ExtResource("1_h8mgb")
 blink_times = 3
 visible_duration = 0.3
-effect_type = "invisible_ball"
 effect_script = ExtResource("1_b3n3p")
 color = Color(1, 0.1882353, 1, 1)
 texture = ExtResource("2_phu73")
