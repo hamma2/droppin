@@ -144,7 +144,6 @@ func _unhandled_input(event: InputEvent) -> void:
         # Simulate input event for CollectibleExtrasEffects
         var input_event = InputEventKey.new()
         input_event.keycode = event.keycode
-        print(event.keycode)
         input_event.pressed = true
         get_tree().call_group("collectible_extras_effects", "_input_event", null, input_event, 0)
 

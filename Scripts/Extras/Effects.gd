@@ -15,7 +15,7 @@ var items = []
 
 func add_item(item_data: Dictionary):
     items.append(item_data)
-    print("Added item: ", item_data.name)
+    #print("Added item: ", item_data.name)
 
 func remove_item(index: int):
     if index >= 0 and index < items.size():
