@@ -36,16 +36,14 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 func instantiate_collectible_extras_effects(_texture: Texture, p_scale: Vector2, _shape: Shape2D, _shape_size: Vector2) -> void:
     set_collision_shape(_shape, _shape_size)
 
-    var viewport_height = get_viewport().size.y
-    var lower_left_screen = Vector2(0, viewport_height)
-    lower_left_screen.y -= _shape_size.y / 2 + 30  # Adjust for shape size to avoid placing it partially off-screen
-    lower_left_screen.x += _shape_size.x / 2 + 20  # Add some padding from the left edge
+    var viewport_size = get_viewport().get_visible_rect().size
+    var lower_left_screen = Vector2(viewport_size.x * 0.1, viewport_size.y * 0.92)
     var _position = lower_left_screen
 
     while is_spot_occupied(_position, get_node("CollisionShape2D").shape):
         #print("Cannot place CollectibleExtrasEffects at ", _position, " because the spot is occupied.")
         _position += Vector2(_shape_size.x + 20, 0)  # Move right to try another position
-        if _position.x > get_viewport().size.x or _position.x+_shape_size.x > get_viewport().size.x:
+        if _position.x > viewport_size.x or _position.x+_shape_size.x > viewport_size.x:
             #print("No available space to place CollectibleExtrasEffects.")
             queue_free()  # Remove the node if no space is available
             return
@@ -55,7 +53,7 @@ func instantiate_collectible_extras_effects(_texture: Texture, p_scale: Vector2,
             queue_free()
             return
 
-    position = _position
+    global_position = _position
     set_sprite(_texture, p_scale)
 
 func set_collision_shape(p_shape: Shape2D, p_shape_size: Vector2) -> void:
