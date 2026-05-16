@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bq0loaw68eljm"]
+
+[ext_resource type="Script" uid="uid://b7tib0dasvh5m" path="res://Scripts/Extras/CollectibleExtrasEffects.gd" id="1_6vq1x"]
+[ext_resource type="Texture2D" uid="uid://bitjuvwj75ep3" path="res://export/index.icon.png" id="1_nacx4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wurcv"]
+size = Vector2(128, 128)
+
+[node name="CollectibleExtra" type="Area2D" unique_id=605511393]
+top_level = true
+z_as_relative = false
+collision_layer = 8
+collision_mask = 8
+monitorable = false
+script = ExtResource("1_6vq1x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1666661764]
+shape = SubResource("RectangleShape2D_wurcv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=694984920]
+texture = ExtResource("1_nacx4")

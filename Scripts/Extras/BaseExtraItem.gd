@@ -18,6 +18,8 @@ var viewport_left: float = 0.0
 var viewport_right: float = 0.0
 var is_collected: bool = false
 
+var collectibleScene: PackedScene = null
+
 func _ready():
     # Area2D für Kollisionserkennung mit dem Ball
     if not has_node("Area2D/CollisionShape2D"):
@@ -43,6 +45,9 @@ func set_extra_data(data: Resource) -> void:
 
     if extra_data.collect_animation != null:
         extra_data.collect_animation.connect("animation_finished", Callable(self, "_on_animation_finished"))
+
+    if extra_data.is_collectible:
+        collectibleScene = load("res://Scenes/collectible_extra.tscn")
 
 func set_viewport_bounds(left: float, right: float) -> void:
     """Setzt die Grenzen für horizontale Bewegung"""

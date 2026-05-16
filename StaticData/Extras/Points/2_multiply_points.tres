@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="PointsData" load_steps=3 format=3 uid="uid://dx2rxcc4xgvur"]
+[gd_resource type="Resource" script_class="PointsData" format=3 uid="uid://dx2rxcc4xgvur"]
 
 [ext_resource type="Script" uid="uid://c38g7uywwe2dm" path="res://Scripts/Extras/Points/PointsData.gd" id="1_d2uac"]
+[ext_resource type="Script" uid="uid://b3rawguvart8" path="res://Scripts/Extras/Points/PointsItem.gd" id="1_xfkii"]
 [ext_resource type="Texture2D" uid="uid://be1c4mxjnk5l3" path="res://Textures/Extras/points_2x.svg" id="2_kjd1y"]
 
 [resource]
@@ -8,6 +9,7 @@ script = ExtResource("1_d2uac")
 effect_points = 0.0
 point_multiplier = 2.0
 effect_type = "points"
+effect_script = ExtResource("1_xfkii")
 texture = ExtResource("2_kjd1y")
 spawn_probability = 0.2
 duration = 5.0

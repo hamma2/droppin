@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="GapPassingData" format=3 uid="uid://ngqxpwpqfe8e"]
 
+[ext_resource type="Script" uid="uid://q0337plab1ot" path="res://Scripts/Extras/GapPassing/GapPassingItem.gd" id="1_3kre6"]
 [ext_resource type="Script" uid="uid://1u4nc2h247jd" path="res://Scripts/Extras/GapPassing/GapPassingData.gd" id="1_u6vha"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u6vha"]
@@ -8,6 +9,7 @@ load_path = "res://.godot/imported/gap_passing.svg-ba3bb03c1555a91b2fd0f292b7c15
 [resource]
 script = ExtResource("1_u6vha")
 effect_type = "gap_passing"
+effect_script = ExtResource("1_3kre6")
 color = Color(1, 0.1882353, 1, 1)
 texture = SubResource("CompressedTexture2D_u6vha")
 scale_factor = 0.391

@@ -63,3 +63,6 @@ func gap_passing(duration: float, degrees: int, degrees2: int) -> void:
     playerBall.degrees2 = degrees2
     await get_tree().create_timer(duration).timeout
     playerBall.can_pass_gap_effect = false
+
+func activate_drop_barrier_effect() -> void:
+    pass
