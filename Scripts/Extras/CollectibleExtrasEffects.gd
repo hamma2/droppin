@@ -9,7 +9,7 @@ var _scale: Vector2 = Vector2(1, 1)
 var shape: Shape2D = RectangleShape2D.new()
 var shape_size: Vector2 = Vector2(128, 128)
 
-var key: String = ""
+var key: Key = Key.KEY_0
 
 func init_it(p_texture: Texture, p_effectName: String = "generic", p_scale: Vector2 = Vector2(1, 1), p_shape: Shape2D = RectangleShape2D.new(), p_shape_size: Vector2 = Vector2(128, 128)) -> void:
     self.texture = p_texture
@@ -26,14 +26,17 @@ func _ready() -> void:
 
 # overwrite the function in inherited class
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
-    if (event is InputEventMouseButton and event.is_pressed()):
+    if ((event is InputEventMouseButton and event.is_pressed()) or (event is InputEventKey and event.is_pressed())):
+        if(event is InputEventKey && event.keycode != key):
+            return
+
         match effectName:
             "drop_barrier":
                 effectsScript.activate_drop_barrier_effect()
             "generic":
                 print("No specific effect found for ", effectName, ". Activating generic effect.")
 
-        effectsScript.remove_item(effectsScript.items.find({"name": effectName, "key": texture}))
+        effectsScript.remove_item(effectsScript.items.find({"name": effectName, "key": key}))
         queue_free()
 
 func instantiate_collectible_extras_effects(_texture: Texture, p_scale: Vector2, _shape: Shape2D, _shape_size: Vector2) -> void:
@@ -62,13 +65,13 @@ func instantiate_collectible_extras_effects(_texture: Texture, p_scale: Vector2,
             return
 
     if(_position.x > 0 && _position.x < viewport_size.x * 0.1 + 10):
-        key = "1"
+        key = Key.KEY_1
     elif(_position.x > viewport_size.x * 0.1 + 10 && _position.x < viewport_size.x * 0.1 + 10 + _shape_size.x + 20):
-        key = "2"
+        key = Key.KEY_2
     elif(_position.x > viewport_size.x * 0.1 + 10 + _shape_size.x + 20 && _position.x < viewport_size.x * 0.1 + 10 + 2*(_shape_size.x + 20)):
-        key = "3"
+        key = Key.KEY_3
     elif(_position.x > viewport_size.x * 0.1 + 10 + 2*(_shape_size.x + 20) && _position.x < viewport_size.x * 0.1 + 10 + 3*(_shape_size.x + 20)):
-        key = "4"
+        key = Key.KEY_4
 
     global_position = _position
     set_sprite(_texture, p_scale)
