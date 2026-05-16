@@ -64,8 +64,17 @@ func gap_passing(duration: float, degrees: int, degrees2: int) -> void:
     await get_tree().create_timer(duration).timeout
     playerBall.can_pass_gap_effect = false
 
+# You can set the layer property directly by adding these values together.
+#
+# Godot Forum
+# Layer 1: 1
+# Layer 2: 2
+# Layer 3: 4
+# Layer 4: 8
 func activate_drop_barrier_effect() -> void:
-    playerBall.get_node("Ball_Collider").set_deferred("disabled", true)
+    playerBall.collision_layer = 4 # Sets the object to be on Layer 3 only
+    playerBall.collision_mask = 4 # Sets the object to only collide with Layer 3 (walls)
     await get_tree().create_timer(0.3).timeout
-    playerBall.get_node("Ball_Collider").set_deferred("disabled", false)
+    playerBall.collision_layer = 5 # Sets the object to be on Layer 1 and Layer 3 (1 + 4 = 5)
+    playerBall.collision_mask = 5 # Sets the object to only collide with Layer 1 and Layer 3 (1 + 4 = 5)
     pass
