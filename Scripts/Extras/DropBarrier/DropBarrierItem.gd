@@ -9,3 +9,4 @@ func apply_effect() -> void:
         if collectibleInstance:
             collectibleInstance.init_it(extra_data.texture, "drop_barrier", Vector2.ONE * extra_data.scale_factor)
             $"/root/PlayScene/GameManager/UI/Control".add_child(collectibleInstance)
+            Inventory.add_item(self)  # Add this item to the inventory

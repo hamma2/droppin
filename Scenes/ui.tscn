@@ -5,6 +5,8 @@
 [ext_resource type="Theme" uid="uid://1y2olw7n5rxd" path="res://Materials/sky_postcard_theme/sky_card_ui_theme.tres" id="3_43khk"]
 [ext_resource type="Script" uid="uid://cw0apy3uk4pgo" path="res://Scripts/ui/Buttons/in_game_ui/return_to_main_menu_button.gd" id="4_yk00d"]
 [ext_resource type="Script" uid="uid://dwt0mttqq1av5" path="res://Scripts/Monitoring/FPS.gd" id="5_yk00d"]
+[ext_resource type="Script" uid="uid://bec77epu1rxka" path="res://Scripts/ui/Buttons/in_game_ui/Inventory_ui.gd" id="6_m78vo"]
+[ext_resource type="PackedScene" uid="uid://ccvngpu8ie7y7" path="res://Scenes/ui/InventorySlot.tscn" id="7_smcll"]
 
 [node name="UI" type="CanvasLayer" unique_id=647077456]
 process_mode = 3
@@ -52,3 +54,25 @@ offset_right = 158.0
 offset_bottom = 1246.0
 text = "FPS: "
 script = ExtResource("5_yk00d")
+
+[node name="Panel" type="Panel" parent="Control" unique_id=1562967381]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 1194.0
+offset_right = 690.0
+offset_bottom = 1252.0
+script = ExtResource("6_m78vo")
+
+[node name="InventoryUI" type="GridContainer" parent="Control/Panel" unique_id=168468589]
+layout_mode = 0
+offset_right = 8.0
+columns = 4
+
+[node name="PanelContainer" parent="Control/Panel/InventoryUI" unique_id=179127559 instance=ExtResource("7_smcll")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="Control/Panel/InventoryUI" unique_id=606971681 instance=ExtResource("7_smcll")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="Control/Panel/InventoryUI" unique_id=1029713919 instance=ExtResource("7_smcll")]
+layout_mode = 2
