@@ -177,9 +177,16 @@ func emit_score_changed(new_score: int):
 
 func game_over():
     """Beendet das Spiel"""
+    if not game_active:
+        return
+
     score += ball_points_collector.accumulated_points # Add any remaining points before ending the game
     game_active = false
     print("Game Over! Score: ", score)
+
+    if levelSettings != null:
+        Leaderboard.add_score(levelSettings.level_name, score)
+
     game_over_signal.emit()
     get_tree().paused = true
 

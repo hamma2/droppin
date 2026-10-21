@@ -17,6 +17,8 @@
 [ext_resource type="Script" uid="uid://cjbl303icl6vn" path="res://Scripts/ui/Buttons/main_ui/BackButtonStart.gd" id="15_cc11m"]
 [ext_resource type="Script" uid="uid://ct6x7xmwel55v" path="res://Scripts/ui/Buttons/main_ui/EndlessGameButton.gd" id="15_ydbjm"]
 [ext_resource type="Script" uid="uid://dfopkxgged1ss" path="res://Scripts/ui/Buttons/main_ui/InventoryKeyButton.gd" id="16_keybtn"]
+[ext_resource type="Script" path="res://Scripts/ui/Buttons/main_ui/leaderboard_level_selector.gd" id="17_lbselector"]
+[ext_resource type="Script" path="res://Scripts/ui/leaderboard_view.gd" id="18_lbview"]
 
 [node name="MainUi" type="Control" unique_id=1091995016]
 clip_contents = true
@@ -81,7 +83,7 @@ offset_top = 230.0
 offset_right = 350.0
 offset_bottom = 324.0
 theme = ExtResource("1_6qecu")
-text = "Ratings"
+text = "Leaderboard"
 script = ExtResource("9_rmw6d")
 
 [node name="Settings_Label" type="Label" parent="." unique_id=656777296]
@@ -213,7 +215,32 @@ offset_top = 20.0
 offset_right = 535.0
 offset_bottom = 106.0
 horizontal_alignment = 1
-text = "Ratings"
+text = "Leaderboard"
+
+[node name="LevelSelector" type="OptionButton" parent="RatingsLabel" unique_id=506593406]
+layout_mode = 0
+offset_top = 130.0
+offset_right = 350.0
+offset_bottom = 224.0
+script = ExtResource("17_lbselector")
+
+[node name="LeaderboardView" type="VBoxContainer" parent="RatingsLabel" unique_id=896992218]
+layout_mode = 0
+offset_top = 240.0
+offset_right = 350.0
+offset_bottom = 850.0
+theme_override_constants/separation = 0
+entry_font_size = 28
+script = ExtResource("18_lbview")
+
+[node name="TitleLabel" type="Label" parent="RatingsLabel/LeaderboardView"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Leaderboard"
+
+[node name="Entries" type="VBoxContainer" parent="RatingsLabel/LeaderboardView"]
+layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="Back_to_Main_Menu_Button" type="Button" parent="RatingsLabel" unique_id=53746484]
 layout_mode = 0

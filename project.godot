@@ -30,6 +30,7 @@ driver/output_latency.web=15
 Settings="*uid://cpc656eqfg11n"
 Score="*uid://rac188o60sqs"
 Inventory="*uid://ci6ajfg5pj6q4"
+Leaderboard="*res://Scripts/Resources/Singletons/Leaderboard.gd"
 
 [display]
 

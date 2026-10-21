@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dwt0mttqq1av5" path="res://Scripts/Monitoring/FPS.gd" id="5_yk00d"]
 [ext_resource type="Script" uid="uid://bec77epu1rxka" path="res://Scripts/ui/Buttons/in_game_ui/Inventory_ui.gd" id="6_m78vo"]
 [ext_resource type="PackedScene" uid="uid://ccvngpu8ie7y7" path="res://Scenes/ui/InventorySlot.tscn" id="7_smcll"]
+[ext_resource type="Script" path="res://Scripts/ui/game_over_leaderboard.gd" id="8_lbpanel"]
 
 [node name="UI" type="CanvasLayer" unique_id=647077456]
 process_mode = 3
@@ -81,4 +82,23 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="PanelContainer4" parent="Control/Panel/InventoryUI" unique_id=1428304517 instance=ExtResource("7_smcll")]
+
+[node name="GameOverLeaderboard" type="VBoxContainer" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 185.0
+offset_top = 805.0
+offset_right = 535.0
+offset_bottom = 1160.0
+theme_override_constants/separation = 0
+entry_font_size = 20
+script = ExtResource("8_lbpanel")
+
+[node name="TitleLabel" type="Label" parent="Control/GameOverLeaderboard"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Leaderboard"
+
+[node name="Entries" type="VBoxContainer" parent="Control/GameOverLeaderboard"]
+layout_mode = 2
+theme_override_constants/separation = 0
