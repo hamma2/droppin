@@ -7,5 +7,5 @@ func apply_effect() -> void:
     if extra_data:
         var collectibleInstance = collectibleScene.instantiate()
         if collectibleInstance:
-            collectibleInstance.init_it(extra_data.texture, "drop_barrier", Vector2.ONE * extra_data.scale_factor)
+            collectibleInstance.init_it(extra_data.texture, "drop_barrier")
             $"/root/PlayScene/GameManager/UI/Control".add_child(collectibleInstance)

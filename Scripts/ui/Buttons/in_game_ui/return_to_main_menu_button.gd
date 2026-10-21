@@ -8,4 +8,5 @@ func _ready() -> void:
 
 func _on_pressed():
     get_tree().paused = false
+    Inventory.remove_all_items()
     get_tree().change_scene_to_file("res://Scenes/Main_UI.tscn")

@@ -134,18 +134,9 @@ func _physics_process(_delta):
 func _process(_delta: float):
     update_score()
 
-# TODO: Make the Keys adjustable in Settings and load them in the CollectibleExtrasEffects, so that they are not hardcoded to 1-4
 func _unhandled_input(event: InputEvent) -> void:
-    if (event is InputEventKey and event.is_pressed() 
-    && (event.keycode >= Key.KEY_1 
-    || event.keycode >= Key.KEY_2 
-    || event.keycode >= Key.KEY_3 
-    || event.keycode <= Key.KEY_4)):
-        # Simulate input event for CollectibleExtrasEffects
-        var input_event = InputEventKey.new()
-        input_event.keycode = event.keycode
-        input_event.pressed = true
-        get_tree().call_group("collectible_extras_effects", "_input_event", null, input_event, 0)
+    if event is InputEventKey and event.is_pressed() and Settings.inventoryKeys.has(event.keycode):
+        Inventory.activate_item(event.keycode)
 
 func update_score() -> void:
     """Erhöht den Score basierend auf der Y-Position des Balls"""
@@ -197,6 +188,7 @@ func reset_game():
     score = 0
     game_active = true
     get_tree().paused = false
+    Inventory.remove_all_items()
 
     if ball != null:
         ball.reset_position(Vector2(400, 100))
