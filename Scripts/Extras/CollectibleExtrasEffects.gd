@@ -22,7 +22,6 @@ func init_it(p_texture: Texture, p_effectName: String = "generic", p_scale: Vect
 func _ready() -> void:
     instantiate_collectible_extras_effects(texture, _scale, shape, shape_size)
     add_to_group("collectible_extras_effects")
-    $/root/PlayScene/GameManager.game_over_signal.connect(_destroy_node_on_gameover)
 
 # overwrite the function in inherited class
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
@@ -37,6 +36,7 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
                 print("No specific effect found for ", effectName, ". Activating generic effect.")
 
         effectsScript.remove_item(effectsScript.items.find({"name": effectName, "key": key}))
+        Inventory.remove_item(self)
         queue_free()
 
 func instantiate_collectible_extras_effects(_texture: Texture, p_scale: Vector2, _shape: Shape2D, _shape_size: Vector2) -> void:
@@ -80,6 +80,7 @@ func instantiate_collectible_extras_effects(_texture: Texture, p_scale: Vector2,
         "name": effectName,
         "key": key,
     })
+    Inventory.add_item(self)
 
 func set_collision_shape(p_shape: Shape2D, p_shape_size: Vector2) -> void:
     var collision_shape: CollisionShape2D = get_node("CollisionShape2D")
@@ -106,4 +107,6 @@ func is_spot_occupied(_position: Vector2, _shape: Shape2D) -> bool:
     return not result.is_empty()
 
 func _destroy_node_on_gameover():
+    # clear from inventory and free the node
+    Inventory.remove_all_items()
     queue_free()

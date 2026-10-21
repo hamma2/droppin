@@ -57,13 +57,14 @@ script = ExtResource("5_yk00d")
 
 [node name="Panel" type="Panel" parent="Control" unique_id=1562967381]
 layout_mode = 0
-offset_left = 211.0
-offset_top = 1194.0
-offset_right = 690.0
-offset_bottom = 1252.0
+offset_left = 205.0
+offset_top = 1174.0
+offset_right = 684.0
+offset_bottom = 1251.0
 script = ExtResource("6_m78vo")
 
 [node name="InventoryUI" type="GridContainer" parent="Control/Panel" unique_id=168468589]
+clip_contents = true
 layout_mode = 0
 offset_right = 8.0
 columns = 4

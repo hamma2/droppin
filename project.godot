@@ -18,7 +18,7 @@ config/name="Droppin"
 config/version="0.1"
 config/tags=PackedStringArray("android")
 run/main_scene="uid://b3ncao71m0vsk"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [audio]
