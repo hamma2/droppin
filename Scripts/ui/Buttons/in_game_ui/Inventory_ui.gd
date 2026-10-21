@@ -13,15 +13,17 @@ func _ready():
 
 func update_ui():
     var slots = grid_container.get_children()
-    var inventory_items = Inventory.items
 
     for i in range(slots.size()):
         var slot = slots[i]
-        if i < inventory_items.size():
+        var item = Inventory.item_in_slot(i)
+        if item != null:
             # If there's an item for this slot, display it.
-            var item = inventory_items[i]
             slot.get_node("TextureRect").texture = item.texture
             # (Add logic for label/quantity here)
         else:
             # Otherwise, clear the slot.
             slot.get_node("TextureRect").texture = null
+
+        if i < Settings.inventoryKeys.size():
+            slot.get_node("TextureRect/Label").text = OS.get_keycode_string(Settings.inventoryKeys[i])

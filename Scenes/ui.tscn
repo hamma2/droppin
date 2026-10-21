@@ -21,52 +21,54 @@ theme = ExtResource("3_43khk")
 [node name="ScoreLabel" type="Label" parent="Control" unique_id=1721089042]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 51.0
-offset_top = 45.0
-offset_right = 238.0
-offset_bottom = 96.0
+offset_left = 36.0
+offset_top = 36.0
+offset_right = 227.0
+offset_bottom = 122.0
 text = "Score: 0"
 script = ExtResource("1_6beja")
 
 [node name="RestartButton" type="Button" parent="Control" unique_id=993381239]
 layout_mode = 0
-offset_left = 256.0
+offset_left = 185.0
 offset_top = 350.0
-offset_right = 491.0
-offset_bottom = 462.0
+offset_right = 535.0
+offset_bottom = 444.0
 text = "Restart"
 script = ExtResource("2_ttokp")
 
 [node name="Exit_to_main_menu" type="Button" parent="Control/RestartButton" unique_id=187309755]
 layout_mode = 0
-offset_left = -30.0
+offset_left = 0.0
 offset_top = 350.0
-offset_right = 290.0
-offset_bottom = 462.0
+offset_right = 350.0
+offset_bottom = 444.0
 text = "Main Menu"
 script = ExtResource("4_yk00d")
 
 [node name="Performance" type="Label" parent="Control" unique_id=1730062959]
 layout_mode = 0
-offset_left = 37.0
-offset_top = 1159.0
-offset_right = 158.0
-offset_bottom = 1246.0
+offset_left = 36.0
+offset_top = 1157.0
+offset_right = 226.0
+offset_bottom = 1244.0
 text = "FPS: "
 script = ExtResource("5_yk00d")
 
 [node name="Panel" type="Panel" parent="Control" unique_id=1562967381]
 layout_mode = 0
-offset_left = 205.0
-offset_top = 1174.0
+offset_left = 240.0
+offset_top = 1167.0
 offset_right = 684.0
-offset_bottom = 1251.0
+offset_bottom = 1244.0
 script = ExtResource("6_m78vo")
 
 [node name="InventoryUI" type="GridContainer" parent="Control/Panel" unique_id=168468589]
-clip_contents = true
 layout_mode = 0
-offset_right = 8.0
+offset_left = 104.0
+offset_top = 10.0
+offset_right = 340.0
+offset_bottom = 66.0
 columns = 4
 
 [node name="PanelContainer" parent="Control/Panel/InventoryUI" unique_id=179127559 instance=ExtResource("7_smcll")]
@@ -76,4 +78,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="PanelContainer3" parent="Control/Panel/InventoryUI" unique_id=1029713919 instance=ExtResource("7_smcll")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="Control/Panel/InventoryUI" unique_id=1428304517 instance=ExtResource("7_smcll")]
 layout_mode = 2
