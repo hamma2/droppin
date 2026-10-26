@@ -10,11 +10,10 @@
 script = ExtResource("5_settings")
 extra_data_list = Array[ExtResource("1_base")]([ExtResource("2_points_50"), ExtResource("3_points_2x"), ExtResource("4_points_500")])
 level_name = "Cloud Steps"
-gap_width_scale = 2.9
-barrier_spacing_scale = 0.31
-spawn_interval_scale = 1.05
-speed_increase = 0.95
-base_speed = 380.0
-gravity_scale = 4.8
-ball_bounce = 0.59
+barrier_spacing_scale = 0.32
+spawn_interval_scale = 1.1
+speed_increase = 0.8
+base_speed = 360.0
+gravity_scale = 4.5
+ball_bounce = 0.6
 metadata/_custom_type_script = "uid://otosgdtm7fva"

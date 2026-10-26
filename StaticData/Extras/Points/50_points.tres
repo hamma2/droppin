@@ -6,7 +6,6 @@
 
 [resource]
 script = ExtResource("1_th22e")
-effect_type = "points"
 effect_script = ExtResource("1_dqo38")
 texture = ExtResource("2_dar2i")
 spawn_probability = 0.7

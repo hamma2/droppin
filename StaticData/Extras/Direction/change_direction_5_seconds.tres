@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="DirectionData" load_steps=3 format=3 uid="uid://dfylycvgjdeuh"]
+[gd_resource type="Resource" script_class="DirectionData" format=3 uid="uid://dfylycvgjdeuh"]
 
 [ext_resource type="Script" uid="uid://1qe1u8ofobt6" path="res://Scripts/Extras/Direction/DirectionData.gd" id="1_0wtek"]
 [ext_resource type="Texture2D" uid="uid://ddwd3xve8kxpm" path="res://Textures/Extras/change_direction.svg" id="2_bdrvj"]
+[ext_resource type="Script" uid="uid://csdpusauuxk07" path="res://Scripts/Extras/Direction/DirectionItem.gd" id="3_diritem"]
 
 [resource]
 script = ExtResource("1_0wtek")
-effect_type = "direction"
+effect_script = ExtResource("3_diritem")
 color = Color(1, 0.1882353, 1, 1)
 texture = ExtResource("2_bdrvj")
 spawn_probability = 0.2

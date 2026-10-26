@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelSettingsData" format=3 uid="uid://ssmt099fqhbiq"]
+[gd_resource type="Resource" script_class="LevelSettingsData" format=3 uid="uid://dc0dn2lfhnsho"]
 
 [ext_resource type="Script" uid="uid://crymhcdpuwbj5" path="res://Scripts/Extras/BaseExtraData.gd" id="1_base"]
 [ext_resource type="Resource" uid="uid://dfylycvgjdeuh" path="res://StaticData/Extras/Direction/change_direction_5_seconds.tres" id="2_direction"]
@@ -10,13 +10,10 @@
 script = ExtResource("5_settings")
 extra_data_list = Array[ExtResource("1_base")]([ExtResource("2_direction"), ExtResource("3_gap_passing"), ExtResource("4_points_500")])
 level_name = "Mirror Sky"
-gap_width_scale = 2.5
-barrier_spacing_scale = 0.25
-spawn_interval_scale = 0.9
-speed_increase = 1.45
-base_speed = 460.0
-gravity_scale = 5.6
-ball_bounce = 0.55
-ball_friction = 0.28
-performance_monitoring_enabled = false
+barrier_spacing_scale = 0.32
+spawn_interval_scale = 1.1
+speed_increase = 0.8
+base_speed = 360.0
+gravity_scale = 4.5
+ball_bounce = 0.6
 metadata/_custom_type_script = "uid://otosgdtm7fva"

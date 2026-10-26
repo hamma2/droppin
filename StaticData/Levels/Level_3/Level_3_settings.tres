@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelSettingsData" format=3 uid="uid://6k76ln7g4jad1"]
+[gd_resource type="Resource" script_class="LevelSettingsData" format=3 uid="uid://nx7u7uglwabw"]
 
 [ext_resource type="Script" uid="uid://crymhcdpuwbj5" path="res://Scripts/Extras/BaseExtraData.gd" id="1_base"]
 [ext_resource type="Resource" uid="uid://ngqxpwpqfe8e" path="res://StaticData/Extras/GapPassing/gap_passing.tres" id="2_gap_passing"]
@@ -9,13 +9,10 @@
 script = ExtResource("4_settings")
 extra_data_list = Array[ExtResource("1_base")]([ExtResource("2_gap_passing"), ExtResource("3_points_50")])
 level_name = "Windy Pass"
-gap_width_scale = 2.8
-barrier_spacing_scale = 0.29
-spawn_interval_scale = 1.0
-speed_increase = 1.1
-base_speed = 400.0
-gravity_scale = 5.0
-ball_bounce = 0.58
-ball_friction = 0.3
-performance_monitoring_enabled = false
+barrier_spacing_scale = 0.32
+spawn_interval_scale = 1.1
+speed_increase = 0.8
+base_speed = 360.0
+gravity_scale = 4.5
+ball_bounce = 0.6
 metadata/_custom_type_script = "uid://otosgdtm7fva"

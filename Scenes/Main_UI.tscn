@@ -17,11 +17,11 @@
 [ext_resource type="Script" uid="uid://cjbl303icl6vn" path="res://Scripts/ui/Buttons/main_ui/BackButtonStart.gd" id="15_cc11m"]
 [ext_resource type="Script" uid="uid://ct6x7xmwel55v" path="res://Scripts/ui/Buttons/main_ui/EndlessGameButton.gd" id="15_ydbjm"]
 [ext_resource type="Script" uid="uid://dfopkxgged1ss" path="res://Scripts/ui/Buttons/main_ui/InventoryKeyButton.gd" id="16_keybtn"]
-[ext_resource type="Script" path="res://Scripts/ui/Buttons/main_ui/leaderboard_level_selector.gd" id="17_lbselector"]
-[ext_resource type="Script" path="res://Scripts/ui/leaderboard_view.gd" id="18_lbview"]
-[ext_resource type="Script" path="res://Scripts/ui/Buttons/main_ui/LevelSelectButton.gd" id="19_levelselectbtn"]
-[ext_resource type="Script" path="res://Scripts/ui/Buttons/main_ui/LevelSelect.gd" id="20_levelselect"]
-[ext_resource type="Script" path="res://Scripts/ui/Buttons/main_ui/back_level_select_button.gd" id="21_backlevel"]
+[ext_resource type="Script" uid="uid://da6r2ofwr54ld" path="res://Scripts/ui/Buttons/main_ui/leaderboard_level_selector.gd" id="17_lbselector"]
+[ext_resource type="Script" uid="uid://dmpis2g2nqfe2" path="res://Scripts/ui/leaderboard_view.gd" id="18_lbview"]
+[ext_resource type="Script" uid="uid://ctq1cjoiiblao" path="res://Scripts/ui/Buttons/main_ui/LevelSelectButton.gd" id="19_levelselectbtn"]
+[ext_resource type="Script" uid="uid://7j7w0gcugcwe" path="res://Scripts/ui/Buttons/main_ui/LevelSelect.gd" id="20_levelselect"]
+[ext_resource type="Script" uid="uid://kl7elklbitwd" path="res://Scripts/ui/Buttons/main_ui/back_level_select_button.gd" id="21_backlevel"]
 
 [node name="MainUi" type="Control" unique_id=1091995016]
 clip_contents = true
@@ -96,12 +96,11 @@ offset_left = 185.0
 offset_top = 20.0
 offset_right = 535.0
 offset_bottom = 106.0
-horizontal_alignment = 1
 text = "Settings"
+horizontal_alignment = 1
 
 [node name="Back_to_Main_Menu_Button" type="Button" parent="Settings_Label" unique_id=1244342360]
 layout_mode = 0
-offset_left = 0.0
 offset_top = 880.0
 offset_right = 350.0
 offset_bottom = 974.0
@@ -111,7 +110,6 @@ script = ExtResource("8_biqqh")
 
 [node name="ThemeButton" type="OptionButton" parent="Settings_Label" unique_id=2047534431]
 layout_mode = 0
-offset_left = 0.0
 offset_top = 222.0
 offset_right = 350.0
 offset_bottom = 316.0
@@ -126,16 +124,14 @@ script = ExtResource("12_entnu")
 
 [node name="ThemeLabel" type="Label" parent="Settings_Label" unique_id=1390544997]
 layout_mode = 0
-offset_left = 0.0
 offset_top = 130.0
 offset_right = 350.0
 offset_bottom = 216.0
-horizontal_alignment = 1
 text = "Theme"
+horizontal_alignment = 1
 
 [node name="DifficultyButton" type="OptionButton" parent="Settings_Label" unique_id=2138033515]
 layout_mode = 0
-offset_left = 0.0
 offset_top = 492.0
 offset_right = 350.0
 offset_bottom = 586.0
@@ -154,21 +150,19 @@ script = ExtResource("13_1p6ye")
 
 [node name="DifficultyLabel" type="Label" parent="Settings_Label" unique_id=1004347585]
 layout_mode = 0
-offset_left = 0.0
 offset_top = 400.0
 offset_right = 350.0
 offset_bottom = 486.0
-horizontal_alignment = 1
 text = "Difficulty"
+horizontal_alignment = 1
 
 [node name="KeysLabel" type="Label" parent="Settings_Label" unique_id=874512369]
 layout_mode = 0
-offset_left = 0.0
 offset_top = 670.0
 offset_right = 350.0
 offset_bottom = 756.0
-horizontal_alignment = 1
 text = "Inventory Keys"
+horizontal_alignment = 1
 
 [node name="Slot1KeyButton" type="Button" parent="Settings_Label" unique_id=915203847]
 layout_mode = 0
@@ -178,7 +172,6 @@ offset_right = 86.0
 offset_bottom = 856.0
 text = "1"
 script = ExtResource("16_keybtn")
-slot_index = 0
 
 [node name="Slot2KeyButton" type="Button" parent="Settings_Label" unique_id=1028457392]
 layout_mode = 0
@@ -217,8 +210,8 @@ offset_left = 185.0
 offset_top = 20.0
 offset_right = 535.0
 offset_bottom = 106.0
-horizontal_alignment = 1
 text = "Leaderboard"
+horizontal_alignment = 1
 
 [node name="LevelSelector" type="OptionButton" parent="RatingsLabel" unique_id=506593406]
 layout_mode = 0
@@ -233,21 +226,19 @@ offset_top = 240.0
 offset_right = 350.0
 offset_bottom = 850.0
 theme_override_constants/separation = 0
-entry_font_size = 28
 script = ExtResource("18_lbview")
 
-[node name="TitleLabel" type="Label" parent="RatingsLabel/LeaderboardView"]
+[node name="TitleLabel" type="Label" parent="RatingsLabel/LeaderboardView" unique_id=2087398619]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Leaderboard"
 
-[node name="Entries" type="VBoxContainer" parent="RatingsLabel/LeaderboardView"]
+[node name="Entries" type="VBoxContainer" parent="RatingsLabel/LeaderboardView" unique_id=953144636]
 layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Back_to_Main_Menu_Button" type="Button" parent="RatingsLabel" unique_id=53746484]
 layout_mode = 0
-offset_left = 0.0
 offset_top = 880.0
 offset_right = 350.0
 offset_bottom = 974.0
@@ -267,7 +258,6 @@ script = ExtResource("15_cc11m")
 
 [node name="EndlessGameButton" type="Button" parent="BackButtonStart" unique_id=2110594896]
 layout_mode = 0
-offset_left = 0.0
 offset_top = -525.0
 offset_right = 350.0
 offset_bottom = -431.0
@@ -276,7 +266,6 @@ script = ExtResource("15_ydbjm")
 
 [node name="Sky World" type="Button" parent="BackButtonStart/EndlessGameButton" unique_id=904954968]
 layout_mode = 0
-offset_left = 0.0
 offset_top = 125.0
 offset_right = 350.0
 offset_bottom = 219.0
@@ -286,7 +275,6 @@ script = ExtResource("19_levelselectbtn")
 
 [node name="Water World" type="Button" parent="BackButtonStart/EndlessGameButton/Sky World" unique_id=396330077]
 layout_mode = 0
-offset_left = 0.0
 offset_top = 125.0
 offset_right = 350.0
 offset_bottom = 219.0
@@ -301,8 +289,8 @@ offset_left = 185.0
 offset_top = 20.0
 offset_right = 535.0
 offset_bottom = 106.0
-horizontal_alignment = 1
 text = "Sky World"
+horizontal_alignment = 1
 script = ExtResource("20_levelselect")
 
 [node name="LevelGrid" type="GridContainer" parent="LevelSelectLabel" unique_id=1900000002]
@@ -310,8 +298,6 @@ layout_mode = 0
 offset_top = 130.0
 offset_right = 350.0
 offset_bottom = 840.0
-theme_override_constants/separation = 8
-columns = 1
 
 [node name="BackButton" type="Button" parent="LevelSelectLabel" unique_id=1900000003]
 layout_mode = 0

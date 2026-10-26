@@ -28,7 +28,14 @@ func show_effect_indicator(data: ExtraData, duration: float) -> void:
 
     var indicators: Node = ui_control.get_node_or_null("EffectIndicators")
     if indicators != null and indicators.has_method("add_effect"):
-        indicators.call("add_effect", data.texture, duration, data.color)
+        indicators.call("add_effect", data.texture, duration, _effect_indicator_color(data))
+
+func _effect_indicator_color(data: ExtraData) -> Color:
+    if data is PointsData:
+        return Color(0.36, 0.62, 0.4)
+    if data is DirectionData or data is Invisible_BallData or data is Invisible_BarriersData or data is GapPassingData:
+        return Color(0.9, 0.18, 0.15)
+    return Color(0.64, 0.52, 0.31)
 
 # Function Points addding
 # Addiert Punkte und multipliziert sie mit dem aktiven Multiplikator

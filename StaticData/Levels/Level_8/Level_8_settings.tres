@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelSettingsData" format=3 uid="uid://5fuym6z99mkfi"]
+[gd_resource type="Resource" script_class="LevelSettingsData" format=3 uid="uid://dd0visljb7f35"]
 
 [ext_resource type="Script" uid="uid://crymhcdpuwbj5" path="res://Scripts/Extras/BaseExtraData.gd" id="1_base"]
 [ext_resource type="Resource" uid="uid://dfylycvgjdeuh" path="res://StaticData/Extras/Direction/change_direction_5_seconds.tres" id="2_direction"]
@@ -11,13 +11,10 @@
 script = ExtResource("6_settings")
 extra_data_list = Array[ExtResource("1_base")]([ExtResource("2_direction"), ExtResource("3_invisible_ball"), ExtResource("4_gap_passing"), ExtResource("5_points_500")])
 level_name = "Solar Eclipse"
-gap_width_scale = 2.3
-barrier_spacing_scale = 0.22
-spawn_interval_scale = 0.82
-speed_increase = 1.65
-base_speed = 500.0
-gravity_scale = 6.0
-ball_bounce = 0.53
-ball_friction = 0.27
-performance_monitoring_enabled = false
+barrier_spacing_scale = 0.32
+spawn_interval_scale = 1.1
+speed_increase = 0.8
+base_speed = 360.0
+gravity_scale = 4.5
+ball_bounce = 0.6
 metadata/_custom_type_script = "uid://otosgdtm7fva"

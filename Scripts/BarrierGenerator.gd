@@ -180,11 +180,20 @@ func spawn_extra_randomly(barrier_y: float) -> void:
     if randf() > extra_data.spawn_probability:
         return
 
+    if extra_data.effect_script == null:
+        push_warning("Extra data %s has no effect_script; skipping spawn." % extra_data.resource_path)
+        return
+
     # Spawne das Extra-Item
     var extra = extra_item_scene.instantiate()
 
     # set the fitting script
     extra.script = extra_data.effect_script
+
+    if not extra.has_method("set_extra_data"):
+        push_error("Extra data %s uses an invalid effect_script." % extra_data.resource_path)
+        extra.free()
+        return
 
     extra.position = Vector2(
         randf_range(viewport_left + 100, viewport_right - 100),

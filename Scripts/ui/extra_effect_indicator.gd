@@ -61,18 +61,28 @@ func _draw() -> void:
     if radius <= 0.0:
         return
 
-    draw_circle(center, radius, Color(0.03, 0.05, 0.08, 0.55))
-    draw_arc(center, radius, 0.0, TAU, 64, Color(1.0, 1.0, 1.0, 0.16), ring_width, true)
+    var base_color := _accent.darkened(0.68)
+    base_color.a = 0.8
+    draw_circle(center, radius, base_color)
 
     var progress := clampf(_elapsed / _duration, 0.0, 1.0)
     if progress > 0.0:
-        draw_arc(
-            center,
-            radius,
-            -PI * 0.5,
-            -PI * 0.5 + TAU * progress,
-            64,
-            _accent,
-            ring_width,
-            true
-        )
+        var start_angle := -PI * 0.5
+        var points := PackedVector2Array()
+        points.append(center)
+        for step in range(65):
+            var angle := start_angle + TAU * progress * float(step) / 64.0
+            points.append(center + Vector2(cos(angle), sin(angle)) * radius)
+        draw_colored_polygon(points, Color(_accent.r, _accent.g, _accent.b, 0.72))
+        draw_circle(center, 2.0, Color(_accent.r, _accent.g, _accent.b, 0.9))
+
+    draw_arc(
+        center,
+        radius,
+        0.0,
+        TAU,
+        64,
+        Color(_accent.r, _accent.g, _accent.b, 0.55),
+        2.0,
+        true
+    )

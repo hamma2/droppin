@@ -8,7 +8,6 @@ load_path = "res://.godot/imported/gap_passing.svg-ba3bb03c1555a91b2fd0f292b7c15
 
 [resource]
 script = ExtResource("1_u6vha")
-effect_type = "gap_passing"
 effect_script = ExtResource("1_3kre6")
 color = Color(1, 0.1882353, 1, 1)
 texture = SubResource("CompressedTexture2D_u6vha")
