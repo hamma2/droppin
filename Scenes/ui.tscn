@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ccvngpu8ie7y7" path="res://Scenes/ui/InventorySlot.tscn" id="7_smcll"]
 [ext_resource type="Script" uid="uid://c0ag8veuabcxe" path="res://Scripts/ui/game_over_leaderboard.gd" id="8_lbpanel"]
 [ext_resource type="Script" path="res://Scripts/ui/extra_effect_ui.gd" id="9_fxui"]
+[ext_resource type="Script" path="res://Scripts/ui/fireworks.gd" id="10_fireworks"]
 
 [node name="UI" type="CanvasLayer" unique_id=647077456]
 process_mode = 3
@@ -58,6 +59,24 @@ offset_right = 350.0
 offset_bottom = 444.0
 text = "Main Menu"
 script = ExtResource("4_yk00d")
+
+[node name="PlaceLabel" type="Label" parent="Control" unique_id=1496746340]
+visible = false
+layout_mode = 0
+offset_left = 60.0
+offset_top = 240.0
+offset_right = 660.0
+offset_bottom = 340.0
+theme_override_colors/font_color = Color(1, 0.84, 0.24, 1)
+theme_override_colors/font_outline_color = Color(0.16, 0.08, 0.02, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.55)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 58
+text = "Your place: 1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Performance" type="Label" parent="Control" unique_id=1730062959]
 layout_mode = 0
@@ -125,3 +144,10 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 4
 script = ExtResource("9_fxui")
+
+[node name="Fireworks" type="Control" parent="Control" unique_id=1900000102]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+mouse_filter = 2
+script = ExtResource("10_fireworks")

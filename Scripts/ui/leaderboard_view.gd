@@ -2,6 +2,7 @@ extends VBoxContainer
 class_name LeaderboardView
 
 @export var entry_font_size: int = 22
+@export var max_entries: int = 0
 
 var current_level: String = ""
 var current_highlight_rank: int = 0
@@ -32,9 +33,14 @@ func _render() -> void:
         entries_box.add_child(_create_entry_label("No scores yet", false))
         return
 
+    var entry_count: int = level_scores.size()
+    if max_entries > 0:
+        entry_count = mini(entry_count, max_entries)
+
     var rank: int = 1
-    for score_value in level_scores:
-        entries_box.add_child(_create_entry_label("%d. %d" % [rank, score_value], rank == current_highlight_rank))
+    for i in range(entry_count):
+        var score_value = level_scores[i]
+        entries_box.add_child(_create_entry_label("%d) %d" % [rank, score_value], rank == current_highlight_rank))
         rank += 1
 
 func _create_entry_label(text: String, highlight: bool) -> Label:
