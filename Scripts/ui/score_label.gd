@@ -6,10 +6,7 @@ extends Control
 @onready var value_label: Label = $Value
 
 const CARD_COLORS := [
-    Color(0.043, 0.145, 0.18, 0.44),
-    Color(0.19, 0.18, 0.16, 0.46),
-    Color(0.24, 0.12, 0.18, 0.5),
-    Color(0.07, 0.075, 0.16, 0.58),
+    Color(0.043, 0.145, 0.18, 0.0)
 ]
 
 const ACCENT_COLORS := [
