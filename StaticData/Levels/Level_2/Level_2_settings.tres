@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="LevelSettingsData" format=3 uid="uid://c42bjudc68qdk"]
+
+[ext_resource type="Script" uid="uid://crymhcdpuwbj5" path="res://Scripts/Extras/BaseExtraData.gd" id="1_base"]
+[ext_resource type="Resource" uid="uid://0qma4xk0h0ty" path="res://StaticData/Extras/Points/50_points.tres" id="2_points_50"]
+[ext_resource type="Resource" uid="uid://dx2rxcc4xgvur" path="res://StaticData/Extras/Points/2_multiply_points.tres" id="3_points_2x"]
+[ext_resource type="Resource" uid="uid://cila3pf6ga8s0" path="res://StaticData/Extras/Points/500_points.tres" id="4_points_500"]
+[ext_resource type="Script" uid="uid://otosgdtm7fva" path="res://Scripts/Resources/LevelSettingsData.gd" id="5_settings"]
+
+[resource]
+script = ExtResource("5_settings")
+extra_data_list = Array[ExtResource("1_base")]([ExtResource("2_points_50"), ExtResource("3_points_2x"), ExtResource("4_points_500")])
+level_name = "Cloud Steps"
+gap_width_scale = 2.9
+barrier_spacing_scale = 0.31
+spawn_interval_scale = 1.05
+speed_increase = 0.95
+base_speed = 380.0
+gravity_scale = 4.8
+ball_bounce = 0.59
+metadata/_custom_type_script = "uid://otosgdtm7fva"

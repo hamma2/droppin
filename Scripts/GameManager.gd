@@ -27,9 +27,12 @@ var _performance_monitoring_enabled: bool = false
 @export var end_game_on_ceiling_hit: bool = true
 
 @export var levelSettings: LevelSettingsData = null
-@onready var themeSettings: LevelThemeData = load(Settings.themePaths.get(Settings.themeName))
+@onready var themeSettings: LevelThemeData = load(Settings.get_active_theme_path())
 
 func _ready():
+    if Settings.selectedLevel > 0:
+        levelSettings = load(Settings.get_level_settings_path(Settings.selectedLevel)) as LevelSettingsData
+
     ball = get_parent().find_child("Ball")
     barrier_generator = get_parent().find_child("BarrierGenerator")
     camera = get_parent().find_child("Camera2D")

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="LevelSettingsData" format=3 uid="uid://dm4pox1t8mnmc"]
+
+[ext_resource type="Script" uid="uid://crymhcdpuwbj5" path="res://Scripts/Extras/BaseExtraData.gd" id="1_base"]
+[ext_resource type="Resource" uid="uid://dfylycvgjdeuh" path="res://StaticData/Extras/Direction/change_direction_5_seconds.tres" id="2_direction"]
+[ext_resource type="Resource" uid="uid://ngqxpwpqfe8e" path="res://StaticData/Extras/GapPassing/gap_passing.tres" id="3_gap_passing"]
+[ext_resource type="Resource" uid="uid://d0tp6l4xxne6s" path="res://StaticData/Extras/Invisible_Ball/invisible_ball_3s.tres" id="4_invisible_ball"]
+[ext_resource type="Resource" uid="uid://b7806c2d5r35r" path="res://StaticData/Extras/Invisible_Barriers/invisible_barriers.tres" id="5_invisible_barriers"]
+[ext_resource type="Resource" uid="uid://0qma4xk0h0ty" path="res://StaticData/Extras/Points/50_points.tres" id="6_points_50"]
+[ext_resource type="Resource" uid="uid://dx2rxcc4xgvur" path="res://StaticData/Extras/Points/2_multiply_points.tres" id="7_points_2x"]
+[ext_resource type="Resource" uid="uid://cila3pf6ga8s0" path="res://StaticData/Extras/Points/500_points.tres" id="8_points_500"]
+[ext_resource type="Resource" uid="uid://cerv0kmy68s5c" path="res://StaticData/Extras/DropBarrier/drop_1_barrier_collectible.tres" id="9_drop_barrier"]
+[ext_resource type="Script" uid="uid://otosgdtm7fva" path="res://Scripts/Resources/LevelSettingsData.gd" id="10_settings"]
+
+[resource]
+script = ExtResource("10_settings")
+extra_data_list = Array[ExtResource("1_base")]([ExtResource("2_direction"), ExtResource("3_gap_passing"), ExtResource("4_invisible_ball"), ExtResource("5_invisible_barriers"), ExtResource("6_points_50"), ExtResource("7_points_2x"), ExtResource("8_points_500"), ExtResource("9_drop_barrier")])
+level_name = "Eye of Chaos"
+gap_width_scale = 2.0
+barrier_spacing_scale = 0.18
+spawn_interval_scale = 0.72
+speed_increase = 2.0
+base_speed = 550.0
+gravity_scale = 6.5
+ball_bounce = 0.51
+ball_friction = 0.26
+performance_monitoring_enabled = false
+metadata/_custom_type_script = "uid://otosgdtm7fva"

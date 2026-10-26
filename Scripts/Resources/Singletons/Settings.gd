@@ -8,6 +8,7 @@ const RESERVED_KEYS: Array = [Key.KEY_W, Key.KEY_A, Key.KEY_S, Key.KEY_D, Key.KE
 
 var themeName: ThemeNames = ThemeNames.skycard
 var diffucultyLevel: Difficulty = Difficulty.easy
+var selectedLevel: int = 0
 
 var themeSettings: LevelThemeData = null
 
@@ -27,6 +28,17 @@ var uiThemePaths: Dictionary [int, String] = {
     ThemeNames.skycard: "res://Materials/sky_postcard_theme/sky_card_ui_theme.tres",
     ThemeNames.water: "res://Materials/sky_postcard_theme/sky_card_ui_theme.tres",
 }
+
+func get_level_settings_path(level: int) -> String:
+    return "res://StaticData/Levels/Level_%d/Level_%d_settings.tres" % [level, level]
+
+func get_level_theme_path(level: int) -> String:
+    return "res://StaticData/Levels/Level_%d/Level_%d_theme.tres" % [level, level]
+
+func get_active_theme_path() -> String:
+    if selectedLevel > 0:
+        return get_level_theme_path(selectedLevel)
+    return themePaths.get(themeName, "")
 
 enum Difficulty{
     easy,

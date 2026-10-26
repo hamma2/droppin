@@ -19,6 +19,9 @@
 [ext_resource type="Script" uid="uid://dfopkxgged1ss" path="res://Scripts/ui/Buttons/main_ui/InventoryKeyButton.gd" id="16_keybtn"]
 [ext_resource type="Script" path="res://Scripts/ui/Buttons/main_ui/leaderboard_level_selector.gd" id="17_lbselector"]
 [ext_resource type="Script" path="res://Scripts/ui/leaderboard_view.gd" id="18_lbview"]
+[ext_resource type="Script" path="res://Scripts/ui/Buttons/main_ui/LevelSelectButton.gd" id="19_levelselectbtn"]
+[ext_resource type="Script" path="res://Scripts/ui/Buttons/main_ui/LevelSelect.gd" id="20_levelselect"]
+[ext_resource type="Script" path="res://Scripts/ui/Buttons/main_ui/back_level_select_button.gd" id="21_backlevel"]
 
 [node name="MainUi" type="Control" unique_id=1091995016]
 clip_contents = true
@@ -279,7 +282,7 @@ offset_right = 350.0
 offset_bottom = 219.0
 text = "Sky World
 "
-script = ExtResource("15_ydbjm")
+script = ExtResource("19_levelselectbtn")
 
 [node name="Water World" type="Button" parent="BackButtonStart/EndlessGameButton/Sky World" unique_id=396330077]
 layout_mode = 0
@@ -290,3 +293,30 @@ offset_bottom = 219.0
 text = "Water World
 "
 script = ExtResource("15_ydbjm")
+
+[node name="LevelSelectLabel" type="Label" parent="." unique_id=1900000001]
+visible = false
+layout_mode = 0
+offset_left = 185.0
+offset_top = 20.0
+offset_right = 535.0
+offset_bottom = 106.0
+horizontal_alignment = 1
+text = "Sky World"
+script = ExtResource("20_levelselect")
+
+[node name="LevelGrid" type="GridContainer" parent="LevelSelectLabel" unique_id=1900000002]
+layout_mode = 0
+offset_top = 130.0
+offset_right = 350.0
+offset_bottom = 840.0
+theme_override_constants/separation = 8
+columns = 1
+
+[node name="BackButton" type="Button" parent="LevelSelectLabel" unique_id=1900000003]
+layout_mode = 0
+offset_top = 880.0
+offset_right = 350.0
+offset_bottom = 974.0
+text = "Back"
+script = ExtResource("21_backlevel")

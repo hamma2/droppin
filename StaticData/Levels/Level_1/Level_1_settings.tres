@@ -1,13 +1,19 @@
 [gd_resource type="Resource" script_class="LevelSettingsData" format=3 uid="uid://bqx7tei56wsey"]
 
-[ext_resource type="Script" uid="uid://crymhcdpuwbj5" path="res://Scripts/Extras/BaseExtraData.gd" id="1_2dygm"]
-[ext_resource type="Resource" uid="uid://cerv0kmy68s5c" path="res://StaticData/Extras/DropBarrier/drop_1_barrier_collectible.tres" id="2_2dygm"]
-[ext_resource type="Script" uid="uid://otosgdtm7fva" path="res://Scripts/Resources/LevelSettingsData.gd" id="3_r8whi"]
+[ext_resource type="Script" uid="uid://crymhcdpuwbj5" path="res://Scripts/Extras/BaseExtraData.gd" id="1_base"]
+[ext_resource type="Resource" uid="uid://0qma4xk0h0ty" path="res://StaticData/Extras/Points/50_points.tres" id="2_points_50"]
+[ext_resource type="Resource" uid="uid://cerv0kmy68s5c" path="res://StaticData/Extras/DropBarrier/drop_1_barrier_collectible.tres" id="3_drop_barrier"]
+[ext_resource type="Script" uid="uid://otosgdtm7fva" path="res://Scripts/Resources/LevelSettingsData.gd" id="4_settings"]
 
 [resource]
-script = ExtResource("3_r8whi")
-extra_data_list = Array[ExtResource("1_2dygm")]([ExtResource("2_2dygm")])
-speed_increase = 1.2
-base_speed = 400.0
+script = ExtResource("4_settings")
+extra_data_list = Array[ExtResource("1_base")]([ExtResource("2_points_50"), ExtResource("3_drop_barrier")])
+level_name = "Sunlit Meadow"
+barrier_spacing_scale = 0.32
+spawn_interval_scale = 1.1
+speed_increase = 0.8
+base_speed = 360.0
+gravity_scale = 4.5
+ball_bounce = 0.6
 performance_monitoring_enabled = true
 metadata/_custom_type_script = "uid://otosgdtm7fva"
