@@ -13,4 +13,4 @@ func apply_effect() -> void:
 
         var points_multiplier = float(extra_data.point_multiplier)
         if points_multiplier > 1.0 and effectsScript != null:
-            effectsScript.points_multiplier(points_multiplier, extra_data.duration)
+            effectsScript.points_multiplier(points_multiplier, extra_data.duration, extra_data)

@@ -8,4 +8,4 @@ func apply_effect() -> void:
     """Sammelt Punkte ein"""
     if extra_data:
         if effectsScript != null:
-            effectsScript.reverse_ball_direction(extra_data.duration)
+            effectsScript.reverse_ball_direction(extra_data.duration, extra_data)
