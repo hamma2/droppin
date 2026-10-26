@@ -52,4 +52,8 @@ func _create_entry_label(text: String, highlight: bool) -> Label:
         label.add_theme_color_override("font_color", Color(0.85, 0.55, 0.05))
     else:
         label.text = text
+    _style_entry_label(label, highlight)
     return label
+
+func _style_entry_label(_label: Label, _highlight: bool) -> void:
+    pass

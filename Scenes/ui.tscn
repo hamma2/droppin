@@ -27,19 +27,25 @@ theme = ExtResource("3_43khk")
 anchors_preset = 0
 offset_left = 28.0
 offset_top = 28.0
-offset_right = 316.0
-offset_bottom = 120.0
+offset_right = 360.0
+offset_bottom = 128.0
 mouse_filter = 2
 script = ExtResource("1_6beja")
 
 [node name="Value" type="Label" parent="Control/ScoreLabel" unique_id=833168441]
 layout_mode = 0
-offset_left = 18.0
-offset_top = 16.0
-offset_right = 242.0
-offset_bottom = 74.0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 320.0
+offset_bottom = 86.0
 theme = ExtResource("3_43khk")
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0.96, 0.79, 0.33, 1)
+theme_override_colors/font_outline_color = Color(0.16, 0.08, 0.02, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 42
 text = "Score: 0"
 vertical_alignment = 1
 
@@ -67,11 +73,11 @@ offset_left = 60.0
 offset_top = 240.0
 offset_right = 660.0
 offset_bottom = 340.0
-theme_override_colors/font_color = Color(1, 0.84, 0.24, 1)
+theme_override_colors/font_color = Color(0.96, 0.79, 0.33, 1)
 theme_override_colors/font_outline_color = Color(0.16, 0.08, 0.02, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.55)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 6
+theme_override_constants/shadow_offset_y = 0
 theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 58
 text = "Your place: 1"
@@ -89,18 +95,18 @@ script = ExtResource("5_yk00d")
 
 [node name="Panel" type="Panel" parent="Control" unique_id=1562967381]
 layout_mode = 0
-offset_left = 240.0
-offset_top = 1167.0
+offset_left = 404.0
+offset_top = 1180.0
 offset_right = 684.0
 offset_bottom = 1244.0
 script = ExtResource("6_m78vo")
 
 [node name="InventoryUI" type="GridContainer" parent="Control/Panel" unique_id=168468589]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 10.0
-offset_right = 340.0
-offset_bottom = 66.0
+offset_right = 280.0
+offset_bottom = 64.0
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
 columns = 4
 
 [node name="PanelContainer" parent="Control/Panel/InventoryUI" unique_id=179127559 instance=ExtResource("7_smcll")]

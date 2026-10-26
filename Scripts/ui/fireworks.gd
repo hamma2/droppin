@@ -4,6 +4,7 @@ extends Control
 ## Runs even while the tree is paused so it can fire on the game over screen.
 
 const BURST_SPARKS: int = 48
+const MAX_SPARKS: int = 360
 const GRAVITY: float = 210.0
 const DRAG: float = 1.4
 const TAIL_FACTOR: float = 0.045
@@ -45,6 +46,27 @@ func celebrate(rank: int) -> void:
     for i in centers.size():
         _bursts.append({"at": 0.12 + float(i) * 0.34, "pos": centers[i]})
 
+## Emits a ring of bursts hugging an ellipse, scaled by an intensity between 0 and 1.
+func burst_around(center: Vector2, extents: Vector2, intensity: float) -> void:
+    var power: float = clampf(intensity, 0.0, 1.0)
+    if power <= 0.02:
+        return
+
+    _palette = _gameplay_palette()
+    _active = true
+    visible = true
+    set_process(true)
+
+    var view: Vector2 = get_viewport_rect().size
+    var sources: int = 1 + int(round(power * 2.0))
+    var sparks: int = int(round(lerpf(10.0, 42.0, power)))
+    for i in sources:
+        var angle: float = _rng.randf_range(0.0, TAU)
+        var offset := Vector2(cos(angle) * extents.x, sin(angle) * extents.y)
+        offset *= _rng.randf_range(0.85, 1.05)
+        var pos: Vector2 = (center + offset).clamp(Vector2(8.0, 8.0), view - Vector2(8.0, 8.0))
+        _burst(pos, sparks, lerpf(0.55, 1.25, power), 0.45)
+
 func _process(delta: float) -> void:
     if not _active:
         return
@@ -75,17 +97,20 @@ func _process(delta: float) -> void:
 
     queue_redraw()
 
-func _burst(center: Vector2) -> void:
+func _burst(
+    center: Vector2, spark_count: int = BURST_SPARKS, power: float = 1.0, speed_scale: float = 1.0
+) -> void:
     if _palette.is_empty():
         return
 
+    var count: int = mini(spark_count, maxi(MAX_SPARKS - _sparks.size(), 0))
     var primary: Color = _palette[_rng.randi_range(0, _palette.size() - 1)]
     var secondary: Color = _palette[_rng.randi_range(0, _palette.size() - 1)]
 
-    for i in BURST_SPARKS:
+    for i in count:
         var angle: float = _rng.randf_range(0.0, TAU)
-        var speed: float = _rng.randf_range(70.0, 330.0)
-        var life: float = _rng.randf_range(0.65, 1.55)
+        var speed: float = _rng.randf_range(70.0, 330.0) * power * speed_scale
+        var life: float = _rng.randf_range(0.65, 1.55) * lerpf(0.8, 1.0, power)
         var color: Color = primary.lerp(secondary, _rng.randf_range(0.0, 1.0))
         _sparks.append({
             "pos": center,
@@ -93,7 +118,7 @@ func _burst(center: Vector2) -> void:
             "life": life,
             "max_life": life,
             "color": color,
-            "width": _rng.randf_range(1.1, 2.8),
+            "width": _rng.randf_range(1.1, 2.8) * lerpf(0.8, 1.0, power),
         })
 
 func _draw() -> void:
@@ -113,8 +138,8 @@ func _palette_for_rank(rank: int) -> Array[Color]:
     match rank:
         1:
             return [
-                Color(1.0, 0.84, 0.24),
-                Color(1.0, 0.96, 0.68),
+                Color(0.98, 0.82, 0.35),
+                Color(1.0, 0.92, 0.6),
                 Color(1.0, 0.58, 0.12),
                 Color(1.0, 1.0, 1.0),
             ]
@@ -133,3 +158,11 @@ func _palette_for_rank(rank: int) -> Array[Color]:
                 Color(1.0, 0.93, 0.8),
             ]
     return [Color(1.0, 1.0, 1.0)]
+
+func _gameplay_palette() -> Array[Color]:
+    return [
+        Color(0.45, 0.88, 0.8),
+        Color(0.96, 0.8, 0.4),
+        Color(1.0, 0.55, 0.42),
+        Color(0.62, 0.7, 1.0),
+    ]

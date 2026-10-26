@@ -1,12 +1,15 @@
 extends LeaderboardView
 
 const RANK_COLORS := {
-    1: Color(1.0, 0.84, 0.24),
+    1: Color(0.98, 0.82, 0.35),
     2: Color(0.82, 0.9, 1.0),
     3: Color(1.0, 0.6, 0.28),
 }
-const DEFAULT_COLOR := Color(1.0, 0.9, 0.62)
+const DEFAULT_COLOR := Color(0.96, 0.84, 0.5)
 const PULSE_DURATION: float = 6.0
+const GOLD := Color(0.96, 0.79, 0.33)
+const DARK_OUTLINE := Color(0.16, 0.08, 0.02)
+const HIGHLIGHT_GOLD := Color(1.0, 0.9, 0.55)
 
 @export var places_shown: int = 5
 
@@ -19,14 +22,37 @@ var _celebrating: bool = false
 
 func _ready() -> void:
     max_entries = places_shown
+    entry_font_size = 30
     visible = false
     if place_label != null:
         place_label.visible = false
+    _style_heading()
     var game_manager: Node = find_parent("GameManager")
     if game_manager != null:
         game_manager.connect("game_over_signal", _on_game_over)
     else:
         push_error("GameOverLeaderboard requires a GameManager parent")
+
+func _style_entry_label(label: Label, highlight: bool) -> void:
+    label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+    label.add_theme_color_override("font_outline_color", DARK_OUTLINE)
+    label.add_theme_constant_override("outline_size", 7)
+    label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.55))
+    label.add_theme_constant_override("shadow_offset_x", 0)
+    label.add_theme_constant_override("shadow_offset_y", 3)
+    label.add_theme_color_override("font_color", HIGHLIGHT_GOLD if highlight else GOLD)
+
+func _style_heading() -> void:
+    if title_label == null:
+        return
+    title_label.add_theme_font_size_override("font_size", 36)
+    title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+    title_label.add_theme_color_override("font_color", GOLD)
+    title_label.add_theme_color_override("font_outline_color", DARK_OUTLINE)
+    title_label.add_theme_constant_override("outline_size", 8)
+    title_label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.55))
+    title_label.add_theme_constant_override("shadow_offset_x", 0)
+    title_label.add_theme_constant_override("shadow_offset_y", 4)
 
 func _process(delta: float) -> void:
     if not _celebrating or place_label == null or not place_label.visible:
