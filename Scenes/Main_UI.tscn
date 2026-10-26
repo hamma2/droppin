@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://ctq1cjoiiblao" path="res://Scripts/ui/Buttons/main_ui/LevelSelectButton.gd" id="19_levelselectbtn"]
 [ext_resource type="Script" uid="uid://7j7w0gcugcwe" path="res://Scripts/ui/Buttons/main_ui/LevelSelect.gd" id="20_levelselect"]
 [ext_resource type="Script" uid="uid://kl7elklbitwd" path="res://Scripts/ui/Buttons/main_ui/back_level_select_button.gd" id="21_backlevel"]
+[ext_resource type="Script" uid="uid://cv4kssuknr25q" path="res://Scripts/ui/debug_menu.gd" id="22_debug"]
 
 [node name="MainUi" type="Control" unique_id=1091995016]
 clip_contents = true
@@ -158,27 +159,27 @@ horizontal_alignment = 1
 
 [node name="KeysLabel" type="Label" parent="Settings_Label" unique_id=874512369]
 layout_mode = 0
-offset_top = 670.0
+offset_top = 620.0
 offset_right = 350.0
-offset_bottom = 756.0
+offset_bottom = 706.0
 text = "Inventory Keys"
 horizontal_alignment = 1
 
 [node name="Slot1KeyButton" type="Button" parent="Settings_Label" unique_id=915203847]
 layout_mode = 0
 offset_left = 3.0
-offset_top = 762.0
+offset_top = 712.0
 offset_right = 86.0
-offset_bottom = 856.0
+offset_bottom = 806.0
 text = "1"
 script = ExtResource("16_keybtn")
 
 [node name="Slot2KeyButton" type="Button" parent="Settings_Label" unique_id=1028457392]
 layout_mode = 0
 offset_left = 90.0
-offset_top = 762.0
+offset_top = 712.0
 offset_right = 173.0
-offset_bottom = 856.0
+offset_bottom = 806.0
 text = "2"
 script = ExtResource("16_keybtn")
 slot_index = 1
@@ -186,9 +187,9 @@ slot_index = 1
 [node name="Slot3KeyButton" type="Button" parent="Settings_Label" unique_id=1137462580]
 layout_mode = 0
 offset_left = 177.0
-offset_top = 762.0
+offset_top = 712.0
 offset_right = 260.0
-offset_bottom = 856.0
+offset_bottom = 806.0
 text = "3"
 script = ExtResource("16_keybtn")
 slot_index = 2
@@ -196,12 +197,20 @@ slot_index = 2
 [node name="Slot4KeyButton" type="Button" parent="Settings_Label" unique_id=1246891357]
 layout_mode = 0
 offset_left = 264.0
-offset_top = 762.0
+offset_top = 712.0
 offset_right = 347.0
-offset_bottom = 856.0
+offset_bottom = 806.0
 text = "4"
 script = ExtResource("16_keybtn")
 slot_index = 3
+
+[node name="DebugSection" type="VBoxContainer" parent="Settings_Label" unique_id=1900000200]
+layout_mode = 0
+offset_top = 820.0
+offset_right = 350.0
+offset_bottom = 1150.0
+theme_override_constants/separation = 6
+script = ExtResource("22_debug")
 
 [node name="RatingsLabel" type="Label" parent="." unique_id=767754531]
 visible = false

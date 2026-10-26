@@ -117,7 +117,10 @@ func _ready():
 
     if levelSettings != null:
         _performance_monitoring_enabled = levelSettings.performance_monitoring_enabled
-    
+
+    if OS.is_debug_build() and Settings.debugMenuEnabled and Settings.debugDisableGameOver:
+        end_game_on_ceiling_hit = false
+
 func _physics_process(_delta):
     if not game_active or ball == null:
         return

@@ -32,6 +32,14 @@ func add_score(level: String, score: int) -> int:
     last_rank = level_scores.find(score) + 1
     return last_rank
 
+func reset_scores() -> void:
+    scores.clear()
+    last_level = ""
+    last_score = 0
+    last_rank = 0
+    if FileAccess.file_exists(LEADERBOARD_FILE):
+        DirAccess.remove_absolute(LEADERBOARD_FILE)
+
 func get_scores(level: String) -> Array:
     return Array(scores.get(level, []))
 
